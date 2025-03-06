@@ -18,7 +18,6 @@ export default function HeroSection() {
 
   const { scrollY } = useScroll();
 
-  // Calculer la hauteur totale de défilement disponible
   const [scrollHeight, setScrollHeight] = useState(0);
   
   useEffect(() => {
@@ -32,20 +31,19 @@ export default function HeroSection() {
     return () => window.removeEventListener('resize', updateScrollHeight);
   }, []);
 
-  // Position Y de l'avion avec plus de fluidité
+  
   const y = useTransform(scrollY, [0, scrollHeight || 1], [70, windowHeight ? (windowHeight - 95) : 500]);
   const smoothY = useSpring(y, { 
-    stiffness: 45,    // Réduit pour un mouvement plus doux
-    damping: 18,      // Augmenté pour plus de fluidité
-    mass: 1.2         // Plus de masse pour un effet plus "lourd" et smooth
+    stiffness: 45,    
+    damping: 18,      
+    mass: 1.2         
   });
 
-  // Rotation de l'avion plus fluide
   const smoothRotation = useSpring(currentRotation, { 
-    stiffness: 35,    // Très doux pour la rotation
-    damping: 25,      // Fort amortissement pour éviter les oscillations
-    mass: 1.5,        // Masse importante pour une rotation plus majestueuse
-    restDelta: 0.01   // Pour une transition encore plus lisse
+    stiffness: 35,    
+    damping: 25,      
+    mass: 1.5,        
+    restDelta: 0.01   
   });
 
   useEffect(() => {
@@ -58,13 +56,13 @@ export default function HeroSection() {
         setBottomReached(true);
         setTopReached(false);
         setGoingUp(true);
-        setCurrentRotation(-45); // Rotation vers le haut
+        setCurrentRotation(-45);
       } 
       else if (scrollPercentage < 0.02) {
         setTopReached(true);
         setBottomReached(false);
         setGoingUp(false);
-        setCurrentRotation(135); // Rotation vers le bas
+        setCurrentRotation(135);
       }
       
       setIsScrollingUp(currentScrollY < lastScrollY.current);
