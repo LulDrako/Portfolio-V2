@@ -135,7 +135,7 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg text-muted-foreground mb-8"
           >
-            Étudiant en développement Web, passionné par le numérique et l’aéronautique, je mets mes compétences au service de solutions innovantes.
+            Étudiant en développement Web, passionné par l'informatique et l’aéronautique, je mets mes compétences au service de solutions innovantes.
           </motion.p>
 
           <motion.div
@@ -193,7 +193,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Animated Plane */}
       <motion.div
         className="fixed right-7 z-50 hidden lg:block"
         initial={{ 
