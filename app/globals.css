@@ -109,15 +109,15 @@
   @apply w-full p-3 bg-primary text-white rounded-md hover:bg-primary/80 transition-all takeoff-button;
 }
 
-/* Cacher la barre de défilement sur tous les navigateurs */
+
 html, body {
-  scrollbar-width: none !important; /* Firefox */
-  -ms-overflow-style: none !important; /* IE and Edge */
-  overflow-y: scroll; /* Assurer que le défilement est activé */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-y: scroll;
 }
 
 html::-webkit-scrollbar, 
 body::-webkit-scrollbar {
-  display: none !important; /* Chrome, Safari, Opera */
-  width: 0 !important; /* Forcer la largeur à 0 */
+  display: none !important;
+  width: 0 !important; 
 }
