@@ -12,68 +12,43 @@ export default function AlternanceSection() {
         {/* Radar Background and Effects */}
         <div className="absolute inset-0">
           {/* Radar Background */}
-          <div className="absolute inset-0 rounded-full bg-[#0A192F]/90 border-2 border-cyan/20"></div>
+          <div className="absolute inset-0 rounded-full bg-[#0A192F] border border-[#1a4d8c]/20"></div>
           
-          {/* Radar Grid Lines */}
-          <div className="absolute inset-0 border-[1px] border-cyan/30 rounded-full shadow-[0_0_15px_rgba(100,255,218,0.1)]">
-            <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] text-cyan/40">0°</span>
-            <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] text-cyan/40">180°</span>
-            <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-cyan/40">270°</span>
-            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-cyan/40">90°</span>
-          </div>
-          <div className="absolute inset-[12.5%] border-[1px] border-cyan/25 rounded-full">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] text-cyan/30">75nm</span>
-          </div>
-          <div className="absolute inset-[25%] border-[1px] border-cyan/25 rounded-full">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] text-cyan/30">50nm</span>
-          </div>
-          <div className="absolute inset-[37.5%] border-[1px] border-cyan/25 rounded-full">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] text-cyan/30">25nm</span>
-          </div>
-          <div className="absolute inset-[50%] border-[1px] border-cyan/25 rounded-full"></div>
+          {/* Radar Grid Lines - Circles */}
+          <div className="absolute inset-[10%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
+          <div className="absolute inset-[20%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
+          <div className="absolute inset-[30%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
+          <div className="absolute inset-[40%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
+          <div className="absolute inset-[50%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
           
-          {/* Radar Cross Lines with Markers */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-cyan/30 to-transparent"></div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-cyan/30 to-transparent"></div>
-          </div>
-
-          {/* Radar Points */}
-          <div className="absolute inset-0">
-            <div className="absolute top-[30%] left-[60%] w-1.5 h-1.5 bg-cyan/50 rounded-full animate-pulse">
-              <span className="absolute -top-4 left-4 text-[10px] text-cyan/40">AF-2025</span>
+          {/* Radar Grid Lines - Radial */}
+          {[...Array(36)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute inset-0 origin-center"
+              style={{ transform: `rotate(${i * 10}deg)` }}
+            >
+              <div className="w-[0.5px] h-1/2 bg-[#1a4d8c]/20 mx-auto"></div>
             </div>
-            <div className="absolute top-[45%] left-[35%] w-1.5 h-1.5 bg-cyan/40 rounded-full animate-pulse">
-              <span className="absolute -top-4 left-4 text-[10px] text-cyan/40">KF-0923</span>
-            </div>
-          </div>
+          ))}
           
-          {/* Radar Scan Line with Mask */}
-          <div className="absolute inset-0 origin-center animate-radar-scan overflow-hidden rounded-full">
+          {/* Radar Scan Line */}
+          <div className="absolute inset-0 origin-center animate-radar-scan">
             <div 
-              className="w-full h-1/2 origin-bottom absolute" 
+              className="absolute left-1/2 top-1/2 w-[1.5px] h-1/2 origin-bottom bg-gradient-to-t from-[#64ffda] to-transparent"
               style={{
-                background: "linear-gradient(90deg, transparent 50%, rgba(100, 255, 218, 0.2) 100%)",
                 transform: "rotate(-90deg)",
                 transformOrigin: "bottom",
-                boxShadow: "0 0 30px rgba(100, 255, 218, 0.15)"
+                boxShadow: "0 0 20px rgba(100, 255, 218, 0.3)"
               }}
             ></div>
           </div>
 
-          {/* Radar Center Point with Pulse */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="w-1.5 h-1.5 bg-cyan rounded-full shadow-[0_0_10px_rgba(100,255,218,0.7)]"></div>
-            <div className="absolute inset-0 animate-ping">
-              <div className="w-1.5 h-1.5 bg-cyan/50 rounded-full"></div>
-            </div>
-          </div>
+          {/* Radar Center Point */}
+          <div className="absolute left-1/2 top-1/2 w-1 h-1 bg-[#64ffda]/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
           
-          {/* Radar Glow Effects */}
-          <div className="absolute inset-0 rounded-full bg-cyan/5 blur-md"></div>
-          <div className="absolute inset-[45%] rounded-full bg-cyan/10 blur-lg"></div>
+          {/* Radar Subtle Glow */}
+          <div className="absolute inset-0 rounded-full bg-[#1a4d8c]/5"></div>
         </div>
 
         {/* Content Container */}
