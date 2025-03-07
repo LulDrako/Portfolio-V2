@@ -226,7 +226,7 @@ export default function HeroSection() {
           y: smoothY
         }}
       >
-        <Plane size={50} className="text-primary" />
+        <Plane size={45} className="text-primary" />
       </motion.div>
     </section>
   );
