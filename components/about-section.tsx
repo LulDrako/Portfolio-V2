@@ -12,7 +12,7 @@ const technologies = [
   { name: "Tailwind CSS", icon: <SiTailwindcss size={48} className="text-[#06B6D4]" /> },
   { name: "MongoDB", icon: <SiMongodb size={48} className="text-[#47A248]" /> },
   { name: "GraphQL", icon: <SiGraphql size={48} className="text-[#DE33A6]" /> },
-  { name: "WordPress", icon: <SiWordpress size={48} className="text-[#F05032]" /> },
+  { name: "WordPress", icon: <SiWordpress size={48} className="text-[#21759B]" /> },
 ];
 
 export default function AboutSection() {
