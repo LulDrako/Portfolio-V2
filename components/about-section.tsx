@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiExpress } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiExpress, SiGraphql } from "react-icons/si";
 
 const technologies = [
   { name: "React", icon: <FaReact size={48} className="text-[#61DAFB]" /> },
@@ -11,7 +11,7 @@ const technologies = [
   { name: "TypeScript", icon: <SiTypescript size={48} className="text-[#3178C6]" /> },
   { name: "Tailwind CSS", icon: <SiTailwindcss size={48} className="text-[#06B6D4]" /> },
   { name: "MongoDB", icon: <SiMongodb size={48} className="text-[#47A248]" /> },
-  { name: "Express", icon: <SiExpress size={48} className="text-white" /> },
+  { name: "GraphQL", icon: <SiGraphql size={48} className="text-[#DE33A6]" /> },
   { name: "Git", icon: <FaGitAlt size={48} className="text-[#F05032]" /> },
 ];
 

@@ -11,16 +11,13 @@ export default function AlternanceSection() {
         {/* Radar Background */}
         <div className="absolute inset-0 rounded-full bg-[#0A192F] border-2 border-cyan/20"></div>
         
-        {/* Lignes horizontales et verticales */}
         {[1, 2, 3, 4].map((i) => (
           <div key={i} className="absolute inset-0 rounded-full border border-cyan/25" style={{ inset: `${i * 10}%` }} />
         ))}
         
-        {/* Lignes horizontales */}
         <div className="absolute inset-x-0 top-1/2 border-t border-cyan/30"></div>
         <div className="absolute inset-x-0 bottom-1/2 border-b border-cyan/30"></div>
         
-        {/* Lignes verticales */}
         <div className="absolute inset-y-0 left-1/2 border-l border-cyan/30"></div>
         <div className="absolute inset-y-0 right-1/2 border-r border-cyan/30"></div>
 
@@ -49,7 +46,6 @@ export default function AlternanceSection() {
           </div>
         </div>
 
-        {/* Content Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
