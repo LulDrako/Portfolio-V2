@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiExpress, SiGraphql } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiWordpress, SiGraphql } from "react-icons/si";
 
 const technologies = [
   { name: "React", icon: <FaReact size={48} className="text-[#61DAFB]" /> },
@@ -12,7 +12,7 @@ const technologies = [
   { name: "Tailwind CSS", icon: <SiTailwindcss size={48} className="text-[#06B6D4]" /> },
   { name: "MongoDB", icon: <SiMongodb size={48} className="text-[#47A248]" /> },
   { name: "GraphQL", icon: <SiGraphql size={48} className="text-[#DE33A6]" /> },
-  { name: "Git", icon: <FaGitAlt size={48} className="text-[#F05032]" /> },
+  { name: "WordPress", icon: <SiWordpress size={48} className="text-[#F05032]" /> },
 ];
 
 export default function AboutSection() {
