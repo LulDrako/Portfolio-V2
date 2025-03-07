@@ -6,23 +6,32 @@ import Link from "next/link";
 
 export default function AlternanceSection() {
   return (
-    <section className="py-5 bg-background relative overflow-hidden flex items-center justify-center">
+    <section className="py-20 bg-background relative overflow-hidden flex items-center justify-center">
       <div className="relative w-[750px] h-[750px] flex items-center justify-center">
         {/* Radar Background */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0A192F]/80 to-[#0A192F]/60 border-2 border-cyan/30"></div>
+        <div className="absolute inset-0 rounded-full bg-[#0A192F] border-2 border-cyan/20"></div>
         
         {/* Radar Grid Lines */}
-        <div className="absolute inset-0 border-[1px] border-cyan/50 rounded-full shadow-[0_0_15px rgba(100,255,218,0.2)]">
-          <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[12px] text-cyan/50">0°</span>
-          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[12px] text-cyan/50">180°</span>
-          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[12px] text-cyan/50">270°</span>
-          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[12px] text-cyan/50">90°</span>
+        <div className="absolute inset-0 border-[1px] border-cyan/30 rounded-full shadow-[0_0_15px rgba(100,255,218,0.1)]">
+          {/* Points cardinaux */}
+          <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[14px] font-semibold text-cyan/50">N</span>
+          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[14px] font-semibold text-cyan/50">S</span>
+          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[14px] font-semibold text-cyan/50">W</span>
+          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[14px] font-semibold text-cyan/50">E</span>
         </div>
         
-        {/* Circular Grid Lines */}
+        {/* Lignes horizontales et verticales */}
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="absolute inset-0 rounded-full border border-cyan/30" style={{ inset: `${i * 20}%` }} />
+          <div key={i} className="absolute inset-0 rounded-full border border-cyan/25" style={{ inset: `${i * 20}%` }} />
         ))}
+        
+        {/* Lignes horizontales */}
+        <div className="absolute inset-x-0 top-1/2 border-t border-cyan/30"></div>
+        <div className="absolute inset-x-0 bottom-1/2 border-b border-cyan/30"></div>
+        
+        {/* Lignes verticales */}
+        <div className="absolute inset-y-0 left-1/2 border-l border-cyan/30"></div>
+        <div className="absolute inset-y-0 right-1/2 border-r border-cyan/30"></div>
 
         {/* Radar Sweep */}
         <motion.div
@@ -31,10 +40,15 @@ export default function AlternanceSection() {
           transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
         >
           <div
-            className="absolute w-1 h-1/2 bg-cyan-400"
+            className="absolute w-1 h-1/2 bg-cyan-300"
             style={{ transformOrigin: "bottom center", boxShadow: "0 0 15px rgba(100,255,218,0.8)" }}
           ></div>
         </motion.div>
+
+        {/* Radar Line */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-[2px] h-[50%] bg-cyan/30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div> {/* Ligne qui part du centre */}
+        </div>
 
         {/* Content Container */}
         <motion.div
