@@ -71,4 +71,4 @@ Ce projet est sous licence MIT. Tu peux l'utiliser, le modifier et le partager l
 
 ---
 
-📬 **Me contacter :** [LinkedIn](https://www.linkedin.com/in/luldrako) | [GitHub](https://github.com/LulDrako)
+📬 **Me contacter :** [LinkedIn](https://www.linkedin.com/in/karim-feki-18ab66249/) | [GitHub](https://github.com/LulDrako)
