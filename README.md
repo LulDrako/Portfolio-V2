@@ -1,5 +1,4 @@
 # Portfolio V2
-
 ## 🛠️ Technologies utilisées
 
 - **🖥️ Framework** : [Next.js](https://nextjs.org/)
