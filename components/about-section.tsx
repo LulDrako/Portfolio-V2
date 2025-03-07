@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiWordpress, SiGraphql } from "react-icons/si";
+import { FaReact, FaNodeJs, } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiWordpress, SiGraphql, SiPhp } from "react-icons/si";
 
 const technologies = [
   { name: "React", icon: <FaReact size={48} className="text-[#61DAFB]" /> },
-  { name: "Next.js", icon: <SiNextdotjs size={48} className="text-white" /> },
+  { name: "PHP", icon: <SiPhp size={48} className="text-[#777BB4]" /> },
   { name: "Node.js", icon: <FaNodeJs size={48} className="text-[#339933]" /> },
   { name: "TypeScript", icon: <SiTypescript size={48} className="text-[#3178C6]" /> },
   { name: "Tailwind CSS", icon: <SiTailwindcss size={48} className="text-[#06B6D4]" /> },
