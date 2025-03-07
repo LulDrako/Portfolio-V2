@@ -6,50 +6,35 @@ import Link from "next/link";
 
 export default function AlternanceSection() {
   return (
-    <section className="py-20 bg-aviation-blue-night relative overflow-hidden min-h-screen flex items-center justify-center">
-      {/* Radar Container with Content */}
+    <section className="py-5 bg-background relative overflow-hidden flex items-center justify-center">
       <div className="relative w-[750px] h-[750px] flex items-center justify-center">
-        {/* Radar Background and Effects */}
-        <div className="absolute inset-0">
-          {/* Radar Background */}
-          <div className="absolute inset-0 rounded-full bg-[#0A192F] border border-[#1a4d8c]/20"></div>
-          
-          {/* Radar Grid Lines - Circles */}
-          <div className="absolute inset-[10%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
-          <div className="absolute inset-[20%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
-          <div className="absolute inset-[30%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
-          <div className="absolute inset-[40%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
-          <div className="absolute inset-[50%] border-[0.5px] border-[#1a4d8c]/20 rounded-full"></div>
-          
-          {/* Radar Grid Lines - Radial */}
-          {[...Array(36)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute inset-0 origin-center"
-              style={{ transform: `rotate(${i * 10}deg)` }}
-            >
-              <div className="w-[0.5px] h-1/2 bg-[#1a4d8c]/20 mx-auto"></div>
-            </div>
-          ))}
-          
-          {/* Radar Scan Line */}
-          <div className="absolute inset-0 origin-center animate-radar-scan">
-            <div 
-              className="absolute left-1/2 top-1/2 w-[1.5px] h-1/2 origin-bottom bg-gradient-to-t from-[#64ffda] to-transparent"
-              style={{
-                transform: "rotate(-90deg)",
-                transformOrigin: "bottom",
-                boxShadow: "0 0 20px rgba(100, 255, 218, 0.3)"
-              }}
-            ></div>
-          </div>
-
-          {/* Radar Center Point */}
-          <div className="absolute left-1/2 top-1/2 w-1 h-1 bg-[#64ffda]/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-          
-          {/* Radar Subtle Glow */}
-          <div className="absolute inset-0 rounded-full bg-[#1a4d8c]/5"></div>
+        {/* Radar Background */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0A192F]/80 to-[#0A192F]/60 border-2 border-cyan/30"></div>
+        
+        {/* Radar Grid Lines */}
+        <div className="absolute inset-0 border-[1px] border-cyan/50 rounded-full shadow-[0_0_15px rgba(100,255,218,0.2)]">
+          <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[12px] text-cyan/50">0°</span>
+          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[12px] text-cyan/50">180°</span>
+          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[12px] text-cyan/50">270°</span>
+          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[12px] text-cyan/50">90°</span>
         </div>
+        
+        {/* Circular Grid Lines */}
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="absolute inset-0 rounded-full border border-cyan/30" style={{ inset: `${i * 20}%` }} />
+        ))}
+
+        {/* Radar Sweep */}
+        <motion.div
+          className="absolute inset-0 origin-center overflow-hidden rounded-full"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
+        >
+          <div
+            className="absolute w-1 h-1/2 bg-cyan-400"
+            style={{ transformOrigin: "bottom center", boxShadow: "0 0 15px rgba(100,255,218,0.8)" }}
+          ></div>
+        </motion.div>
 
         {/* Content Container */}
         <motion.div
