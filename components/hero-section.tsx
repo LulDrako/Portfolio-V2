@@ -32,7 +32,7 @@ export default function HeroSection() {
   }, []);
 
   
-  const y = useTransform(scrollY, [0, scrollHeight || 1], [70, windowHeight ? (windowHeight - 95) : 500]);
+  const y = useTransform(scrollY, [0, scrollHeight || 1], [70, windowHeight ? (windowHeight - 100) : 500]);
   const smoothY = useSpring(y, { 
     stiffness: 45,    
     damping: 18,      
@@ -226,7 +226,7 @@ export default function HeroSection() {
           y: smoothY
         }}
       >
-        <Plane size={48} className="text-primary" />
+        <Plane size={50} className="text-primary" />
       </motion.div>
     </section>
   );
