@@ -57,7 +57,7 @@ export default function AboutSection() {
             Étudiant en développement web, j&apos;aime apprendre et explorer différentes technologies pour créer des applications modernes et efficaces. Mon parcours m&apos;a permis de développer des compétences solides dans ce domaine.
             </p>
             <p className="text-muted-foreground mb-4">
-            Intéressé par l&apos;aéronautique, j&apos;apprécie la rigueur et la précision dans mon travail. Je cherche toujours à m&apos;améliorer et à découvrir de nouvelles approches techniques.
+            Inspiré par l&apos;aéronautique, j&apos;apprécie la rigueur et la précision dans mon travail. Je cherche toujours à m&apos;améliorer et à découvrir de nouvelles approches techniques.
             </p>
             <p className="text-muted-foreground">
               Actuellement à la recherche d&apos;une alternance en développement web pour septembre 2025, je suis prêt à relever de nouveaux défis et à contribuer à des projets ambitieux.
