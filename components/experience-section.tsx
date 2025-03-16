@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
-import { experiences } from "@/lib/data";
+import { experiences, iconMap } from "@/lib/data";
 
 export default function ExperienceSection() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -17,6 +17,7 @@ export default function ExperienceSection() {
   return (
     <section id="experiences" className="py-20 relative bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,36 +32,46 @@ export default function ExperienceSection() {
           </p>
         </motion.div>
 
+        {/* Timeline Container */}
         <div ref={targetRef} className="relative max-w-3xl mx-auto">
+          {/* Timeline Line */}
           <motion.div
             style={{ scaleY: pathLength }}
             className="absolute left-1/2 top-0 w-1 bg-primary origin-top -translate-x-1/2 h-full"
           ></motion.div>
 
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative flex items-center justify-between w-full mb-16"
-            >
-              <div
-                className="relative bg-secondary/90 p-6 rounded-lg shadow-lg border border-gray-700 hover:scale-[1.02] transition-transform w-[90%] mx-auto backdrop-blur-lg"
+          {experiences.map((exp, index) => {
+            const IconComponent = iconMap[exp.icon as keyof typeof iconMap];
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative flex items-center justify-between w-full mb-16"
               >
-                <h3 className="text-lg font-semibold text-primary">{exp.title}</h3>
-                <h4 className="text-sm text-gray-400">{exp.company}</h4>
-                <div className="flex items-center text-sm text-gray-300 mt-2">
-                  <Calendar className="h-4 w-4 mr-1" />
-                  <span className="mr-3">{exp.date}</span>
-                  <MapPin className="h-4 w-4 mr-1" />
-                  <span>{exp.location}</span>
+                {/* Experience Card */}
+                <div className="relative bg-secondary/90 p-6 rounded-lg shadow-lg border border-gray-700 hover:scale-[1.02] transition-transform w-[90%] mx-auto backdrop-blur-lg">
+                  {/* Icône en haut à droite */}
+                  <div className="absolute top-4 right-4 text-primary opacity-60">
+                    <IconComponent className="w-6 h-6" />
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-primary">{exp.title}</h3>
+                  <h4 className="text-sm text-gray-400">{exp.company}</h4>
+                  <div className="flex items-center text-sm text-gray-300 mt-2">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    <span className="mr-3">{exp.date}</span>
+                    <MapPin className="h-4 w-4 mr-1" />
+                    <span>{exp.location}</span>
+                  </div>
+                  <p className="text-gray-300 mt-2">{exp.description}</p>
                 </div>
-                <p className="text-gray-300 mt-2">{exp.description}</p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

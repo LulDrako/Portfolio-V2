@@ -1,17 +1,8 @@
 // lib/data.ts
+import { Briefcase, GraduationCap } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiMongodb, SiGraphql, SiPhp, SiPostgresql } from "react-icons/si";
 
-export const aboutMe = {
-  title: "Qui suis-je?",
-  description: [
-    "Étudiant en développement web, j'aime apprendre et explorer différentes technologies pour créer des applications modernes et efficaces. Mon parcours m'a permis de développer des compétences solides dans ce domaine.",
-    "Inspiré par l'aéronautique, j'apprécie la rigueur et la précision dans mon travail. Je cherche toujours à m'améliorer et à découvrir de nouvelles approches techniques.",
-    "Actuellement à la recherche d'une alternance en développement web pour septembre 2025, je suis prêt à relever de nouveaux défis et à contribuer à des projets ambitieux.",
-  ],
-};
-
-// Mapping des icônes
 export const iconMap = {
   FaReact: FaReact,
   SiPhp: SiPhp,
@@ -21,6 +12,17 @@ export const iconMap = {
   SiMongodb: SiMongodb,
   SiGraphql: SiGraphql,
   SiPostgresql: SiPostgresql,
+  briefcase: Briefcase,
+  graduation: GraduationCap,
+};
+
+export const aboutMe = {
+  title: "Qui suis-je?",
+  description: [
+    "Étudiant en développement web, j'aime apprendre et explorer différentes technologies pour créer des applications modernes et efficaces. Mon parcours m'a permis de développer des compétences solides dans ce domaine.",
+    "Inspiré par l'aéronautique, j'apprécie la rigueur et la précision dans mon travail. Je cherche toujours à m'améliorer et à découvrir de nouvelles approches techniques.",
+    "Actuellement à la recherche d'une alternance en développement web pour septembre 2025, je suis prêt à relever de nouveaux défis et à contribuer à des projets ambitieux.",
+  ],
 };
 
 export const technologies = [
