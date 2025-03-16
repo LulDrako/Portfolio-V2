@@ -8,7 +8,6 @@ export default function AlternanceSection() {
   return (
     <section className="py-10 bg-background relative overflow-hidden flex items-center justify-center">
       <div className="relative w-[500px] h-[500px] flex items-center justify-center">
-        {/* Radar Background */}
         <div className="absolute inset-0 rounded-full bg-[#0A192F] border-2 border-cyan/20"></div>
         
         {[1, 2, 3, 4].map((i) => (
@@ -21,7 +20,6 @@ export default function AlternanceSection() {
         <div className="absolute inset-y-0 left-1/2 border-l border-cyan/30"></div>
         <div className="absolute inset-y-0 right-1/2 border-r border-cyan/30"></div>
 
-        {/* Radar Sweep */}
         <motion.div
           className="absolute inset-0 origin-center overflow-hidden rounded-full"
           animate={{ rotate: -360 }}
@@ -38,7 +36,6 @@ export default function AlternanceSection() {
           ></div>
         </motion.div>
 
-        {/* Radar Center Point */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="w-2 h-2 bg-cyan rounded-full shadow-[0_0_10px_rgba(100,255,218,0.7)]"></div>
           <div className="absolute inset-0 animate-ping">
