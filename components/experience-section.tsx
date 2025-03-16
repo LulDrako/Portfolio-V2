@@ -17,7 +17,6 @@ export default function ExperienceSection() {
   return (
     <section id="experiences" className="py-20 relative bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header (Matches À propos) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,9 +31,7 @@ export default function ExperienceSection() {
           </p>
         </motion.div>
 
-        {/* Timeline Container */}
         <div ref={targetRef} className="relative max-w-3xl mx-auto">
-          {/* Timeline Line (Matching Style) */}
           <motion.div
             style={{ scaleY: pathLength }}
             className="absolute left-1/2 top-0 w-1 bg-primary origin-top -translate-x-1/2 h-full"
@@ -49,7 +46,6 @@ export default function ExperienceSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative flex items-center justify-between w-full mb-16"
             >
-              {/* Experience Card (Fixing Background & Style) */}
               <div
                 className="relative bg-secondary/90 p-6 rounded-lg shadow-lg border border-gray-700 hover:scale-[1.02] transition-transform w-[90%] mx-auto backdrop-blur-lg"
               >
