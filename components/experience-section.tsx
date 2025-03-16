@@ -9,7 +9,7 @@ export default function ExperienceSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["0.2 end", "0.8 start"],
+    offset: ["0.2 end", "0.7 start"],
   });
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
