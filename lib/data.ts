@@ -1,5 +1,4 @@
-// lib/data.ts
-import { Briefcase, GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap, Github, ExternalLink, Code } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiMongodb, SiGraphql, SiPhp, SiPostgresql } from "react-icons/si";
 
@@ -72,5 +71,35 @@ export const experiences = [
     description:
       "Obtention du baccalauréat scientifique avec mention très bien.",
     icon: "graduation",
+  },
+];
+
+export const projects = [
+  {
+    title: "AeroTrack",
+    description:
+      "Application de suivi de vols en temps réel avec interface inspirée des systèmes de navigation aérienne. Utilise l'API FlightRadar24 pour les données en direct.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    github: "https://github.com",
+    demo: "https://example.com",
+  },
+  {
+    title: "E-Commerce Platform",
+    description:
+      "Plateforme e-commerce complète avec panier, paiement Stripe et gestion des commandes. Interface utilisateur intuitive et responsive.",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    technologies: ["Next.js", "Tailwind CSS", "Stripe", "Supabase"],
+    github: "https://github.com",
+    demo: "https://example.com",
+  },
+  {
+    title: "Weather Dashboard",
+    description:
+      "Application météo avec visualisations de données avancées. Affiche les prévisions sur 7 jours avec graphiques interactifs.",
+    image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    technologies: ["React", "Chart.js", "OpenWeather API", "Styled Components"],
+    github: "https://github.com",
+    demo: "https://example.com",
   },
 ];

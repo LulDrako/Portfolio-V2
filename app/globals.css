@@ -156,30 +156,26 @@ body {
   @apply bg-secondary text-muted-foreground hover:bg-secondary/80;
 }
 
-.text-alternance {
-  color: hsl(var(--foreground)) !important;
-  opacity: 1 !important;
+/* 🌍 Fix des bordures du radar */
+.radar-border {
+  border-color: hsl(220, 14%, 30%) !important; /* Gris foncé, ne change pas */
 }
 
-.dark .text-alternance {
-  color: white !important;
+.dark .radar-border {
+  border-color: hsl(220, 14%, 30%) !important; /* Même couleur que en clair */
 }
 
-.icon-alternance {
-  color: hsl(var(--foreground)) !important;
-}
-
-.dark .icon-alternance {
-  color: white !important;
-}
-
-.button-alternance {
+.text-alternance, .icon-alternance, .button-alternance {
   color: hsl(var(--foreground)) !important;
 }
 
+.dark .text-alternance,
+.dark .icon-alternance,
 .dark .button-alternance {
   color: white !important;
 }
+
+
 
 
 html, body {

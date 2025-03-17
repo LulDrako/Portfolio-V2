@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Plane } from "lucide-react";
-import ThemeSwitcher from "@/components/ui/themeswitcher"; // ✅ Ajout du switcher
+import ThemeSwitcher from "@/components/ui/themeswitcher";
 
 const navItems = [
   { name: "Accueil", href: "#hero" },
@@ -61,12 +61,11 @@ export default function Navbar() {
                 </Link>
               </motion.li>
             ))}
-            <ThemeSwitcher /> {/* ✅ Ajout du bouton ici */}
+            <ThemeSwitcher />
           </nav>
 
-          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeSwitcher /> {/* ✅ Ajout du switcher dans le menu mobile aussi */}
+            <ThemeSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-primary transition-colors"
@@ -77,7 +76,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
