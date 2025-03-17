@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Plane } from "lucide-react";
+import ThemeSwitcher from "@/components/ui/themeswitcher"; // ✅ Ajout du switcher
 
 const navItems = [
   { name: "Accueil", href: "#hero" },
@@ -32,13 +33,12 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+        scrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <div className="flex items-center">
             <Link href="#hero" className="flex items-center space-x-2">
               <Plane className="h-6 w-6 text-primary" />
@@ -47,28 +47,26 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              {navItems.map((item, index) => (
-                <motion.li
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
+          <nav className="hidden md:flex space-x-6 items-center">
+            {navItems.map((item, index) => (
+              <motion.li
+                key={item.name}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="list-none"
+              >
+                <Link href={item.href} className="text-sm font-medium hover:text-primary transition-colors">
+                  {item.name}
+                </Link>
+              </motion.li>
+            ))}
+            <ThemeSwitcher /> {/* ✅ Ajout du bouton ici */}
           </nav>
 
-          {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeSwitcher /> {/* ✅ Ajout du switcher dans le menu mobile aussi */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-primary transition-colors"

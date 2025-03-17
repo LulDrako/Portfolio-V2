@@ -142,21 +142,16 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-wrap gap-4 mb-8"
           >
-            <Link
-              href="#contact"
-              className="px-6 py-3 bg-primary text-white rounded-md takeoff-button flex items-center gap-2"
-            >
+            <Link href="#contact" className="button button-primary">
               <Mail size={18} />
               Me contacter
             </Link>
-            <Link
-              href="/cv.pdf"
-              target="_blank"
-              className="px-6 py-3 bg-secondary text-white rounded-md takeoff-button flex items-center gap-2"
-            >
-              <FileText size={18} className="transition-transform duration-300" />
+
+            <Link href="/cv.pdf" target="_blank" className="button button-secondary">
+              <FileText size={18} />
               Voir mon CV
             </Link>
+
           </motion.div>
 
           <motion.div

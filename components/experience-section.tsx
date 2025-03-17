@@ -15,7 +15,7 @@ export default function ExperienceSection() {
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="experiences" className="py-20 relative bg-background">
+    <section id="experiences" className="py-20 relative bg-background text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -25,7 +25,7 @@ export default function ExperienceSection() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow text-white">Expériences</h2>
+          <h2 className="text-3xl font-bold mb-4 cockpit-glow">Expériences</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Mon parcours professionnel et académique.
@@ -53,21 +53,20 @@ export default function ExperienceSection() {
                 className="relative flex items-center justify-between w-full mb-16"
               >
                 {/* Experience Card */}
-                <div className="relative bg-secondary/90 p-6 rounded-lg shadow-lg border border-gray-700 hover:scale-[1.02] transition-transform w-[90%] mx-auto backdrop-blur-lg">
+                <div className="relative bg-card p-6 rounded-lg shadow-lg border border-border hover:scale-[1.02] transition-transform w-[90%] mx-auto backdrop-blur-lg">
                   {/* Icône en haut à droite */}
                   <div className="absolute top-4 right-4 text-primary opacity-60">
                     <IconComponent className="w-6 h-6" />
                   </div>
-
                   <h3 className="text-lg font-semibold text-primary">{exp.title}</h3>
-                  <h4 className="text-sm text-gray-400">{exp.company}</h4>
-                  <div className="flex items-center text-sm text-gray-300 mt-2">
+                  <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
+                  <div className="flex items-center text-sm text-muted-foreground mt-2">
                     <Calendar className="h-4 w-4 mr-1" />
                     <span className="mr-3">{exp.date}</span>
                     <MapPin className="h-4 w-4 mr-1" />
                     <span>{exp.location}</span>
                   </div>
-                  <p className="text-gray-300 mt-2">{exp.description}</p>
+                  <p className="text-muted-foreground mt-2">{exp.description}</p>
                 </div>
               </motion.div>
             );

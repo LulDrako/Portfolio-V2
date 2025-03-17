@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function AlternanceSection() {
   return (
-    <section className="py-10 bg-background relative overflow-hidden flex items-center justify-center">
+    <section className="py-10 bg-background text-foreground relative overflow-hidden flex items-center justify-center">
       <div className="relative w-[500px] h-[500px] flex items-center justify-center">
         <div className="absolute inset-0 rounded-full bg-[#0A192F] border-2 border-cyan/20"></div>
         
@@ -53,53 +53,53 @@ export default function AlternanceSection() {
           <h2 className="text-3xl font-bold mb-6 cockpit-glow text-cyan-300">Recherche d&apos;alternance</h2>
 
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center justify-center space-x-2"
-            >
-              <Calendar className="h-5 w-5 text-cyan flex-shrink-0" />
-              <span className="text-metal-gray text-lg">À partir de septembre 2025</span>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center justify-center space-x-2"
+          >
+            <Calendar className="h-5 w-5 icon-alternance flex-shrink-0" />
+            <span className="text-alternance text-lg">À partir de septembre 2025</span>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="flex items-center justify-center space-x-2"
-            >
-              <MapPin className="h-5 w-5 text-cyan flex-shrink-0" />
-              <span className="text-metal-gray text-lg">Île-de-France | Bordeaux | Toulouse</span>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex items-center justify-center space-x-2"
+          >
+            <MapPin className="h-5 w-5 icon-alternance flex-shrink-0" />
+            <span className="text-alternance text-lg">Île-de-France | Bordeaux | Toulouse</span>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="flex items-center justify-center space-x-2"
-            >
-              <Briefcase className="h-5 w-5 text-cyan flex-shrink-0" />
-              <span className="text-metal-gray text-lg">Développement Web</span>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="flex items-center justify-center space-x-2"
+          >
+            <Briefcase className="h-5 w-5 icon-alternance flex-shrink-0" />
+            <span className="text-alternance text-lg">Développement Full-Stack</span>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+          >
+            <Link
+              href="mailto:karimfeki2004@gmail.com"
+              className="inline-flex items-center px-6 py-2 bg-primary/20 border border-primary/30 rounded-full hover:bg-primary/30 transition-colors duration-300 backdrop-blur-sm group text-sm button-alternance"
             >
-              <Link
-                href="mailto:karimfeki2004@gmail.com"
-                className="inline-flex items-center px-6 py-2 bg-cyan/20 text-cyan border border-cyan/30 rounded-full hover:bg-cyan/30 transition-colors duration-300 backdrop-blur-sm group text-sm"
-              >
-                <Mail className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
-                Me contacter
-              </Link>
-            </motion.div>
+              <Mail className="h-4 w-4 mr-2 icon-alternance group-hover:rotate-12 transition-transform" />
+              Me contacter
+            </Link>
+          </motion.div>
           </div>
         </motion.div>
       </div>
