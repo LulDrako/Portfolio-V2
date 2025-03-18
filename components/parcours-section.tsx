@@ -4,12 +4,13 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
 import { experiences, iconMap } from "@/lib/data";
+import { moisMap } from "@/lib/utils";
 
 export default function ExperienceSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["0.2 end", "0.7 start"],
+    offset: ["0.2 end", "0.6 start"],
   });
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -25,7 +26,7 @@ export default function ExperienceSection() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">Expériences</h2>
+          <h2 className="text-3xl font-bold mb-4 cockpit-glow">Parcours</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Mon parcours professionnel et académique.
@@ -41,7 +42,15 @@ export default function ExperienceSection() {
           ></motion.div>
 
           {experiences
-            .sort((a, b) => new Date(b.date.split(" - ")[0]).getTime() - new Date(a.date.split(" - ")[0]).getTime()) // Trie par date
+            .sort((a, b) => {
+              const [moisA, anneeA] = a.date.split(" - ")[0].split(" ");
+              const [moisB, anneeB] = b.date.split(" - ")[0].split(" ");
+          
+              const dateA = new Date(parseInt(anneeA), moisMap[moisA]);
+              const dateB = new Date(parseInt(anneeB), moisMap[moisB]);
+          
+              return dateB.getTime() - dateA.getTime();
+            })
             .map((exp, index) => {
             const IconComponent = iconMap[exp.icon as keyof typeof iconMap];
 

@@ -9,7 +9,7 @@ import ThemeSwitcher from "@/components/ui/themeswitcher";
 const navItems = [
   { name: "Accueil", href: "#hero" },
   { name: "À propos", href: "#about" },
-  { name: "Expériences", href: "#experiences" },
+  { name: "Parcours", href: "#parcours" },
   { name: "Projets", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];

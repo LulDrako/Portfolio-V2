@@ -25,22 +25,22 @@ export const aboutMe = {
 };
 
 export const technologies = [
-  { name: "React", icon: "FaReact", color: "#61DAFB" },
-  { name: "PHP", icon: "SiPhp", color: "#777BB4" },
   { name: "Node.js", icon: "FaNodeJs", color: "#339933" },
+  { name: "PHP", icon: "SiPhp", color: "#777BB4" },
+  { name: "React", icon: "FaReact", color: "#61DAFB" },
   { name: "TypeScript", icon: "SiTypescript", color: "#3178C6" },
   { name: "Tailwind CSS", icon: "SiTailwindcss", color: "#06B6D4" },
   { name: "MongoDB", icon: "SiMongodb", color: "#47A248" },
-  { name: "GraphQL", icon: "SiGraphql", color: "#DE33A6" },
   { name: "PostgreSQL", icon: "SiPostgresql", color: "#336791" },
+  { name: "GraphQL", icon: "SiGraphql", color: "#E10098" },
 ];
 
 export const experiences = [
   {
     title: "Stage - Développeur Frontend",
-    company: "TechAero",
-    location: "Paris",
-    date: "Juin 2024 - Août 2024",
+    company: "Olivesoft",
+    location: "Sfax, Tunisie",
+    date: "Mai 2023 - Juin 2023",
     description:
       "Développement d'interfaces utilisateur réactives avec React et TypeScript. Collaboration avec l'équipe de design pour implémenter des maquettes fidèles.",
     icon: "briefcase",
@@ -49,27 +49,27 @@ export const experiences = [
     title: "Bachelor Développement Web & Applications",
     company: "EFREI",
     location: "Villejuif",
-    date: "2022 - 2025",
+    date: "Septembre 2022 - En cours",
     description:
       "Formation intensive en développement web et programmation. Projets pratiques en équipe et individuels.",
     icon: "graduation",
   },
   {
-    title: "Projet Freelance",
-    company: "Client E-commerce",
+    title: "Stage - Conception Web",
+    company: "Heracles Conseil",
     location: "Remote",
-    date: "Janvier 2023 - Mars 2023",
+    date: "Mai 2024 - Juillet 2024",
     description:
       "Développement d'une boutique en ligne avec Next.js et Stripe.",
     icon: "briefcase",
   },
   {
-    title: "Baccalauréat Scientifique",
-    company: "Lycée International",
-    location: "Toulouse",
+    title: "Baccalauréat Général",
+    company: "Lycée Richelieu",
+    location: "Rueil-Malmaison",
     date: "2022",
     description:
-      "Obtention du baccalauréat scientifique avec mention très bien.",
+      "Obtention du baccalauréat général avec spécialités NSI et SES.",
     icon: "graduation",
   },
 ];
