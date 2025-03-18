@@ -40,7 +40,9 @@ export default function ExperienceSection() {
             className="absolute left-1/2 top-0 w-1 bg-primary origin-top -translate-x-1/2 h-full"
           ></motion.div>
 
-          {experiences.map((exp, index) => {
+          {experiences
+            .sort((a, b) => new Date(b.date.split(" - ")[0]).getTime() - new Date(a.date.split(" - ")[0]).getTime()) // Trie par date
+            .map((exp, index) => {
             const IconComponent = iconMap[exp.icon as keyof typeof iconMap];
 
             return (

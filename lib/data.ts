@@ -46,10 +46,10 @@ export const experiences = [
     icon: "briefcase",
   },
   {
-    title: "Formation Développement Web",
-    company: "École 42",
-    location: "Paris",
-    date: "2023 - Présent",
+    title: "Bachelor Développement Web & Applications",
+    company: "EFREI",
+    location: "Villejuif",
+    date: "2022 - 2025",
     description:
       "Formation intensive en développement web et programmation. Projets pratiques en équipe et individuels.",
     icon: "graduation",
