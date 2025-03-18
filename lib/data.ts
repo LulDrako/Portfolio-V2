@@ -37,9 +37,9 @@ export const technologies = [
 
 export const experiences = [
   {
-    title: "Stage - Développeur Frontend",
+    title: "Stage - Développeur Web",
     company: "Olivesoft",
-    location: "Sfax, Tunisie",
+    location: "Tunisie",
     date: "Mai 2023 - Juin 2023",
     description:
       "Développement d'interfaces utilisateur réactives avec React et TypeScript. Collaboration avec l'équipe de design pour implémenter des maquettes fidèles.",
