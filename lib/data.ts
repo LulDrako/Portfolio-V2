@@ -38,7 +38,7 @@ export const technologies = [
 export const experiences = [
   {
     title: "Stage - Développeur Web",
-    company: "Olivesoft",
+    company: "OliveSoft",
     location: "Tunisie",
     date: "Mai 2023 - Juin 2023",
     description:
@@ -76,13 +76,13 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "AeroTrack",
+    title: "EcoCovoit",
     description:
       "Application de suivi de vols en temps réel avec interface inspirée des systèmes de navigation aérienne. Utilise l'API FlightRadar24 pour les données en direct.",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com",
-    demo: "https://example.com",
+    technologies: ["Node.js", "Express", "MongoDB", "EJS", "CSS/HTML"],
+    github: "https://github.com/LulDrako/CovoiturageNode",
+    demo: "https://covoituragenode-production.up.railway.app/",
   },
   {
     title: "E-Commerce Platform",
