@@ -76,22 +76,22 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "EcoCovoit",
+    title: "KovoitGO",
     description:
-      "Application de suivi de vols en temps réel avec interface inspirée des systèmes de navigation aérienne. Utilise l'API FlightRadar24 pour les données en direct.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    technologies: ["Node.js", "Express", "MongoDB", "EJS", "CSS/HTML"],
+      "Application de covoiturage en temps réel. Les utilisateurs peuvent proposer ou réserver des trajets via une interface fluide et responsive. Backend en Node.js avec Express et MongoDB, rendu côté serveur via EJS.",
+    image: "https://media-hosting.imagekit.io//2b42f15a66b54f3d/kovoitGOO.png?Expires=1837376169&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XkdV8ggs2ZYv0tjL-1IXD29BZSjp8u91a0reyG0acdRhivm6aag4HWHaBYwox1UfJOWPrjhp21FsE~T~zT2v8YGwW2BV-dtb~NUTj42FDWnTOqJJgwXhYDzuff34pCCKiV47RebPBsDYRXekHZoOgF57vXXG8cuWbFteZWhGldrBB9Ac5kvbgB-BZDgjH9GsjrTSIoNRI7Txd7z8DM0SwMvclOFgA4BR7o9dq4fgUCUxMoBzujQvVO0piZVCxzxGfiz1ztLw~2n-1H6m~-S-6NQqP1xR85X9DTx5cxkY0hS8XfuVkNzjgL50esG8u1YmlwxgX~LbWHg8n6j382fwZQ__",
+    technologies: ["Node.js", "Express", "MongoDB", "EJS"],
     github: "https://github.com/LulDrako/CovoiturageNode",
     demo: "https://covoituragenode-production.up.railway.app/",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Fils Rouge PHP - Hackathon EFREI",
     description:
-      "Plateforme e-commerce complète avec panier, paiement Stripe et gestion des commandes. Interface utilisateur intuitive et responsive.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    technologies: ["Next.js", "Tailwind CSS", "Stripe", "Supabase"],
-    github: "https://github.com",
-    demo: "https://example.com",
+      "Application web réalisée en équipe lors d’un hackathon. Authentification, opérations CRUD et gestion des utilisateurs avec PHP et PostgreSQL. Interface claire et sécurisée.",
+    image: "https://media-hosting.imagekit.io//5e2c17d6617f4ab8/myfigrine.png?Expires=1837375285&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=A~z2qLFfQw3pvU6ekeFzF051nlKb6~bdD3zPdxmW2bojluBvTK~kE~oHuuhx~OMU4WS2hLVW7U1Ti5rR03PKp~KJjdrhhU-w414zMlS9ys8rAfi~QBBH0Js191j56hinIS2RTBUx-zM2Zx7IPmyTInUr7Ipi854qGpjHS-zNHoVweMd6SHW8z~z3mAhlk5bN9E616cM1w100YvW-sLSBSJXLHCny5BUTh-7JQJ4NHvSRN9zL7o~Ql5B-CqQjeBLCoA7~zGcdnLoY9utuSVJkKodbDfdSSTmnqRWG2zpAKTuGohUOSLAHOw7DnvsZ0rlW4YXR3ajjxjFNK-Onx7kCIw__",
+    technologies: ["PHP", "PostgreSQL", "JavaScript"],
+    github: "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
+    demo: "https://karim-feki.infinityfreeapp.com/", // si t’as un lien, ajoute-le ici
   },
   {
     title: "Weather Dashboard",

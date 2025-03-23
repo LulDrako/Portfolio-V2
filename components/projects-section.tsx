@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/data";
 
+
+
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20 relative">
