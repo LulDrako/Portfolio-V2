@@ -29,12 +29,12 @@ export default function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-secondary rounded-lg overflow-hidden shadow-lg takeoff-card"
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="bg-secondary rounded-lg overflow-hidden shadow-lg takeoff-card h-full flex flex-col"
             >
               <div className="relative h-48">
                 <Image
@@ -53,10 +53,20 @@ export default function ProjectsSection() {
                   ))}
                 </div>
                 <div className="flex justify-between">
-                  <Link href={project.github} className="text-primary flex items-center">
+                  <Link
+                    href={project.github} 
+                    className="text-primary flex items-center" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     <Github className="h-5 w-5 mr-1" /> Code
                   </Link>
-                  <Link href={project.demo} className="text-primary flex items-center">
+                  <Link 
+                    href={project.demo} 
+                    className="text-primary flex items-center"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="h-5 w-5 mr-1" /> Demo
                   </Link>
                 </div>

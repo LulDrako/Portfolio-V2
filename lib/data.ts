@@ -57,7 +57,7 @@ export const experiences = [
   {
     title: "Stage - Conception Web",
     company: "Heracles Conseil",
-    location: "Remote",
+    location: "Bordeaux",
     date: "Mai 2024 - Juillet 2024",
     description:
       "Développement d'une boutique en ligne avec Next.js et Stripe.",
@@ -87,18 +87,18 @@ export const projects = [
   {
     title: "Fils Rouge PHP - Hackathon EFREI",
     description:
-      "Application web réalisée en équipe lors d’un hackathon. Authentification, opérations CRUD et gestion des utilisateurs avec PHP et PostgreSQL. Interface claire et sécurisée.",
+      "Application web réalisée en équipe lors d’un hackathon. Authentification, opérations CRUD et gestion des utilisateurs avec PHP et PostgreSQL. Ce projet a été conçu dans des délais courts, avec une forte collaboration entre les membres de l’équipe.",
     image: "https://media-hosting.imagekit.io//5e2c17d6617f4ab8/myfigrine.png?Expires=1837375285&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=A~z2qLFfQw3pvU6ekeFzF051nlKb6~bdD3zPdxmW2bojluBvTK~kE~oHuuhx~OMU4WS2hLVW7U1Ti5rR03PKp~KJjdrhhU-w414zMlS9ys8rAfi~QBBH0Js191j56hinIS2RTBUx-zM2Zx7IPmyTInUr7Ipi854qGpjHS-zNHoVweMd6SHW8z~z3mAhlk5bN9E616cM1w100YvW-sLSBSJXLHCny5BUTh-7JQJ4NHvSRN9zL7o~Ql5B-CqQjeBLCoA7~zGcdnLoY9utuSVJkKodbDfdSSTmnqRWG2zpAKTuGohUOSLAHOw7DnvsZ0rlW4YXR3ajjxjFNK-Onx7kCIw__",
-    technologies: ["PHP", "PostgreSQL", "JavaScript"],
+    technologies: ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"],
     github: "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
     demo: "https://karim-feki.infinityfreeapp.com/", // si t’as un lien, ajoute-le ici
   },
   {
-    title: "Weather Dashboard",
+    title: "O.C.A Voitures",
     description:
-      "Application météo avec visualisations de données avancées. Affiche les prévisions sur 7 jours avec graphiques interactifs.",
-    image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    technologies: ["React", "Chart.js", "OpenWeather API", "Styled Components"],
+      "Plateforme e-commerce développée avec Symfony pour la vente et la location de voitures. Gestion des utilisateurs, panier, paiements, historique des transactions et authentification sécurisée. Le site propose une interface claire pour la navigation.",
+    image: "https://media-hosting.imagekit.io/57d9bec406ad4d0c/Capture%20d'%C3%A9cran%202025-03-27%20010547.png?Expires=1837642017&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ycbAcnL6Fv4hsclvw6hzZQX7qebLpSSt4iMq0wt19oJCNMwLVldh16IFC0AjmhL4FlmY6VikkDuiw05OfmZW9jNjVQugpO9lkWBqCz3Mvmd4S~p84e-pRx5Qqtg9d9z3~ABgH~LmoCpxC4KYDZG-OLBhTWr6UDgJ4VR~jUoDqC1DCNCe044rIufiLkJfWiRAGbyqWeMzZfPEIXQag~I7gVTfv5SqiBLC5Hq1TCNai2k2dNoIt60UfoS3hGhaLwWFZGMlRcNzr5EF8rYIppHjZyQT8-I8klFahxPuXlz5~47f3rBcd-FkwbqMW7~VucWZ56aXo2mTEW1HuwS6fim8hA__",
+    technologies: ["Symfony", "PostgreSQL", "JWT", "Twig"],
     github: "https://github.com",
     demo: "https://example.com",
   },
