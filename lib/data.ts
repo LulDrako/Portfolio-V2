@@ -44,7 +44,7 @@ export const projects = [
     image: "https://media-hosting.imagekit.io//5e2c17d6617f4ab8/myfigrine.png?Expires=1837375285&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=A~z2qLFfQw3pvU6ekeFzF051nlKb6~bdD3zPdxmW2bojluBvTK~kE~oHuuhx~OMU4WS2hLVW7U1Ti5rR03PKp~KJjdrhhU-w414zMlS9ys8rAfi~QBBH0Js191j56hinIS2RTBUx-zM2Zx7IPmyTInUr7Ipi854qGpjHS-zNHoVweMd6SHW8z~z3mAhlk5bN9E616cM1w100YvW-sLSBSJXLHCny5BUTh-7JQJ4NHvSRN9zL7o~Ql5B-CqQjeBLCoA7~zGcdnLoY9utuSVJkKodbDfdSSTmnqRWG2zpAKTuGohUOSLAHOw7DnvsZ0rlW4YXR3ajjxjFNK-Onx7kCIw__",
     technologies: ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"],
     github: "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
-    demo: "https://karim-feki.infinityfreeapp.com/", // si t’as un lien, ajoute-le ici
+    demo: "https://karim-feki.infinityfreeapp.com/",
   },
   {
     title: "O.C.A Voitures",
