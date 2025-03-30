@@ -10,8 +10,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   const messages = (await import(`@/lib/messages/${resolvedLocale}.json`)).default;
 
-  console.log("✅ Messages loaded in request.ts:", Object.keys(messages));
-
   return {
     locale: resolvedLocale,
     messages

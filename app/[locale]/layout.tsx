@@ -1,14 +1,13 @@
-// 💡 Obligatoire pour éviter l’erreur "params should be awaited"
 export const dynamic = 'force-dynamic';
 
 import "../globals.css";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
+import { setRequestLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/providers";
-import { headers } from 'next/headers';
+import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,17 +20,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Metadata" });
-
+export async function generateMetadata() {
   return {
-    title: t("title"),
-    description: t("description"),
+    title: "Karim Feki | Portfolio",
+    description: "Portfolio de Karim Feki, développeur web passionné",
   };
 }
 
@@ -46,10 +38,7 @@ export default async function LocaleLayout({
 
   const header = headers();
   const localeHeader = (await header).get("x-next-intl-locale");
-
   const effectiveLocale = locale || localeHeader;
-
-  console.log("🧩 [Layout] locale param:", effectiveLocale);
 
   if (!routing.locales.includes(effectiveLocale as "fr" | "en")) {
     notFound();
@@ -57,8 +46,6 @@ export default async function LocaleLayout({
 
   setRequestLocale(effectiveLocale ?? "en");
   const messages = await getMessages({ locale: effectiveLocale ?? undefined });
-
-  console.log("🧩 [Layout] messages loaded:", messages?.Hero?.intro);
 
   return (
     <html lang={effectiveLocale ?? undefined} suppressHydrationWarning className="hide-scrollbar">

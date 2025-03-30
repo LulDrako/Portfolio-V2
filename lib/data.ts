@@ -15,14 +15,6 @@ export const iconMap = {
   graduation: GraduationCap,
 };
 
-export const aboutMe = {
-  title: "Qui suis-je?",
-  description: [
-    "Étudiant en développement web, j'aime apprendre et explorer différentes technologies pour créer des applications modernes et efficaces. Mon parcours m'a permis de développer des compétences solides dans ce domaine.",
-    "Inspiré par l'aéronautique, j'apprécie la rigueur et la précision dans mon travail. Je cherche toujours à m'améliorer et à découvrir de nouvelles approches techniques.",
-    "Actuellement à la recherche d'une alternance en développement web pour septembre 2025, je suis prêt à relever de nouveaux défis et à contribuer à des projets ambitieux.",
-  ],
-};
 
 export const technologies = [
   { name: "Node.js", icon: "FaNodeJs", color: "#339933" },
@@ -33,45 +25,6 @@ export const technologies = [
   { name: "MongoDB", icon: "SiMongodb", color: "#47A248" },
   { name: "PostgreSQL", icon: "SiPostgresql", color: "#336791" },
   { name: "GraphQL", icon: "SiGraphql", color: "#E10098" },
-];
-
-export const experiences = [
-  {
-    title: "Stage - Développeur Web",
-    company: "OliveSoft",
-    location: "Tunisie",
-    date: "Mai 2023 - Juin 2023",
-    description:
-      "Développement d'interfaces utilisateur réactives avec React et TypeScript. Collaboration avec l'équipe de design pour implémenter des maquettes fidèles.",
-    icon: "briefcase",
-  },
-  {
-    title: "Bachelor Développement Web & Applications",
-    company: "EFREI",
-    location: "Villejuif",
-    date: "Septembre 2022 - En cours",
-    description:
-      "Formation intensive en développement web et programmation. Projets pratiques en équipe et individuels.",
-    icon: "graduation",
-  },
-  {
-    title: "Stage - Conception Web",
-    company: "Heracles Conseil",
-    location: "Bordeaux",
-    date: "Mai 2024 - Juillet 2024",
-    description:
-      "Développement d'une boutique en ligne avec Next.js et Stripe.",
-    icon: "briefcase",
-  },
-  {
-    title: "Baccalauréat Général",
-    company: "Lycée Richelieu",
-    location: "Rueil-Malmaison",
-    date: "2022",
-    description:
-      "Obtention du baccalauréat général avec spécialités NSI et SES.",
-    icon: "graduation",
-  },
 ];
 
 export const projects = [

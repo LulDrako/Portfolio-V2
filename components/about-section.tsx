@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { aboutMe, technologies, iconMap } from "@/lib/data";
+import { technologies, iconMap } from "@/lib/data";
+import { useTranslations } from "next-intl";
 
 export default function AboutSection() {
+  const t = useTranslations("About");
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -19,6 +22,8 @@ export default function AboutSection() {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const descriptionArray = t.raw("description") as string[];
+
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,7 +34,7 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">À propos</h2>
+          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t("heading")}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
         </motion.div>
 
@@ -40,8 +45,8 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-semibold mb-4">{aboutMe.title}</h3>
-            {aboutMe.description.map((paragraph, index) => (
+            <h3 className="text-2xl font-semibold mb-4">{t("title")}</h3>
+            {descriptionArray.map((paragraph, index) => (
               <p key={index} className="text-muted-foreground mb-4">
                 {paragraph}
               </p>

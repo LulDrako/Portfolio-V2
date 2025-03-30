@@ -1,13 +1,9 @@
 {
-  "Metadata": {
-  "title": "Karim Feki ENG | Portfolio",
-  "description": "Professional portfolio of Karim Feki, web developer"
-  },
   "Hero": {
     "intro": "Welcome to my portfolio",
     "title": "Karim Feki",
-    "subtitle": "<accent>Web</accent> Developer",
-    "description": "Web development student, passionate about computer science and aeronautics, I put my skills at the service of innovative solutions.",
+    "subtitle": "<accent>Software</accent> Developer",
+    "description": "Software development student, passionate about computer science and aeronautics, I put my skills at the service of innovative solutions.",
     "contact": "Contact me", 
     "cv": "View my CV"
   },
@@ -20,7 +16,50 @@
   },
   "About": {
     "heading": "About",
-    "title": "Who am I ?"
+    "title": "Who am I ?",
+    "description": [
+      "Software development student, I enjoy learning and exploring different technologies to create modern and efficient applications. My journey has allowed me to develop solid skills in this field.",
+      "Inspired by aeronautics, I appreciate rigor and precision in my work. I am always looking to improve and discover new technical approaches.",
+      "Currently looking for an apprenticeship in software development for September 2025, I am ready to take on new challenges and contribute to ambitious projects."
+    ]
+  },
+  "Parcours": {
+    "heading": "Journey",
+    "description": "My professional and academic journey.",
+    "items": [
+      {
+        "title": "Internship - Web Developer",
+        "company": "OliveSoft",
+        "location": "Tunisia",
+        "date": "May 2023 - June 2023",
+        "description": "Development of responsive user interfaces with React and TypeScript. Collaboration with the design team to implement accurate mockups.",
+        "icon": "briefcase"
+      },
+      {
+        "title": "Bachelor in Web Development & Applications",
+        "company": "EFREI",
+        "location": "Villejuif",
+        "date": "September 2022 - Present",
+        "description": "Intensive training in software development and programming. Practical projects in teams and individually.",
+        "icon": "graduation"
+      },
+      {
+        "title": "Internship - Web Design",
+        "company": "Heracles Conseil",
+        "location": "Bordeaux",
+        "date": "May 2024 - July 2024",
+        "description": "Development of an online store with Next.js and Stripe.",
+        "icon": "briefcase"
+      },
+      {
+        "title": "General Baccalaureate",
+        "company": "Lycée Richelieu",
+        "location": "Rueil-Malmaison",
+        "date": 2022,
+        "description": "Obtained the general baccalaureate with specialties NSI and SES.",
+        "icon": "graduation"
+      }
+    ]
   },
   "Alternance": {
     "heading": "Looking for an apprenticeship",
@@ -45,7 +84,7 @@
     "location": "Location"
   },
   "Footer": {
-    "job": "Web Developer",
+    "job": "Software Developer",
     "rights": "All rights reserved."
   },
   "Projects": {
@@ -53,9 +92,5 @@
     "description": "Discover a selection of my recent projects, demonstrating my skills and expertise.",
     "code": "Code",
     "demo": "Demo"
-  },
-  "Parcours": {
-    "heading": "Journey",
-    "description": "My professional and academic journey."
   }
 }
