@@ -1,8 +1,61 @@
 {
-    "hero.title": "Bienvenue sur mon portfolio",
-    "hero.role": "Développeur Web",
-    "navbar.about": "À propos",
-    "navbar.projects": "Projets",
-    "navbar.contact": "Contact"
+  "Metadata": {
+    "title": "Karim Feki FR | Portfolio",
+    "description": "Portfolio professionnel de Karim Feki, développeur web"
+  },
+  "Hero": {
+    "intro": "Bienvenue sur mon portfolio",
+    "title": "Karim Feki",
+    "subtitle": "<accent>Développeur</accent> Web",
+    "description": "Étudiant en développement Web, passionné par l'informatique et l’aéronautique, je mets mes compétences au service de solutions innovantes.",
+    "contact": "Me contacter",
+    "cv": "Voir mon CV"
+  },
+  "Navbar": {
+    "Accueil": "Accueil",
+    "À propos": "À propos",
+    "Parcours": "Parcours",
+    "Projets": "Projets",
+    "Contact": "Contact"
+  },
+  "About": {
+    "heading": "À propos",
+    "title": "Qui suis-je ?"
+  },
+  "Alternance": {
+    "heading": "Recherche d'alternance",
+    "date": "À partir de septembre 2025",
+    "location": "Île-de-France | Bordeaux | Toulouse",
+    "domain": "Développement Full-Stack",
+    "contact": "Me contacter"
+  },
+  "Contact": {
+    "heading": "Contact",
+    "paragraph": "Vous avez un projet en tête ou une opportunité à discuter ? N'hésitez pas à me contacter !",
+    "formTitle": "Envoyez-moi un message",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "successTitle": "Message envoyé !",
+    "successDesc": "Merci pour votre message. Je vous répondrai dès que possible.",
+    "infosTitle": "Informations de contact",
+    "phone": "Téléphone",
+    "location": "Localisation"
+  },
+  "Footer": {
+    "job": "Développeur Web",
+    "rights": "Tous droits réservés."
+  },
+  "Projects": {
+    "heading": "Projets",
+    "description": "Découvrez une sélection de mes projets récents, démontrant mes compétences et mon expertise.",
+    "code": "Code",
+    "demo": "Démo"
+  },
+  "Parcours": {
+    "heading": "Parcours",
+    "description": "Mon parcours professionnel et académique."
   }
-  
+}

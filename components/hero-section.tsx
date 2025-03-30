@@ -5,8 +5,13 @@ import { FileText, Github, Linkedin, Mail, Plane } from "lucide-react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useRef, useEffect, useState } from "react";
+import { useTranslations } from 'next-intl';
+
 
 export default function HeroSection() {
+  const t = useTranslations('Hero');
+  
+  const formattedSubtitle = t.raw('subtitle');
   const containerRef = useRef<HTMLElement>(null);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
   const lastScrollY = useRef(0);
@@ -19,6 +24,11 @@ export default function HeroSection() {
   const { scrollY } = useScroll();
 
   const [scrollHeight, setScrollHeight] = useState(0);
+
+  console.log("🧪 [Hero] intro:", t("intro"));
+console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.location.pathname : "server");
+
+  
   
   useEffect(() => {
     const updateScrollHeight = () => {
@@ -106,7 +116,7 @@ export default function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-primary mb-4"
           >
-            Bienvenue sur mon portfolio
+            {t('intro')}
           </motion.p>
 
           <motion.h1
@@ -115,17 +125,21 @@ export default function HeroSection() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 cockpit-glow"
           >
-            Karim Feki
-          </motion.h1>
+              {t('title')}
+              </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-muted-foreground"
-          >
-            <span className="text-accent accent-glow">Développeur</span> Web
-          </motion.h2>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-muted-foreground"
+                dangerouslySetInnerHTML={{
+                  __html: formattedSubtitle
+                    .replace('<accent>', '<span class="text-accent accent-glow">')
+                    .replace('</accent>', '</span>')
+                }}
+              />
+
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -133,8 +147,8 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg text-muted-foreground mb-8"
           >
-            Étudiant en développement Web, passionné par l'informatique et l’aéronautique, je mets mes compétences au service de solutions innovantes.
-          </motion.p>
+              {t('description')}
+              </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -144,12 +158,12 @@ export default function HeroSection() {
           >
             <Link href="#contact" className="button button-primary">
               <Mail size={18} />
-              Me contacter
+              {t('contact')}
             </Link>
 
             <Link href="/cv.pdf" target="_blank" className="button button-secondary">
               <FileText size={18} />
-              Voir mon CV
+              {t('cv')}
             </Link>
 
           </motion.div>

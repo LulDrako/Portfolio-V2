@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Plane } from "lucide-react";
 import ThemeSwitcher from "@/components/ui/themeswitcher";
+import { useTranslations } from "next-intl";
+
 
 const navItems = [
   { name: "Accueil", href: "#hero" },
@@ -15,6 +17,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const t = useTranslations("Navbar"); // ✅ OK ici, dans la fonction
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

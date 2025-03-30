@@ -1,8 +1,61 @@
 {
-    "hero.title": "Welcome to my portfolio",
-    "hero.role": "Web Developer",
-    "navbar.about": "About",
-    "navbar.projects": "Projects",
-    "navbar.contact": "Contact"
+  "Metadata": {
+  "title": "Karim Feki ENG | Portfolio",
+  "description": "Professional portfolio of Karim Feki, web developer"
+  },
+  "Hero": {
+    "intro": "Welcome to my portfolio",
+    "title": "Karim Feki",
+    "subtitle": "<accent>Web</accent> Developer",
+    "description": "Web development student, passionate about computer science and aeronautics, I put my skills at the service of innovative solutions.",
+    "contact": "Contact me", 
+    "cv": "View my CV"
+  },
+  "Navbar": {
+    "Accueil": "Home",
+    "À propos": "About",
+    "Parcours": "Journey",
+    "Projets": "Projects",
+    "Contact": "Contact"
+  },
+  "About": {
+    "heading": "About",
+    "title": "Who am I ?"
+  },
+  "Alternance": {
+    "heading": "Looking for an apprenticeship",
+    "date": "From September 2025",
+    "location": "Île-de-France | Bordeaux | Toulouse",
+    "domain": "Full-Stack Development",
+    "contact": "Contact me"
+  },
+  "Contact": {
+    "heading": "Contact",
+    "paragraph": "Do you have a project in mind or an opportunity to discuss? Don't hesitate to contact me!",
+    "formTitle": "Send me a message",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "successTitle": "Message sent!",
+    "successDesc": "Thank you for your message. I will reply as soon as possible.",
+    "infosTitle": "Contact information",
+    "phone": "Phone",
+    "location": "Location"
+  },
+  "Footer": {
+    "job": "Web Developer",
+    "rights": "All rights reserved."
+  },
+  "Projects": {
+    "heading": "Projects",
+    "description": "Discover a selection of my recent projects, demonstrating my skills and expertise.",
+    "code": "Code",
+    "demo": "Demo"
+  },
+  "Parcours": {
+    "heading": "Journey",
+    "description": "My professional and academic journey."
   }
-  
+}
