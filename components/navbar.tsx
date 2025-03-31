@@ -4,20 +4,22 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Plane } from "lucide-react";
-import ThemeSwitcher from "@/components/ui/themeswitcher";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { useTranslations } from "next-intl";
 
+const navKeys = ["Accueil", "À propos", "Parcours", "Projets", "Contact"];
 
-const navItems = [
-  { name: "Accueil", href: "#hero" },
-  { name: "À propos", href: "#about" },
-  { name: "Parcours", href: "#parcours" },
-  { name: "Projets", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+const navRoutes: Record<string, string> = {
+  "Accueil": "#hero",
+  "À propos": "#about",
+  "Parcours": "#parcours",
+  "Projets": "#projects",
+  "Contact": "#contact",
+};
 
 export default function Navbar() {
-  const t = useTranslations("Navbar"); // ✅ OK ici, dans la fonction
+  const t = useTranslations("Navbar");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,7 +27,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -42,34 +43,37 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="#hero" className="flex items-center space-x-2">
-              <Plane className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold text-foreground">KF</span>
-            </Link>
-          </div>
+          <Link href="#hero" className="flex items-center space-x-2">
+            <Plane className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold text-foreground">KF</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 items-center">
-            {navItems.map((item, index) => (
+            {navKeys.map((key, index) => (
               <motion.li
-                key={item.name}
+                key={key}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className="list-none"
               >
-                <Link href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-                  {item.name}
+                <Link
+                  href={navRoutes[key]}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  {t(key)}
                 </Link>
               </motion.li>
             ))}
             <ThemeSwitcher />
+            <LanguageSwitcher />
           </nav>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-2">
             <ThemeSwitcher />
+            <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-primary transition-colors"
@@ -88,14 +92,14 @@ export default function Navbar() {
           className="md:hidden bg-secondary/90 backdrop-blur-md"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
+            {navKeys.map((key) => (
               <Link
-                key={item.name}
-                href={item.href}
+                key={key}
+                href={navRoutes[key]}
                 onClick={() => setIsOpen(false)}
                 className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-primary/20 hover:text-primary transition-colors"
               >
-                {item.name}
+                {t(key)}
               </Link>
             ))}
           </div>

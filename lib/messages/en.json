@@ -20,44 +20,76 @@
     "description": [
       "Software development student, I enjoy learning and exploring different technologies to create modern and efficient applications. My journey has allowed me to develop solid skills in this field.",
       "Inspired by aeronautics, I appreciate rigor and precision in my work. I am always looking to improve and discover new technical approaches.",
-      "Currently looking for an apprenticeship in software development for September 2025, I am ready to take on new challenges and contribute to ambitious projects."
+      "Currently looking for an apprenticeship in Full-Stack development for September 2025, I am ready to take on new challenges and contribute to ambitious projects."
     ]
   },
   "Parcours": {
-    "heading": "Journey",
-    "description": "My professional and academic journey.",
+  "heading": "Journey",
+  "description": "My professional and academic journey.",
+  "items": [
+    {
+      "title": "Internship - Web Developer",
+      "company": "OliveSoft",
+      "location": "Sfax, Tunisia",
+      "date": "May 2023 - July 2023",
+      "description": "Maintenance and updates of OliveSoft's WordPress site. Improved user experience by redesigning the footer and integrating WP Google Maps. Managed MySQL databases via phpMyAdmin, contributed to performance optimization, and used Git for version control. Applied Agile/SCRUM methodologies using JIRA and Confluence.",
+      "icon": "briefcase"
+    },
+    {
+      "title": "Bachelor - Application Developer",
+      "company": "EFREI",
+      "location": "Villejuif, France",
+      "date": "September 2022 - Present",
+      "description": "A 3-year career-oriented program focused on web, mobile, and software application development. Skills gained in front-end, back-end, databases, software architecture, DevOps, and project management. Project-based learning with a work-study format starting in the third year.",
+      "icon": "graduation"
+    },
+    {
+      "title": "Internship - Web Designer",
+      "company": "Heracles Conseil",
+      "location": "Bordeaux, France",
+      "date": "May 2024 - July 2024",
+      "description": "Designed and temporarily hosted an e-commerce WordPress website dedicated to selling artwork. Created mockups with Figma, migrated sites from Wix to WordPress, and organized tasks using JIRA. Provided post-launch technical support.",
+      "icon": "briefcase"
+    },
+    {
+      "title": "General Baccalaureate",
+      "company": "Lycée Richelieu",
+      "location": "Rueil-Malmaison",
+      "date": "2022",
+      "description": "Earned the French General Baccalaureate with specializations in Computer Science (NSI) and Economics (SES).",
+      "icon": "graduation"
+    }
+  ]
+},
+  "Projects": {
+    "heading": "Projects",
+    "description": "Discover a selection of my recent projects, showcasing my skills and expertise.",
+    "code": "Code",
+    "demo": "Demo",
     "items": [
       {
-        "title": "Internship - Web Developer",
-        "company": "OliveSoft",
-        "location": "Tunisia",
-        "date": "May 2023 - June 2023",
-        "description": "Development of responsive user interfaces with React and TypeScript. Collaboration with the design team to implement accurate mockups.",
-        "icon": "briefcase"
+        "title": "KovoitGO",
+        "description": "Real-time carpooling application. Users can offer or book rides through a smooth and responsive interface. Backend built with Node.js, Express, and MongoDB, server-side rendering using EJS. This project ensures seamless user experience.",
+        "image": "https://media-hosting.imagekit.io//2b42f15a66b54f3d/kovoitGOO.png?Expires=1837376169&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XkdV8ggs2ZYv0tjL-1IXD29BZSjp8u91a0reyG0acdRhivm6aag4HWHaBYwox1UfJOWPrjhp21FsE~T~zT2v8YGwW2BV-dtb~NUTj42FDWnTOqJJgwXhYDzuff34pCCKiV47RebPBsDYRXekHZoOgF57vXXG8cuWbFteZWhGldrBB9Ac5kvbgB-BZDgjH9GsjrTSIoNRI7Txd7z8DM0SwMvclOFgA4BR7o9dq4fgUCUxMoBzujQvVO0piZVCxzxGfiz1ztLw~2n-1H6m~-S-6NQqP1xR85X9DTx5cxkY0hS8XfuVkNzjgL50esG8u1YmlwxgX~LbWHg8n6j382fwZQ__",
+        "technologies": ["Node.js", "Express", "MongoDB", "EJS"],
+        "github": "https://github.com/LulDrako/CovoiturageNode",
+        "demo": "https://covoituragenode-production.up.railway.app/"
       },
       {
-        "title": "Bachelor in Web Development & Applications",
-        "company": "EFREI",
-        "location": "Villejuif",
-        "date": "September 2022 - Present",
-        "description": "Intensive training in software development and programming. Practical projects in teams and individually.",
-        "icon": "graduation"
+        "title": "Fils Rouge PHP - EFREI Hackathon",
+        "description": "Web application developed as a team during a hackathon. Authentication, CRUD operations, and user management with PHP and PostgreSQL. This project was built in a short timeframe, with strong collaboration among team members.",
+        "image": "https://media-hosting.imagekit.io//5e2c17d6617f4ab8/myfigrine.png?Expires=1837375285&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=A~z2qLFfQw3pvU6ekeFzF051nlKb6~bdD3zPdxmW2bojluBvTK~kE~oHuuhx~OMU4WS2hLVW7U1Ti5rR03PKp~KJjdrhhU-w414zMlS9ys8rAfi~QBBH0Js191j56hinIS2RTBUx-zM2Zx7IPmyTInUr7Ipi854qGpjHS-zNHoVweMd6SHW8z~z3mAhlk5bN9E616cM1w100YvW-sLSBSJXLHCny5BUTh-7JQJ4NHvSRN9zL7o~Ql5B-CqQjeBLCoA7~zGcdnLoY9utuSVJkKodbDfdSSTmnqRWG2zpAKTuGohUOSLAHOw7DnvsZ0rlW4YXR3ajjxjFNK-Onx7kCIw__",
+        "technologies": ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"],
+        "github": "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
+        "demo": "https://karim-feki.infinityfreeapp.com/"
       },
       {
-        "title": "Internship - Web Design",
-        "company": "Heracles Conseil",
-        "location": "Bordeaux",
-        "date": "May 2024 - July 2024",
-        "description": "Development of an online store with Next.js and Stripe.",
-        "icon": "briefcase"
-      },
-      {
-        "title": "General Baccalaureate",
-        "company": "Lycée Richelieu",
-        "location": "Rueil-Malmaison",
-        "date": 2022,
-        "description": "Obtained the general baccalaureate with specialties NSI and SES.",
-        "icon": "graduation"
+        "title": "O.C.A Cars",
+        "description": "E-commerce platform developed with Symfony for selling and renting cars. Includes user management, cart, payments, transaction history, and secure authentication. The site offers a clean interface for navigation.",
+        "image": "https://media-hosting.imagekit.io/57d9bec406ad4d0c/Capture%20d'%C3%A9cran%202025-03-27%20010547.png?Expires=1837642017&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ycbAcnL6Fv4hsclvw6hzZQX7qebLpSSt4iMq0wt19oJCNMwLVldh16IFC0AjmhL4FlmY6VikkDuiw05OfmZW9jNjVQugpO9lkWBqCz3Mvmd4S~p84e-pRx5Qqtg9d9z3~ABgH~LmoCpxC4KYDZG-OLBhTWr6UDgJ4VR~jUoDqC1DCNCe044rIufiLkJfWiRAGbyqWeMzZfPEIXQag~I7gVTfv5SqiBLC5Hq1TCNai2k2dNoIt60UfoS3hGhaLwWFZGMlRcNzr5EF8rYIppHjZyQT8-I8klFahxPuXlz5~47f3rBcd-FkwbqMW7~VucWZ56aXo2mTEW1HuwS6fim8hA__",
+        "technologies": ["Symfony", "Twig", "JWT", "PostgreSQL"],
+        "github": "https://github.com/LulDrako/Symfony",
+        "demo": ""
       }
     ]
   },
@@ -86,11 +118,5 @@
   "Footer": {
     "job": "Software Developer",
     "rights": "All rights reserved."
-  },
-  "Projects": {
-    "heading": "Projects",
-    "description": "Discover a selection of my recent projects, demonstrating my skills and expertise.",
-    "code": "Code",
-    "demo": "Demo"
   }
 }

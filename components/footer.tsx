@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { Plane } from "lucide-react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="bg-secondary/50 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,11 +18,9 @@ export default function Footer() {
               <Plane className="h-6 w-6 text-primary" />
               <span className="text-xl font-bold cockpit-glow">Karim Feki</span>
             </Link>
-            <p className="text-muted-foreground mt-2">
-              Développeur Web
-            </p>
+            <p className="text-muted-foreground mt-2">{t("job")}</p>
           </div>
-          
+
           <div className="flex flex-col items-center md:items-end">
             <div className="flex space-x-4 mb-4">
               <a
@@ -46,7 +47,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Karim Feki. Tous droits réservés.
+              © {new Date().getFullYear()} Karim Feki. {t("rights")}
             </p>
           </div>
         </div>
