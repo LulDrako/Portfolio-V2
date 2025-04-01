@@ -49,6 +49,17 @@ export default async function LocaleLayout({
 
   return (
     <html lang={effectiveLocale ?? undefined} suppressHydrationWarning className="hide-scrollbar">
+      <head>
+    {/* 🚗 Preload DeLorean frames to avoid stutter */}
+    {Array.from({ length: 16 }, (_, i) => (
+      <link
+        key={i}
+        rel="preload"
+        as="image"
+        href={`/delorean/delorean-${String(i + 1).padStart(2, "0")}.webp`}
+      />
+    ))}
+  </head>
       <body className={`${inter.className} hide-scrollbar`}>
         <Providers>
           <NextIntlClientProvider locale={effectiveLocale ?? undefined} messages={messages}>

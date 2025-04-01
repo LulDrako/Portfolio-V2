@@ -1,18 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Plane } from "lucide-react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
+const deloreanFrames = Array.from({ length: 16 }, (_, i) => `/delorean/delorean-${String(i + 1).padStart(2, "0")}.webp`);
+
 export default function Footer() {
   const t = useTranslations("Footer");
+  const [frame, setFrame] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFrame((prev) => (prev + 1) % deloreanFrames.length);
+    }, 150); // Ajustez la vitesse de rotation ici
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <footer className="bg-secondary/50 py-12">
+    <footer className="bg-secondary/50 py-12 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center relative z-10">
           <div className="mb-6 md:mb-0">
             <Link href="#hero" className="flex items-center space-x-2">
               <Plane className="h-6 w-6 text-primary" />
@@ -23,26 +35,13 @@ export default function Footer() {
 
           <div className="flex flex-col items-center md:items-end">
             <div className="flex space-x-4 mb-4">
-              <a
-                href="https://github.com/LulDrako"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href="https://github.com/LulDrako" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <FaGithub size={20} />
               </a>
-              <a
-                href="https://www.linkedin.com/in/karim-feki-18ab66249/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href="https://www.linkedin.com/in/karim-feki-18ab66249/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <FaLinkedin size={20} />
               </a>
-              <a
-                href="mailto:karimfeki2004@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href="mailto:karimfeki2004@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <FaEnvelope size={20} />
               </a>
             </div>
@@ -51,6 +50,26 @@ export default function Footer() {
             </p>
           </div>
         </div>
+
+        {/* Animation de la DeLorean en bas à droite */}
+        <motion.div
+          className="absolute bottom-6 right-4 w-24 h-24 z-0 select-none pointer-events-none"
+          whileHover={{ y: -8, scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 100 }}
+        >
+          <motion.img
+  src={deloreanFrames[frame]}
+  alt="DeLorean"
+  className="absolute bottom-0 right-0 w-24 h-24 z-0 select-none pointer-events-none"
+  loading="eager"
+  draggable={false}
+  decoding="async"
+  whileHover={{ y: -8, scale: 1.1 }}
+  transition={{ type: "spring", stiffness: 100 }}
+/>
+
+
+        </motion.div>
       </div>
     </footer>
   );

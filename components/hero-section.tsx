@@ -42,7 +42,7 @@ console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.loc
   }, []);
 
   
-  const y = useTransform(scrollY, [0, scrollHeight || 1], [70, windowHeight ? (windowHeight - 100) : 500]);
+  const y = useTransform(scrollY, [0, scrollHeight || 1], [70, windowHeight ? (windowHeight - 220) : 500]);
   const smoothY = useSpring(y, { 
     stiffness: 45,    
     damping: 18,      
@@ -201,7 +201,7 @@ console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.loc
       </div>
 
       <motion.div
-        className="fixed right-7 z-50 hidden lg:block"
+        className="fixed right-5 z-50 hidden lg:block"
         initial={{ 
           opacity: 0, 
           x: 100,
@@ -235,7 +235,7 @@ console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.loc
           y: smoothY
         }}
       >
-        <Plane size={45} className="text-primary" />
+        <Plane size={42} className="text-primary" />
       </motion.div>
     </section>
   );
