@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Plane } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
-import VortexModal from '@/components/VortexModal'; // Assurez-vous que le chemin est correct
+import VortexModal from '@/components//ui/VortexModal/VortexModal'; // Assurez-vous que le chemin est correct
 
 const deloreanFrames = Array.from(
   { length: 16 },

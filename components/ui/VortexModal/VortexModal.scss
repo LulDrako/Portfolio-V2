@@ -18,7 +18,6 @@
   background: transparent;
 }
 
-/* Le halo en arrière-plan */
 .vortex-ring {
   position: absolute;
   width: 100%;
@@ -31,7 +30,6 @@
   mix-blend-mode: screen;
 }
 
-/* Les glows animés */
 .vortex-glow {
   position: absolute;
   top: 50%;
@@ -58,7 +56,6 @@
   opacity: 0.7;
 }
 
-/* On ajuste différents glows */
 .vortex-glow:nth-child(2) { --x: -53%; --y: -53%; --t: 37; }
 .vortex-glow:nth-child(3) { --x: -47%; --y: -52%; --t: 58; }
 .vortex-glow:nth-child(4) { --x: -45%; --y: -50%; --t: 46; }
@@ -72,11 +69,9 @@
   }
 }
 
-/* Contenu du vortex */
 .vortex-content {
   position: absolute;
   z-index: 10;
-  /* On centre en full screen flex, sans transform: translate() */
   inset: 0; 
   display: flex;
   align-items: center;
@@ -86,36 +81,30 @@
   font-family: 'Inter', sans-serif;
   text-align: center;
   padding: 0 1rem;
-  pointer-events: none; /* réactivé dans le wrapper */
+  pointer-events: none;
 
   .vortex-title {
-    font-size: 2rem;          /* Titre plus petit */
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 600; // ou 700 si tu veux un peu plus bold
     line-height: 1.35;
-    margin-bottom: 1.5rem;    /* Moins d’espace */
+    margin-bottom: 1.5rem;
     text-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     pointer-events: auto;
-
-    em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    b {
-      font-weight: 800;
+  
+    em, b {
+      all: unset;
     }
   }
+  
 
-  /* Le parent qui porte la perspective */
   .vortex-thumb-wrapper {
-    perspective: 400px;  /* plus petit => plus d’effet 3D */
+    perspective: 400px; 
     width: 100%;
     max-width: 380px; 
     margin: 0 auto;
     pointer-events: auto;
   }
 
-  /* L’enfant qui subit la rotation 3D */
   .vortex-thumb-inner {
     position: relative;
     display: block;
@@ -138,7 +127,6 @@
       border-radius: inherit;
       transition: transform 0.5s ease;
       will-change: transform;
-      /* On place l'image un peu en avant */
       transform: translateZ(20px);
     }
 
@@ -150,7 +138,7 @@
       justify-content: center;
       color: white;
       font-weight: 800;
-      font-size: 1.3rem; /* un peu plus petit encore si tu veux */
+      font-size: 1.3rem;
       opacity: 0;
       background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(6px);
@@ -158,7 +146,6 @@
       transition: opacity 0.3s ease;
       pointer-events: none;
       border-radius: inherit;
-      /* On place le texte encore plus près que l'image */
       transform: translateZ(40px);
     }
 

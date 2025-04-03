@@ -35,9 +35,9 @@ export default function VortexModal({ isOpen, onClose }: Props) {
 
         <div className="vortex-content">
           <h2 className="vortex-title">
-            {t("part1")} <em>{t("part2")}</em>?
+            {t("part1")} {t("part2")}?
             <br />
-            {t("part3")} <b>{t("part4")}</b>
+            {t("part3")} {t("part4")}
           </h2>
 
           <Tilt
