@@ -46,10 +46,15 @@ export default function VortexModal({ isOpen, onClose }: Props) {
             glareMaxOpacity={0.3}
             className="vortex-thumb-wrapper"
           >
-            <div className="vortex-thumb-inner">
+            <a
+              href="https://luldrako.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="vortex-thumb-inner"
+            >
               <img src="/v1.png" alt="v1" />
               <span>v1</span>
-            </div>
+            </a>
           </Tilt>
         </div>
       </div>

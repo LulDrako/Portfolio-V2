@@ -50,7 +50,8 @@ export default async function LocaleLayout({
   return (
     <html lang={effectiveLocale ?? undefined} suppressHydrationWarning className="hide-scrollbar">
       <head>
-    {/* 🚗 Preload DeLorean frames to avoid stutter */}
+      <link rel="icon" href="/plane-icon.svg" />
+      {/* 🚗 Preload DeLorean frames to avoid stutter */}
     {Array.from({ length: 16 }, (_, i) => (
       <link
         key={i}
