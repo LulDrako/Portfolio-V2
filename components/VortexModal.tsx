@@ -2,6 +2,7 @@
 
 import { X } from "lucide-react";
 import Tilt from "react-parallax-tilt";
+import { useTranslations } from "next-intl";
 import "./VortexModal.scss";
 
 type Props = {
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export default function VortexModal({ isOpen, onClose }: Props) {
+  const t = useTranslations("VortexModal");
+
   if (!isOpen) return null;
 
   return (
@@ -32,8 +35,9 @@ export default function VortexModal({ isOpen, onClose }: Props) {
 
         <div className="vortex-content">
           <h2 className="vortex-title">
-            Looking for a different <em>site</em>?<br />
-            Go back in <b>time…</b>
+            {t("part1")} <em>{t("part2")}</em>?
+            <br />
+            {t("part3")} <b>{t("part4")}</b>
           </h2>
 
           <Tilt
@@ -42,7 +46,7 @@ export default function VortexModal({ isOpen, onClose }: Props) {
             perspective={500}
             scale={1.02}
             transitionSpeed={1000}
-            glareEnable={true}
+            glareEnable
             glareMaxOpacity={0.3}
             className="vortex-thumb-wrapper"
           >
@@ -53,7 +57,7 @@ export default function VortexModal({ isOpen, onClose }: Props) {
               className="vortex-thumb-inner"
             >
               <img src="/v1.png" alt="v1" />
-              <span>v1</span>
+              <span>{t("v1")}</span>
             </a>
           </Tilt>
         </div>

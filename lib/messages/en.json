@@ -118,5 +118,12 @@
   "Footer": {
     "job": "Software Developer",
     "rights": "All rights reserved."
-  }
+  },
+  "VortexModal": {
+    "part1": "Looking for a different",
+    "part2": "site",
+    "part3": "Go back in",
+    "part4": "time…",
+    "v1": "v1"
+  }  
 }
