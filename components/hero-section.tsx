@@ -235,7 +235,7 @@ console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.loc
           y: smoothY
         }}
       >
-        <Plane size={42} className="text-primary" />
+        <Plane size={38} className="text-primary" />
       </motion.div>
     </section>
   );
