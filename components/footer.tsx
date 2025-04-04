@@ -15,8 +15,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary/50 py-12 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <Link href="#hero" className="flex items-center space-x-2">
               <Plane className="h-6 w-6 text-primary" />
@@ -27,27 +27,14 @@ export default function Footer() {
 
           <div className="flex flex-col items-center md:items-end">
             <div className="flex space-x-4 mb-4">
-              <a
-                href="https://github.com/LulDrako"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <FaGithub size={20} />
+              <a href="https://github.com/LulDrako" target="_blank" rel="noopener noreferrer">
+                <FaGithub size={20} className="text-muted-foreground hover:text-primary" />
               </a>
-              <a
-                href="https://www.linkedin.com/in/karim-feki-18ab66249/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <FaLinkedin size={20} />
+              <a href="https://www.linkedin.com/in/karim-feki-18ab66249/" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin size={20} className="text-muted-foreground hover:text-primary" />
               </a>
-              <a
-                href="mailto:karimfeki2004@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <FaEnvelope size={20} />
+              <a href="mailto:karimfeki2004@gmail.com">
+                <FaEnvelope size={20} className="text-muted-foreground hover:text-primary" />
               </a>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -55,20 +42,17 @@ export default function Footer() {
             </p>
           </div>
         </div>
-
-        {/* ✅ DeLorean Spinner clean */}
-        <motion.div
-          className="absolute bottom-6 right-4 z-10 cursor-pointer select-none"
-          onClick={() => setIsVortexOpen(true)}
-          whileHover={{ y: -10, scale: 1.05 }}
-          transition={{ type: 'spring', stiffness: 100 }}
-        >
-          <DeloreanSpinner />
-        </motion.div>
-
-        {/* Vortex Modal */}
-        <VortexModal isOpen={isVortexOpen} onClose={() => setIsVortexOpen(false)} />
       </div>
+
+      {/* DeLorean Animation - isolée */}
+      <div className="absolute bottom-6 right-4 z-20">
+        <div onClick={() => setIsVortexOpen(true)}>
+          <DeloreanSpinner />
+        </div>
+      </div>
+
+      {/* Modal */}
+      <VortexModal isOpen={isVortexOpen} onClose={() => setIsVortexOpen(false)} />
     </footer>
   );
 }

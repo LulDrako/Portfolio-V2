@@ -10,17 +10,17 @@ import { useToast } from "@/hooks/use-toast";
 import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  message: z.string().min(10),
+  name: z.string().min(2, "Ton nom doit faire au moins 2 caractères"),
+  email: z.string().email("Adresse email invalide"),
+  message: z.string().min(10, "Le message doit faire au moins 10 caractères"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 export default function ContactSection() {
   const t = useTranslations("Contact");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     register,
@@ -31,14 +31,46 @@ export default function ContactSection() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: FormValues, e?: any) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    toast({
-      title: t("successTitle"),
-      description: t("successDesc"),
-    });
-    reset();
+
+    const form = e?.target;
+    const formData = new FormData(form);
+
+    // 🛡️ Honeypot detection
+    if (formData.get("_gotcha")) {
+      console.warn("Bot détecté via honeypot.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const res = await fetch("https://getform.io/f/bjjmvvmb", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (res.ok) {
+        toast({
+          title: t("successTitle"),
+          description: t("successDesc"),
+        });
+        reset();
+      } else {
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue. Réessaie plus tard.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: "Impossible d’envoyer le message.",
+        variant: "destructive",
+      });
+    }
+
     setIsSubmitting(false);
   };
 
@@ -53,12 +85,12 @@ export default function ContactSection() {
           className="mb-12 text-center"
         >
           <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t("heading")}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-8" />
           <p className="text-muted-foreground max-w-2xl mx-auto">{t("paragraph")}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Form */}
+          {/* 💬 Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -68,61 +100,46 @@ export default function ContactSection() {
             <h3 className="text-2xl font-semibold mb-6">{t("formTitle")}</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  {t("name")}
-                </label>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">{t("name")}</label>
                 <input
                   id="name"
                   type="text"
+                  {...register("name")}
                   className="form-input"
                   placeholder={t("name")}
-                  {...register("name")}
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
-                )}
+                {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  {t("email")}
-                </label>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">{t("email")}</label>
                 <input
                   id="email"
                   type="email"
+                  {...register("email")}
                   className="form-input"
                   placeholder="you@example.com"
-                  {...register("email")}
                 />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
-                )}
+                {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  {t("message")}
-                </label>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">{t("message")}</label>
                 <textarea
                   id="message"
                   rows={5}
+                  {...register("message")}
                   className="form-input"
                   placeholder={t("message")}
-                  {...register("message")}
                 />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
-                )}
+                {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="form-button"
-              >
-                {isSubmitting ? (
-                  t("sending")
-                ) : (
+              {/* 🔐 Honeypot field (hidden) */}
+              <input type="text" name="_gotcha" className="hidden" />
+
+              <button type="submit" disabled={isSubmitting} className="form-button">
+                {isSubmitting ? t("sending") : (
                   <>
                     <Send className="h-5 w-5 mr-2 inline" />
                     {t("send")}
@@ -132,7 +149,7 @@ export default function ContactSection() {
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* 📞 Contact infos */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}

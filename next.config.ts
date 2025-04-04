@@ -1,17 +1,32 @@
-const createNextIntlPlugin = require('next-intl/plugin');
+import createNextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from 'next';
 
 const withNextIntl = createNextIntlPlugin({
-  // Par défaut, cela pointe vers './i18n/request.ts'
+  // Par défaut : './i18n/request.ts'
 });
 
-module.exports = withNextIntl({
+const nextConfig: NextConfig = {
   experimental: {
     serverActions: {
       allowedOrigins: ['*'],
     },
   },
-  eslint: { ignoreDuringBuilds: true },
-  images: {
-    domains: ['media-hosting.imagekit.io', 'images.unsplash.com'],
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-});
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media-hosting.imagekit.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+    formats: ['image/webp'],
+  },
+};
+
+export default withNextIntl(nextConfig);
