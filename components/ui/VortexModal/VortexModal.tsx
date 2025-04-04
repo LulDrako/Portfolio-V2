@@ -56,7 +56,7 @@ export default function VortexModal({ isOpen, onClose }: Props) {
               rel="noreferrer"
               className="vortex-thumb-inner"
             >
-              <img src="/v1.png" alt="v1" />
+              <img src="/versions/v1.webp" alt="v1" />
               <span>{t("v1")}</span>
             </a>
           </Tilt>

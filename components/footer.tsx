@@ -1,27 +1,17 @@
-import { useState, useEffect } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Plane } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
-import VortexModal from '@/components//ui/VortexModal/VortexModal';
-
-const deloreanFrames = Array.from(
-  { length: 16 },
-  (_, i) => `/delorean/delorean-${String(i + 1).padStart(2, '0')}.webp`
-);
+import VortexModal from '@/components/ui/VortexModal/VortexModal';
+import DeloreanSpinner from '@/components/ui/DeloreanSpinner';
 
 export default function Footer() {
   const t = useTranslations('Footer');
-  const [frame, setFrame] = useState(0);
   const [isVortexOpen, setIsVortexOpen] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFrame((prev) => (prev + 1) % deloreanFrames.length);
-    }, 150);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <footer className="bg-secondary/50 py-12 relative overflow-hidden">
@@ -66,25 +56,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Animation de la DeLorean en bas à droite */}
+        {/* ✅ DeLorean Spinner clean */}
         <motion.div
-          className="absolute bottom-6 right-4 w-24 h-24 z-10 cursor-pointer select-none"
+          className="absolute bottom-6 right-4 z-10 cursor-pointer select-none"
           onClick={() => setIsVortexOpen(true)}
-          whileHover={{ y: -8, scale: 1.1 }}
+          whileHover={{ y: -10, scale: 1.05 }}
           transition={{ type: 'spring', stiffness: 100 }}
         >
-          <motion.img
-            src={deloreanFrames[frame]}
-            alt="DeLorean"
-            className="w-full h-full object-contain"
-            loading="eager"
-            draggable={false}
-            decoding="async"
-            style={{ willChange: "transform, opacity" }}
-          />
+          <DeloreanSpinner />
         </motion.div>
 
-        {/* Fenêtre modale avec effet vortex */}
+        {/* Vortex Modal */}
         <VortexModal isOpen={isVortexOpen} onClose={() => setIsVortexOpen(false)} />
       </div>
     </footer>

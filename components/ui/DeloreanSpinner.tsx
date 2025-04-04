@@ -25,14 +25,16 @@ export default function DeloreanSpinner() {
       transition={{ type: "spring", stiffness: 300, damping: 15 }}
     >
       <Image
-        src={frameSrc}
-        alt="DeLorean rotating"
-        width={96}
-        height={96}
-        className="w-full h-full object-contain"
-        priority
-        draggable={false}
-      />
+  src={frameSrc}
+  alt="DeLorean rotating"
+  width={96}
+  height={96}
+  className="w-full h-full object-contain"
+  priority
+  unoptimized
+  draggable={false}
+/>
+
     </motion.div>
   );
 }
