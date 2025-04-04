@@ -1,21 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const imageCount = 16;
+const totalFrames = 16;
 
 export default function DeloreanSpinner() {
-  const [index, setIndex] = useState(0);
+  const [frame, setFrame] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % imageCount);
-    }, 200);
+      setFrame((prev) => (prev + 1) % totalFrames);
+    }, 150);
     return () => clearInterval(interval);
   }, []);
 
-  const src = `/delorean/delorean-${String(index + 1).padStart(2, "0")}.webp`;
+  const frameSrc = `/delorean/delorean-${String(frame + 1).padStart(2, "0")}.webp`;
 
   return (
     <motion.div
@@ -23,10 +24,13 @@ export default function DeloreanSpinner() {
       whileHover={{ y: -10, scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300, damping: 15 }}
     >
-      <img
-        src={src}
+      <Image
+        src={frameSrc}
         alt="DeLorean rotating"
-        className="w-full h-full object-contain select-none"
+        width={96}
+        height={96}
+        className="w-full h-full object-contain"
+        priority
         draggable={false}
       />
     </motion.div>
