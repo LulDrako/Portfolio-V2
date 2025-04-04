@@ -45,11 +45,21 @@ export default function Footer() {
       </div>
 
       {/* DeLorean Animation - isolée */}
-      <div className="absolute bottom-7 right-4 z-20">
-        <div onClick={() => setIsVortexOpen(true)}>
-          <DeloreanSpinner />
-        </div>
-      </div>
+      <div
+  className="
+    md:absolute md:bottom-7 md:right-4
+    mt-6 md:mt-0
+    flex justify-center md:justify-end
+  "
+>
+  <div
+    onClick={() => setIsVortexOpen(true)}
+    className="cursor-pointer"
+  >
+    <DeloreanSpinner />
+  </div>
+</div>
+
 
       {/* Modal */}
       <VortexModal isOpen={isVortexOpen} onClose={() => setIsVortexOpen(false)} />
