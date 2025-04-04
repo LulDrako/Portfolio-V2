@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Plane } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
 import { useTranslations } from 'next-intl';
 import VortexModal from '@/components/ui/VortexModal/VortexModal';
 import DeloreanSpinner from '@/components/ui/DeloreanSpinner';
