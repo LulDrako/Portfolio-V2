@@ -35,19 +35,21 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     const form = e?.target;
-    const formData = new FormData(form);
+    const honeypot = form?.querySelector('input[name="_gotcha"]')?.value;
 
-    // 🛡️ Honeypot detection
-    if (formData.get("_gotcha")) {
+    if (honeypot) {
       console.warn("Bot détecté via honeypot.");
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const res = await fetch("https://getform.io/f/bjjmvvmb", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
       if (res.ok) {
@@ -135,7 +137,7 @@ export default function ContactSection() {
                 {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
               </div>
 
-              {/* 🔐 Honeypot field (hidden) */}
+              {/* 🔐 Honeypot */}
               <input type="text" name="_gotcha" className="hidden" />
 
               <button type="submit" disabled={isSubmitting} className="form-button">

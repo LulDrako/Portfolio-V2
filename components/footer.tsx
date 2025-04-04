@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       {/* DeLorean Animation - isolée */}
-      <div className="absolute bottom-6 right-4 z-20">
+      <div className="absolute bottom-7 right-4 z-20">
         <div onClick={() => setIsVortexOpen(true)}>
           <DeloreanSpinner />
         </div>

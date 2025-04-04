@@ -23,18 +23,18 @@
         className="w-20 md:w-24 lg:w-28 pointer-events-auto z-50"
         whileHover={{ y: -10, scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        style={{ cursor: "pointer" }} // <-- Ajout du style pour changer le curseur
       >
         <Image
-    src={frameSrc}
-    alt="DeLorean rotating"
-    width={128}
-    height={128}
-    className="w-full h-full object-contain"
-    draggable={false}
-    priority // <-- essentiel
-    quality={100} // <-- très important
-  />
-
+          src={frameSrc}
+          alt="DeLorean rotating"
+          width={128}
+          height={128}
+          className="w-full h-full object-contain"
+          draggable={false}
+          priority
+          quality={100}
+        />
       </motion.div>
     );
   }
