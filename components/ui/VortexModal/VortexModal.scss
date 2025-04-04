@@ -154,3 +154,19 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .vortex-modal-wrapper {
+    max-width: 90vw;
+    aspect-ratio: 1 / 1;
+  }
+
+  .vortex-content .vortex-title {
+    font-size: 1.25rem;
+  }
+
+  .vortex-content .vortex-thumb-wrapper {
+    max-width: 250px;
+  }
+}
+
