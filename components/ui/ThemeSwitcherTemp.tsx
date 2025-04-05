@@ -14,7 +14,6 @@ export default function ThemeSwitcher() {
     setMounted(true);
     setIsDarkMode(theme === "dark");
   }, [theme]);
-
   if (!mounted) return null;
 
   return (
