@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Plane } from "lucide-react";
-import ThemeSwitcher from "@/components/ui/ThemeSwitcherTemp";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { useTranslations } from "next-intl";
 
