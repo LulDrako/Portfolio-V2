@@ -8,6 +8,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/providers";
 import { headers } from "next/headers";
+import { Analytics } from '@vercel/analytics/react'
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -67,6 +69,7 @@ export default async function LocaleLayout({
             {children}
           </NextIntlClientProvider>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
