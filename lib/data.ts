@@ -1,9 +1,9 @@
 import { Briefcase, GraduationCap, Github, ExternalLink, Code } from "lucide-react";
 import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiMongodb, SiGraphql, SiPhp, SiPostgresql } from "react-icons/si";
+import { SiTailwindcss, SiTypescript, SiMongodb, SiGraphql, SiPhp, SiPostgresql, SiNextdotjs } from "react-icons/si";
 
 export const iconMap = {
-  FaReact: FaReact,
+  SiNextdotjs: SiNextdotjs,
   SiPhp: SiPhp,
   FaNodeJs: FaNodeJs,
   SiTypescript: SiTypescript,
@@ -19,7 +19,7 @@ export const iconMap = {
 export const technologies = [
   { name: "Node.js", icon: "FaNodeJs", color: "#339933" },
   { name: "PHP", icon: "SiPhp", color: "#777BB4" },
-  { name: "React", icon: "FaReact", color: "#61DAFB" },
+  { name: "Next.js", icon: "SiNextdotjs", color: "#FFFFF" },
   { name: "TypeScript", icon: "SiTypescript", color: "#3178C6" },
   { name: "Tailwind CSS", icon: "SiTailwindcss", color: "#06B6D4" },
   { name: "MongoDB", icon: "SiMongodb", color: "#47A248" },
