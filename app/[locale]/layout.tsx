@@ -68,10 +68,10 @@ export default async function LocaleLayout({
         <Providers>
           <NextIntlClientProvider locale={effectiveLocale ?? undefined} messages={messages}>
             {children}
+            <SpeedInsights/>
           </NextIntlClientProvider>
         </Providers>
         <Analytics/>
-        <SpeedInsights/>
       </body>
     </html>
   );
