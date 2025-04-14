@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/providers";
 import { headers } from "next/headers";
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 const inter = Inter({
@@ -69,7 +70,8 @@ export default async function LocaleLayout({
             {children}
           </NextIntlClientProvider>
         </Providers>
-        <Analytics />
+        <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
