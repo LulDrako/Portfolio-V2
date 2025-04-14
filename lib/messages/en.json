@@ -73,7 +73,7 @@
         "image": "https://media-hosting.imagekit.io//2b42f15a66b54f3d/kovoitGOO.png?Expires=1837376169&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XkdV8ggs2ZYv0tjL-1IXD29BZSjp8u91a0reyG0acdRhivm6aag4HWHaBYwox1UfJOWPrjhp21FsE~T~zT2v8YGwW2BV-dtb~NUTj42FDWnTOqJJgwXhYDzuff34pCCKiV47RebPBsDYRXekHZoOgF57vXXG8cuWbFteZWhGldrBB9Ac5kvbgB-BZDgjH9GsjrTSIoNRI7Txd7z8DM0SwMvclOFgA4BR7o9dq4fgUCUxMoBzujQvVO0piZVCxzxGfiz1ztLw~2n-1H6m~-S-6NQqP1xR85X9DTx5cxkY0hS8XfuVkNzjgL50esG8u1YmlwxgX~LbWHg8n6j382fwZQ__",
         "technologies": ["Node.js", "Express", "MongoDB", "EJS"],
         "github": "https://github.com/LulDrako/CovoiturageNode",
-        "demo": "https://covoituragenode-production.up.railway.app/"
+        "demo": "https://covoiturage-node.vercel.app/"
       },
       {
         "title": "Fils Rouge PHP - EFREI Hackathon",
