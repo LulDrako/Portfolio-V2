@@ -7,26 +7,41 @@ const withNextIntl = createNextIntlPlugin({
 
 const nextConfig: NextConfig = {
   experimental: {
-    serverActions: {
-      allowedOrigins: ['*'],
+    serverActions: { allowedOrigins: ['*'] },
+  },
+
+  eslint: { ignoreDuringBuilds: true },
+
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'media-hosting.imagekit.io' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
+  },
+
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/lib/icons/{{member}}',
     },
   },
-  eslint: {
-    ignoreDuringBuilds: true,
+
+  // next.config.ts
+  async headers() {
+    const oneWeek = 'public,max-age=604800,stale-while-revalidate=86400';
+  
+    return [
+      { source: '/:path*.png',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.jpg',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.jpeg', headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.webp', headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.avif', headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.svg',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.gif',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
+    ];
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'media-hosting.imagekit.io',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-    ],
-    formats: ['image/webp'],
-  },
+  
+
 };
 
 export default withNextIntl(nextConfig);
