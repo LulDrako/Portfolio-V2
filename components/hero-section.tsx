@@ -183,7 +183,7 @@ console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.loc
               <FaGithub size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/karim-feki-18ab66249/"
+              href="https://www.linkedin.com/in/karim-feki-alternance-dev-web-fullstack-bordeaux-paris/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
