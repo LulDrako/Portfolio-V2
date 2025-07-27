@@ -5,11 +5,11 @@ import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import projectImages from "@/lib/projectImages";
 
 type Project = {
   title: string;
   description: string;
-  image: string;
   technologies: string[];
   github: string;
   demo: string;
@@ -48,7 +48,7 @@ export default function ProjectsSection() {
             >
               <div className="relative h-48">
                 <Image
-                  src={project.image}
+                  src={projectImages[index]}
                   alt={project.title}
                   fill
                   unoptimized
