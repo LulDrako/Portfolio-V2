@@ -10,6 +10,8 @@ import { Providers } from "@/components/providers";
 import { headers } from "next/headers";
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import projectImages from "@/lib/projectImages";
+
 
 
 const inter = Inter({
@@ -63,6 +65,8 @@ export default async function LocaleLayout({
         href={`/delorean/delorean-${String(i + 1).padStart(2, "0")}.webp`}
       />
     ))}
+    {/* 🚀 Preload first project image for faster LCP */}
+    <link rel="preload" as="image" href={projectImages[0]} />
   </head>
       <body className={`${inter.className} hide-scrollbar`}>
         <Providers>

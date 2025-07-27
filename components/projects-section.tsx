@@ -51,7 +51,7 @@ export default function ProjectsSection() {
                   src={projectImages[index]}
                   alt={project.title}
                   fill
-                  unoptimized
+                  priority={index === 0}
                   style={{ objectFit: "cover" }}
                 />
               </div>
