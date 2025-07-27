@@ -82,7 +82,7 @@
         "demo": "https://karim-feki.infinityfreeapp.com/"
       },
       {
-        "title": "O.C.A Cars",
+        "title": "O.C.A Voitures",
         "description": "E-commerce platform developed with Symfony for selling and renting cars. Includes user management, cart, payments, transaction history, and secure authentication. The site offers a clean interface for navigation.",
         "technologies": ["Symfony", "Twig", "JWT", "PostgreSQL"],
         "github": "https://github.com/LulDrako/Symfony",
