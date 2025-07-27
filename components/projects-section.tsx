@@ -5,21 +5,19 @@ import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import projectImages from "@/lib/projectImages";
 
 type Project = {
   title: string;
   description: string;
+  image: string;
   technologies: string[];
   github: string;
   demo: string;
-  image: string;
 };
 
 export default function ProjectsSection() {
   const t = useTranslations("Projects");
-  const projectsWithoutImages = t.raw("items") as Omit<Project, "image">[];
-  const projects = projectsWithoutImages.map((p, i) => ({ ...p, image: projectImages[i] }));
+  const projects = t.raw("items") as Project[];
 
   return (
     <section id="projects" className="py-20 relative">
