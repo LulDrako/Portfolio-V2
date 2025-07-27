@@ -30,7 +30,7 @@ export default function Footer() {
               <a href="https://github.com/LulDrako" target="_blank" rel="noopener noreferrer">
                 <FaGithub size={20} className="text-muted-foreground hover:text-primary" />
               </a>
-              <a href="https://www.linkedin.com/in/karim-feki-18ab66249/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/karim-feki-alternance-dev-web-fullstack-bordeaux-paris/" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin size={20} className="text-muted-foreground hover:text-primary" />
               </a>
               <a href="mailto:karimfeki2004@gmail.com">

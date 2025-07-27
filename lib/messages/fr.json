@@ -78,7 +78,7 @@
         "title": "Fils Rouge PHP - Hackathon EFREI",
         "description": "Application web réalisée en équipe lors d’un hackathon. Authentification, opérations CRUD et gestion des utilisateurs avec PHP et PostgreSQL. Ce projet a été conçu dans des délais courts, avec une forte collaboration entre les membres de l’équipe.",
         "technologies": ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"],
-        "github": "ttps://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
+        "github": "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
         "demo": "https://karim-feki.infinityfreeapp.com/"
       },
       {
