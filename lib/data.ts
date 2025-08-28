@@ -28,10 +28,10 @@ export const technologies = [
 ];
 
 export const companyLinks = {
-  "OliveSoft": "https://www.linkedin.com/company/olivesoft-tunisia/",
-  "EFREI": "https://www.efrei.fr/",
-  "Heracles Conseil": "https://www.linkedin.com/company/heracles-conseil/",
-  "Lycée Richelieu": "https://lycee-richelieu.fr/",
+  "OliveSoft": "https://www.olivesoft.fr/fr",
+  "EFREI": "https://www.efrei.fr/programmes-experts/bachelor-concepteur-developpeur/",
+  "Heracles Conseil": "https://www.heracles-conseil.com/main-home/",
+  "Lycée Richelieu": "https://lyc-richelieu-rueil.ac-versailles.fr/",
 };
 
 export const projectLinks = {

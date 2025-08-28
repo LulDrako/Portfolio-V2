@@ -25,7 +25,7 @@ export default function ProjectsSection() {
   projects = projects.map((project) => ({
     ...project,
     github: projectLinks[project.title]?.github || undefined,
-    demo: projectLinks[project.title]?.demo || undefined,
+    demo: projectLinks[project.title]?.demo|| undefined,
   }));
 
   return (
