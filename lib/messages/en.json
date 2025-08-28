@@ -30,6 +30,7 @@
     {
       "title": "Internship - Web Developer",
       "company": "OliveSoft",
+      "companyUrl": "https://www.linkedin.com/company/olivesoft-tunisia/",
       "location": "Sfax, Tunisia",
       "date": "May 2023 - July 2023",
       "description": "Maintenance and updates of OliveSoft's WordPress site. Improved user experience by redesigning the footer and integrating WP Google Maps. Managed MySQL databases via phpMyAdmin, contributed to performance optimization, and used Git for version control. Applied Agile/SCRUM methodologies using JIRA and Confluence.",
@@ -38,6 +39,7 @@
     {
       "title": "Bachelor - Software Developer",
       "company": "EFREI",
+      "companyUrl": "https://www.efrei.fr/",
       "location": "Villejuif, France",
       "date": "September 2022 - Present",
       "description": "A 3-year career-oriented program focused on web, mobile, and software application development. Skills gained in front-end, back-end, databases, software architecture, DevOps, and project management. Project-based learning with a work-study format starting in the third year.",
@@ -46,6 +48,7 @@
     {
       "title": "Internship - Web Designer",
       "company": "Heracles Conseil",
+      "companyUrl": "https://www.linkedin.com/company/heracles-conseil/",
       "location": "Bordeaux, France",
       "date": "May 2024 - July 2024",
       "description": "Designed and temporarily hosted an e-commerce WordPress website dedicated to selling artwork. Created mockups with Figma, migrated sites from Wix to WordPress, and organized tasks using JIRA. Provided post-launch technical support.",
@@ -54,6 +57,7 @@
     {
       "title": "General Baccalaureate",
       "company": "Lycée Richelieu",
+      "companyUrl": "https://lycee-richelieu.fr/",
       "location": "Rueil-Malmaison",
       "date": "2022",
       "description": "Earned the French General Baccalaureate with specializations in Computer Science (NSI) and Economics (SES).",
