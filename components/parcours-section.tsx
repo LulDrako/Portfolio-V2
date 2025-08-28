@@ -2,24 +2,25 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, ExternalLink } from "lucide-react";
 import { iconMap } from "@/lib/data";
 import { useTranslations } from "next-intl";
 import { parseDate } from "@/lib/utils";
 
 
-type Experience = {
+type Parcours = {
   title: string;
   company: string;
+  companyUrl?: string;
   location: string;
   date: string;
   description: string;
   icon: keyof typeof iconMap;
 };
 
-export default function ExperienceSection() {
+export default function ParcoursSection() {
   const t = useTranslations("Parcours");
-  const experiences = t.raw("items") as Experience[];
+  const parcours = t.raw("items") as Parcours[];
 
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -52,7 +53,7 @@ export default function ExperienceSection() {
             className="absolute left-1/2 top-0 w-1 bg-primary origin-top -translate-x-1/2 h-full"
           />
 
-          {experiences
+          {parcours
             .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
             .map((exp, index) => {
               const IconComponent = iconMap[exp.icon];
@@ -71,7 +72,19 @@ export default function ExperienceSection() {
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-semibold text-primary">{exp.title}</h3>
-                    <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
+                    {exp.companyUrl ? (
+                      <a 
+                      href={exp.companyUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <span className="group-hover:underline">{exp.company}</span>
+                        <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </a>
+                        ) : (
+                        <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
+                        )}
                     <div className="flex items-center text-sm text-muted-foreground mt-2">
                       <Calendar className="h-4 w-4 mr-1" />
                       <span className="mr-3">{exp.date}</span>
