@@ -1,16 +1,17 @@
 "use client";
-
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Calendar, MapPin, ExternalLink } from "lucide-react";
 import { iconMap } from "@/lib/data";
 import { useTranslations } from "next-intl";
 import { parseDate } from "@/lib/utils";
+import { companyLinks } from "@/lib/data";
 
+type CompanyKey = keyof typeof companyLinks;
 
 type Parcours = {
   title: string;
-  company: string;
+  company: CompanyKey;
   companyUrl?: string;
   location: string;
   date: string;
@@ -20,14 +21,18 @@ type Parcours = {
 
 export default function ParcoursSection() {
   const t = useTranslations("Parcours");
-  const parcours = t.raw("items") as Parcours[];
+  let parcours = t.raw("items") as Parcours[];
+
+  parcours = parcours.map((exp) => ({
+    ...exp,
+    companyUrl: companyLinks[exp.company],
+  }));
 
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["0.2 end", "0.6 start"],
   });
-
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
@@ -57,7 +62,6 @@ export default function ParcoursSection() {
             .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
             .map((exp, index) => {
               const IconComponent = iconMap[exp.icon];
-
               return (
                 <motion.div
                   key={index}
@@ -72,19 +76,21 @@ export default function ParcoursSection() {
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-semibold text-primary">{exp.title}</h3>
+
                     {exp.companyUrl ? (
-                      <a 
-                      href={exp.companyUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
                         <span className="group-hover:underline">{exp.company}</span>
                         <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </a>
-                        ) : (
-                        <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
-                        )}
+                      </a>
+                    ) : (
+                      <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
+                    )}
+
                     <div className="flex items-center text-sm text-muted-foreground mt-2">
                       <Calendar className="h-4 w-4 mr-1" />
                       <span className="mr-3">{exp.date}</span>

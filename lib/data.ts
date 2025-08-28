@@ -26,3 +26,11 @@ export const technologies = [
   { name: "PostgreSQL", icon: "SiPostgresql", color: "#336791" },
   { name: "GraphQL", icon: "SiGraphql", color: "#E10098" },
 ];
+
+export const companyLinks = {
+  "OliveSoft": "https://www.linkedin.com/company/olivesoft-tunisia/",
+  "EFREI": "https://www.efrei.fr/",
+  "Heracles Conseil": "https://www.linkedin.com/company/heracles-conseil/",
+  "Lycée Richelieu": "https://lycee-richelieu.fr/",
+};
+
