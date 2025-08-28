@@ -70,23 +70,17 @@
       {
         "title": "KovoitGO",
         "description": "Real-time carpooling application. Users can offer or book rides through a smooth and responsive interface. Backend built with Node.js, Express, and MongoDB, server-side rendering using EJS. This project ensures seamless user experience.",
-        "technologies": ["Node.js", "Express", "MongoDB", "EJS"],
-        "github": "https://github.com/LulDrako/CovoiturageNode",
-        "demo": "https://covoiturage-node.vercel.app/"
+        "technologies": ["Node.js", "Express", "MongoDB", "EJS"]
       },
       {
         "title": "Fils Rouge PHP - EFREI Hackathon",
         "description": "Web application developed as a team during a hackathon. Authentication, CRUD operations, and user management with PHP and PostgreSQL. This project was built in a short timeframe, with strong collaboration among team members.",
-        "technologies": ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"],
-        "github": "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
-        "demo": "https://karim-feki.infinityfreeapp.com/"
+        "technologies": ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"]
       },
       {
         "title": "O.C.A Voitures",
         "description": "E-commerce platform developed with Symfony for selling and renting cars. Includes user management, cart, payments, transaction history, and secure authentication. The site offers a clean interface for navigation.",
-        "technologies": ["Symfony", "Twig", "JWT", "PostgreSQL"],
-        "github": "https://github.com/LulDrako/Symfony",
-        "demo": ""
+        "technologies": ["Symfony", "Twig", "JWT", "PostgreSQL"]
       }
     ]
   },

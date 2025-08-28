@@ -1,27 +1,37 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import projectImages from "@/lib/projectImages";
+import { projectLinks } from "@/lib/data";
+
+type ProjectKey = keyof typeof projectLinks;
 
 type Project = {
-  title: string;
+  title: ProjectKey;
   description: string;
   technologies: string[];
-  github: string;
-  demo: string;
+  github?: string;
+  demo?: string;
 };
 
 export default function ProjectsSection() {
   const t = useTranslations("Projects");
-  const projects = t.raw("items") as Project[];
+  let projects = t.raw("items") as Project[];
+
+  // Injecte les liens GitHub et Demo dynamiquement
+  projects = projects.map((project) => ({
+    ...project,
+    github: projectLinks[project.title]?.github || undefined,
+    demo: projectLinks[project.title]?.demo || undefined,
+  }));
 
   return (
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,6 +46,7 @@ export default function ProjectsSection() {
           </p>
         </motion.div>
 
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -46,6 +57,7 @@ export default function ProjectsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-secondary rounded-lg overflow-hidden shadow-lg takeoff-card h-full flex flex-col"
             >
+              {/* Image */}
               <div className="relative h-48">
                 <Image
                   src={projectImages[index]}
@@ -55,9 +67,13 @@ export default function ProjectsSection() {
                   style={{ objectFit: "cover" }}
                 />
               </div>
+
+              {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-muted-foreground mb-4">{project.description}</p>
+
+                {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span key={tech} className="px-2 py-1 bg-background text-xs rounded-md">
@@ -65,15 +81,19 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
+
+                {/* Links */}
                 <div className="flex justify-between">
-                  <Link
-                    href={project.github}
-                    className="text-primary flex items-center"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="h-5 w-5 mr-1" /> {t("code")}
-                  </Link>
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      className="text-primary flex items-center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="h-5 w-5 mr-1" /> {t("code")}
+                    </Link>
+                  )}
                   {project.demo && (
                     <Link
                       href={project.demo}

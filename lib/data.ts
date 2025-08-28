@@ -34,3 +34,17 @@ export const companyLinks = {
   "Lycée Richelieu": "https://lycee-richelieu.fr/",
 };
 
+export const projectLinks = {
+  "KovoitGO": {
+    github: "https://github.com/LulDrako/CovoiturageNode",
+    demo: "https://covoiturage-node.vercel.app/",
+  },
+  "Fils Rouge PHP - Hackathon EFREI": {
+    github: "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
+    demo: "https://karim-feki.infinityfreeapp.com/",
+  },
+  "O.C.A Voitures": {
+    github: "https://github.com/LulDrako/Symfony",
+    demo: "",
+  },
+};
