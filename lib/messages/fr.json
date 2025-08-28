@@ -24,43 +24,47 @@
     ]
   },
   "Parcours": {
-    "heading": "Parcours",
-    "description": "Mon parcours professionnel et académique.",
-    "items": [
-      {
-        "title": "Stage - Développeur Web",
-        "company": "OliveSoft",
-        "location": "Sfax, Tunisia",
-        "date": "Mai 2023 - Juillet 2023",
-        "description": "Maintenance et mise à jour du site WordPress d'OliveSoft. Amélioration de l'expérience utilisateur via une refonte du footer et l'intégration de WP Google Maps. Gestion de bases de données MySQL avec phpMyAdmin, participation à l’optimisation des performances et suivi de version avec Git. Implémentation de méthodologies Agile/SCRUM avec JIRA et Confluence.",
-        "icon": "briefcase"
-      },
-      {
-        "title": "Bachelor - Développeur Web & Application",
-        "company": "EFREI",
-        "location": "Villejuif, France",
-        "date": "September 2022 - En cours",
-        "description": "Formation professionnalisante en 3 ans axée sur le développement d’applications web, mobiles et logicielles. Acquisition de compétences en front-end, back-end, bases de données, architecture logicielle, DevOps et gestion de projets. Pédagogie orientée projet avec alternance école/entreprise dès la 3ᵉ année.",
-        "icon": "graduation"
-      },
-      {
-        "title": "Stage - Concepteur Web",
-        "company": "Heracles Conseil",
-        "location": "Bordeaux, France",
-        "date": "Mai 2024 - Juillet 2024",
-        "description": "Conception et hébergement temporaire d’un site e-commerce WordPress dédié à la vente d’œuvres d’art. Création de maquettes sur Figma, migration de sites de Wix vers WordPress, et utilisation de JIRA pour organiser les tâches. Support technique post-mise en ligne.",
-        "icon": "briefcase"
-      },
-      {
-        "title": "Baccalauréat Général",
-        "company": "Lycée Richelieu",
-        "location": "Rueil-Malmaison",
-        "date": "2022",
-        "description": "Obtention du baccalauréat général avec spécialités NSI et SES.",
-        "icon": "graduation"
-      }
-    ]
-  },
+  "heading": "Parcours",
+  "description": "Mon parcours professionnel et académique.",
+  "items": [
+    {
+      "title": "Stage - Développeur Web",
+      "company": "OliveSoft",
+      "companyUrl": "https://www.linkedin.com/company/olivesoft-tunisia/",
+      "location": "Sfax, Tunisia",
+      "date": "Mai 2023 - Juillet 2023",
+      "description": "Maintenance et mise à jour du site WordPress d'OliveSoft. Amélioration de l'expérience utilisateur via une refonte du footer et l'intégration de WP Google Maps. Gestion de bases de données MySQL avec phpMyAdmin, participation à l'optimisation des performances et suivi de version avec Git. Implémentation de méthodologies Agile/SCRUM avec JIRA et Confluence.",
+      "icon": "briefcase"
+    },
+    {
+      "title": "Bachelor - Développeur Web & Application",
+      "company": "EFREI",
+      "companyUrl": "https://www.efrei.fr/",
+      "location": "Villejuif, France",
+      "date": "September 2022 - En cours",
+      "description": "Formation professionnalisante en 3 ans axée sur le développement d'applications web, mobiles et logicielles. Acquisition de compétences en front-end, back-end, bases de données, architecture logicielle, DevOps et gestion de projets. Pédagogie orientée projet avec alternance école/entreprise dès la 3ᵉ année.",
+      "icon": "graduation"
+    },
+    {
+      "title": "Stage - Concepteur Web",
+      "company": "Heracles Conseil",
+      "companyUrl": "https://www.linkedin.com/company/heracles-conseil/",
+      "location": "Bordeaux, France",
+      "date": "Mai 2024 - Juillet 2024",
+      "description": "Conception et hébergement temporaire d'un site e-commerce WordPress dédié à la vente d'œuvres d'art. Création de maquettes sur Figma, migration de sites de Wix vers WordPress, et utilisation de JIRA pour organiser les tâches. Support technique post-mise en ligne.",
+      "icon": "briefcase"
+    },
+    {
+      "title": "Baccalauréat Général",
+      "company": "Lycée Richelieu",
+      "companyUrl": "https://lycee-richelieu.fr/",
+      "location": "Rueil-Malmaison",
+      "date": "2022",
+      "description": "Obtention du baccalauréat général avec spécialités NSI et SES.",
+      "icon": "graduation"
+    }
+  ]
+},
   "Projects": {
     "heading": "Projets",
     "description": "Découvrez une sélection de mes projets récents, démontrant mes compétences et mon expertise.",
