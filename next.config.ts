@@ -1,11 +1,9 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
 
-const withNextIntl = createNextIntlPlugin({
-  // Par défaut : './i18n/request.ts'
-});
+const withNextIntl = createNextIntlPlugin();
 
-const nextConfig: NextConfig = {
+const config: NextConfig = {
   experimental: {
     serverActions: { allowedOrigins: ['*'] },
   },
@@ -14,6 +12,19 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    minimumCacheTTL: 60 * 60 * 24,
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '',
+        pathname: '**',
+      }
+    ],
+    qualities: [75, 85, 100],
+    unoptimized: false,
   },
 
   modularizeImports: {
@@ -22,22 +33,32 @@ const nextConfig: NextConfig = {
     },
   },
 
-  // next.config.ts
   async headers() {
     const oneWeek = 'public,max-age=604800,stale-while-revalidate=86400';
-  
+    const securityHeaders = [
+      { key: 'X-DNS-Prefetch-Control', value: 'on' },
+      { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+    ];
+
     return [
-      { source: '/:path*.png',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
-      { source: '/:path*.jpg',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+      { source: '/:path*.png', headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.jpg', headers: [{ key: 'Cache-Control', value: oneWeek }] },
       { source: '/:path*.jpeg', headers: [{ key: 'Cache-Control', value: oneWeek }] },
       { source: '/:path*.webp', headers: [{ key: 'Cache-Control', value: oneWeek }] },
       { source: '/:path*.avif', headers: [{ key: 'Cache-Control', value: oneWeek }] },
-      { source: '/:path*.svg',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
-      { source: '/:path*.gif',  headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.svg', headers: [{ key: 'Cache-Control', value: oneWeek }] },
+      { source: '/:path*.gif', headers: [{ key: 'Cache-Control', value: oneWeek }] },
     ];
   },
-  
 
+  poweredByHeader: false,
+  compress: true,
+  reactStrictMode: true,
 };
 
-export default withNextIntl(nextConfig);
+export default withNextIntl(config);

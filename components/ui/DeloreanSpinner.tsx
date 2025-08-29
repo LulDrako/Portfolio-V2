@@ -33,7 +33,7 @@
           className="w-full h-full object-contain"
           draggable={false}
           priority
-          quality={100}
+          quality={85}
         />
       </motion.div>
     );
