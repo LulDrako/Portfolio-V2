@@ -88,7 +88,9 @@ export default function ContactSection() {
         >
           <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t("heading")}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">{t("paragraph")}</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto whitespace-nowrap">
+            {t("paragraph")}
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
