@@ -8,15 +8,14 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "esnext",        // Changed from Node16
+    "moduleResolution": "bundler",  // Changed from node16
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-
     "plugins": [
       {
         "name": "next"

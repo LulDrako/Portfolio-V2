@@ -4,25 +4,21 @@
 
 /* 🌞 Mode clair (Fond gris clair, Texte bleu foncé) */
 :root {
-  --background: 220 14% 87%; /* Gris très clair */
-  --foreground: 222 47% 12%; /* Bleu foncé */
+  --background: 220 14% 87%;
+  --foreground: 222 47% 12%;
   --primary: 210 100% 50%;
   --secondary: 220 14% 90%;
 }
 
 /* 🌙 Mode sombre (Fond bleu foncé, Texte blanc) */
 .dark {
-  --background: 222 47% 11%; /* Bleu foncé */
-  --foreground: 0 0% 98%; /* Blanc */
-  --primary: 210 100% 66%; /* Bleu clair */
+  --background: 222 47% 11%;
+  --foreground: 0 0% 98%;
+  --primary: 210 100% 66%;
   --secondary: 217 33% 17%;
 }
 
-/* Appliquer les couleurs globales */
-body {
-  @apply bg-background text-foreground transition-colors;
-}
-
+/* Variables CSS pour les deux modes */
 @layer base {
   :root {
     /* Mode clair */
@@ -75,14 +71,14 @@ body {
     --radius: 0.5rem;
     --text-alternance: var(--foreground);
   }
-}
 
-@layer base {
+  /* Styles globaux */
+  body {
+    @apply bg-background text-foreground transition-colors;
+  }
+
   * {
     @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
 
@@ -180,7 +176,6 @@ body {
   color: white !important;
 }
 
-
 /* Cacher la barre de scroll */
 html, body {
   scrollbar-width: none !important;
@@ -188,7 +183,7 @@ html, body {
   overflow-y: scroll;
 }
 
-html::-webkit-scrollbar, 
+html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;

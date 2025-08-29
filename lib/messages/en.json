@@ -73,7 +73,7 @@
         "technologies": ["Node.js", "Express", "MongoDB", "EJS"]
       },
       {
-        "title": "Fils Rouge PHP - EFREI Hackathon",
+        "title": "Fils Rouge PHP - Hackathon EFREI",
         "description": "Web application developed as a team during a hackathon. Authentication, CRUD operations, and user management with PHP and PostgreSQL. This project was built in a short timeframe, with strong collaboration among team members.",
         "technologies": ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"]
       },
@@ -93,7 +93,7 @@
   },
   "Contact": {
     "heading": "Contact",
-    "paragraph": "Do you have a project in mind or an opportunity to discuss? Don't hesitate to contact me!",
+    "paragraph": "Do you have a project in mind or an opportunity to discuss? Don't hesitate to contact me !",
     "formTitle": "Send me a message",
     "name": "Name",
     "email": "Email",
