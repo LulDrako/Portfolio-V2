@@ -36,7 +36,7 @@ export default function ParcoursSection() {
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="experiences" className="py-20 relative bg-background text-foreground">
+    <section id="parcours" className="py-20 relative bg-background text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
