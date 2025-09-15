@@ -88,14 +88,6 @@ npm run build
 
 ---
 
-## 📌 À venir
-
-- 🌀 Vortex Modal amélioré avec scroll tracking
-- 🌍 Sélecteur de langue UI
-- 📚 Ajout section blog / expériences
-
----
-
 ## 📜 Licence
 
 Ce projet est sous licence MIT.
