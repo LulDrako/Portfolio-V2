@@ -4,14 +4,16 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Plane } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
 import { useTranslations } from 'next-intl';
 import VortexModal from '@/components/ui/VortexModal/VortexModal';
 import DeloreanSpinner from '@/components/ui/DeloreanSpinner';
+import { socialLinks, iconMap } from '@/lib/data';
 
 export default function Footer() {
   const t = useTranslations('Footer');
   const [isVortexOpen, setIsVortexOpen] = useState(false);
+  // Filtrer les liens sociaux pour exclure Exercism du footer
+  const footerSocialLinks = socialLinks.filter(social => social.name !== 'Exercism');
 
   return (
     <footer className="bg-secondary/50 py-12 relative overflow-hidden">
@@ -27,15 +29,20 @@ export default function Footer() {
 
           <div className="flex flex-col items-center md:items-end">
             <div className="flex space-x-4 mb-4">
-              <a href="https://github.com/LulDrako" target="_blank" rel="noopener noreferrer">
-                <FaGithub size={20} className="text-muted-foreground hover:text-primary" />
-              </a>
-              <a href="https://www.linkedin.com/in/karim-feki-alternance-dev-web-fullstack-bordeaux-paris/" target="_blank" rel="noopener noreferrer">
-                <FaLinkedin size={20} className="text-muted-foreground hover:text-primary" />
-              </a>
-              <a href="mailto:karimfeki2004@gmail.com">
-                <FaEnvelope size={20} className="text-muted-foreground hover:text-primary" />
-              </a>
+              {footerSocialLinks.map((social) => {
+                const IconComponent = iconMap[social.icon as keyof typeof iconMap];
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <IconComponent size={20} />
+                  </a>
+                );
+              })}
             </div>
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Karim Feki. {t('rights')}

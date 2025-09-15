@@ -26,6 +26,38 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+.env.development
+.env.production
+
+# sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+config.json
+
+# logs
+*.log
+logs/
+
+# temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# build artifacts
+dist/
+build/
+out/
 
 # typescript
 *.tsbuildinfo

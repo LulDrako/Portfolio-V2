@@ -1,6 +1,6 @@
-import { Briefcase, GraduationCap, Github, ExternalLink, Code } from "lucide-react";
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiMongodb, SiGraphql, SiPhp, SiPostgresql, SiNextdotjs } from "react-icons/si";
+import { Briefcase, GraduationCap } from "lucide-react";
+import { FaReact, FaNodeJs, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { SiTailwindcss, SiTypescript, SiMongodb, SiGraphql, SiPhp, SiPostgresql, SiNextdotjs, SiExercism } from "react-icons/si";
 
 export const iconMap = {
   SiNextdotjs: SiNextdotjs,
@@ -11,6 +11,10 @@ export const iconMap = {
   SiMongodb: SiMongodb,
   SiGraphql: SiGraphql,
   SiPostgresql: SiPostgresql,
+  SiExercism: SiExercism,
+  FaGithub: FaGithub,
+  FaLinkedin: FaLinkedin,
+  FaEnvelope: FaEnvelope,
   briefcase: Briefcase,
   graduation: GraduationCap,
 };
@@ -48,3 +52,26 @@ export const projectLinks = {
     demo: "",
   },
 };
+
+export const socialLinks = [
+  {
+    name: "GitHub",
+    url: "https://github.com/LulDrako",
+    icon: "FaGithub",
+  },
+  {
+    name: "LinkedIn", 
+    url: "https://www.linkedin.com/in/karim-feki-alternance-dev-web-fullstack-bordeaux-paris/",
+    icon: "FaLinkedin",
+  },
+  {
+    name: "Exercism",
+    url: "https://exercism.org/profiles/LulDrako",
+    icon: "SiExercism",
+  },
+  {
+    name: "Email",
+    url: "mailto:karimfeki2004@gmail.com",
+    icon: "FaEnvelope",
+  },
+];

@@ -4,8 +4,10 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { FileText, Github, Linkedin, Mail, Plane } from "lucide-react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { SiExercism } from "react-icons/si";
 import { useRef, useEffect, useState } from "react";
 import { useTranslations } from 'next-intl';
+import { socialLinks, iconMap } from '@/lib/data';
 
 
 export default function HeroSection() {
@@ -174,28 +176,20 @@ console.log("🧪 [Hero] LANG PATH:", typeof window !== "undefined" ? window.loc
             transition={{ delay: 0.7 }}
             className="flex gap-6"
           >
-            <a
-              href="https://github.com/LulDrako"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/karim-feki-alternance-dev-web-fullstack-bordeaux-paris/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href="mailto:karimfeki2004@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <FaEnvelope size={24} />
-            </a>
+            {socialLinks.map((social) => {
+              const IconComponent = iconMap[social.icon as keyof typeof iconMap];
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <IconComponent size={24} />
+                </a>
+              );
+            })}
           </motion.div>
         </motion.div>
       </div>
