@@ -1,6 +1,6 @@
 export const projectImages = [
-  '/KovoitGo.png',
-  '/myfigrine.png',
-  '/OCA.png'
+  '/projets/KovoitGo.png',
+  '/projets/myfigrine.png',
+  '/projets/LaravelCook.png'
 ];
 export default projectImages;

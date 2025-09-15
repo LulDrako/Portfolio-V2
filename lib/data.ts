@@ -38,20 +38,26 @@ export const companyLinks = {
   "Lycée Richelieu": "https://lyc-richelieu-rueil.ac-versailles.fr/",
 };
 
-export const projectLinks = {
-  "KovoitGO": {
+export const projects = [
+  {
+    title: "KovoitGO",
     github: "https://github.com/LulDrako/CovoiturageNode",
     demo: "https://covoiturage-node.vercel.app/",
+    technologies: ["Node.js", "Express", "MongoDB", "EJS"]
   },
-  "Fils Rouge PHP - Hackathon EFREI": {
+  {
+    title: "MyFigurine - Hackathon EFREI", 
     github: "https://github.com/LulDrako/PHP-Fils-Rouge-Hackton",
     demo: "https://karim-feki.infinityfreeapp.com/",
+    technologies: ["PHP", "PostgreSQL", "JavaScript", "HTML/CSS"]
   },
-  "O.C.A Voitures": {
-    github: "https://github.com/LulDrako/Symfony",
-    demo: "",
+  {
+    title: "LaravelCook",
+    github: "https://github.com/LulDrako/LaravelRecette", 
+    demo: "https://laravel-recette-066786f3f74d.herokuapp.com/",
+    technologies: ["Laravel", "PostgreSQL", "JWT", "Blade"]
   },
-};
+];
 
 export const socialLinks = [
   {

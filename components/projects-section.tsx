@@ -5,12 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import projectImages from "@/lib/projectImages";
-import { projectLinks } from "@/lib/data";
-
-type ProjectKey = keyof typeof projectLinks;
+import { projects as projectsData } from "@/lib/data";
 
 type Project = {
-  title: ProjectKey;
+  title: string;
   description: string;
   technologies: string[];
   github?: string;
@@ -19,14 +17,21 @@ type Project = {
 
 export default function ProjectsSection() {
   const t = useTranslations("Projects");
-  let projects = t.raw("items") as Project[];
-
-  // Injecte les liens GitHub et Demo dynamiquement
-  projects = projects.map((project) => ({
-    ...project,
-    github: projectLinks[project.title]?.github || undefined,
-    demo: projectLinks[project.title]?.demo|| undefined,
-  }));
+  
+  // Récupère les descriptions depuis i18n
+  const i18nProjects = t.raw("items") as { description: string }[];
+  
+  // Combine les données de data.ts (noms + liens + technologies) avec i18n (descriptions)
+  const projects: Project[] = projectsData.map((project, index) => {
+    const i18nProject = i18nProjects[index];
+    return {
+      title: project.title, // Nom depuis data.ts
+      description: i18nProject?.description || "", // Description depuis i18n
+      technologies: project.technologies, // Technologies depuis data.ts
+      github: project.github,
+      demo: project.demo,
+    };
+  });
 
   return (
     <section id="projects" className="py-20 relative">
@@ -64,6 +69,8 @@ export default function ProjectsSection() {
                   alt={project.title}
                   fill
                   priority={index === 0}
+                  quality={95}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: "cover" }}
                 />
               </div>

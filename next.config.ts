@@ -13,8 +13,8 @@ const config: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
-    minimumCacheTTL: 60 * 60 * 24,
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
+    minimumCacheTTL: 60 * 60 * 24 * 7, // Cache 1 semaine
     remotePatterns: [
       {
         protocol: 'http',
@@ -23,8 +23,10 @@ const config: NextConfig = {
         pathname: '**',
       }
     ],
-    qualities: [75, 85, 100],
+    qualities: [50, 75, 85, 90, 95, 100],
     unoptimized: false,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   modularizeImports: {
