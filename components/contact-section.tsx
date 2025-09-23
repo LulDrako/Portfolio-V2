@@ -172,13 +172,6 @@ export default function ContactSection() {
                 </div>
               </div>
               <div className="flex items-start">
-                <Phone className="h-6 w-6 text-primary mr-4 mt-1" />
-                <div>
-                  <h4 className="text-lg font-medium mb-1">{t("phone")}</h4>
-                  <p className="text-muted-foreground">+33 7 75 24 66 77</p>
-                </div>
-              </div>
-              <div className="flex items-start">
                 <MapPin className="h-6 w-6 text-primary mr-4 mt-1" />
                 <div>
                   <h4 className="text-lg font-medium mb-1">{t("location")}</h4>
