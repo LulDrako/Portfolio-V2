@@ -74,7 +74,7 @@
         "description": "Application web réalisée en équipe lors d'un hackathon. Authentification, opérations CRUD et gestion des utilisateurs avec PHP et PostgreSQL. Ce projet a été conçu dans des délais courts, avec une forte collaboration entre les membres de l'équipe."
       },
       {
-        "description": "Plateforme e-commerce développée avec Laravel pour la vente et la location de voitures. Gestion des utilisateurs, panier, paiements, historique des transactions et authentification sécurisée. Le site propose une interface claire pour la navigation."
+        "description": "Plateforme de gestion de recettes culinaires développée avec Laravel. Les utilisateurs peuvent ajouter, modifier, supprimer des recettes, uploader des images, et filtrer les recettes par ingrédients, type de plat ou tags. Authentification pour voir les recettes d'un utilisateur spécifique et affichage des recettes de tous les utilisateurs."
       }
     ]
   },

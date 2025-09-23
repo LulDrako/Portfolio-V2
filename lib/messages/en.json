@@ -74,7 +74,7 @@
         "description": "Web application developed as a team during a hackathon. Authentication, CRUD operations, and user management with PHP and PostgreSQL. This project was built in a short timeframe, with strong collaboration among team members."
       },
       {
-        "description": "E-commerce platform developed with Laravel for selling and renting cars. Includes user management, cart, payments, transaction history, and secure authentication. The site offers a clean interface for navigation."
+        "description": "Recipe management platform developed with Laravel. Users can add, edit, delete recipes, upload images, and filter recipes by ingredients, dish type, or tags. Authentication to view specific user recipes and display recipes from all users."
       }
     ]
   },
