@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { MapPin, Calendar, Briefcase, Mail } from "lucide-react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { motion } from 'framer-motion';
+import { MapPin, Calendar, Briefcase, Mail } from 'lucide-react';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function AlternanceSection() {
-  const t = useTranslations("Alternance");
+  const t = useTranslations('Alternance');
 
   return (
     <section className="py-10 bg-background text-foreground relative overflow-hidden flex items-center justify-center">
@@ -33,16 +33,16 @@ export default function AlternanceSection() {
         <motion.div
           className="absolute inset-0 origin-center overflow-hidden rounded-full"
           animate={{ rotate: -360 }}
-          transition={{ repeat: Infinity, duration: 7, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 7, ease: 'linear' }}
         >
           <div
             className="absolute w-full h-full"
             style={{
-              transformOrigin: "bottom center",
+              transformOrigin: 'bottom center',
               background:
-                "conic-gradient(transparent 0deg, rgba(0,255,218,0.2) 15deg, transparent 80deg)",
-              clipPath: "polygon(50% 50%, 100% 0, 100% 100%, 50% 50%)",
-              boxShadow: "0 0 30px rgba(100,255,218,0.15)",
+                'conic-gradient(transparent 0deg, rgba(0,255,218,0.2) 15deg, transparent 80deg)',
+              clipPath: 'polygon(50% 50%, 100% 0, 100% 100%, 50% 50%)',
+              boxShadow: '0 0 30px rgba(100,255,218,0.15)',
             }}
           ></div>
         </motion.div>
@@ -63,9 +63,7 @@ export default function AlternanceSection() {
           transition={{ duration: 0.8 }}
           className="relative z-10 max-w-xl text-center px-6"
         >
-          <h2 className="text-3xl font-bold mb-6 cockpit-glow text-cyan-300">
-            {t("heading")}
-          </h2>
+          <h2 className="text-3xl font-bold mb-6 cockpit-glow text-cyan-300">{t('heading')}</h2>
 
           <div className="space-y-6">
             {/* Date */}
@@ -77,7 +75,7 @@ export default function AlternanceSection() {
               className="flex items-center justify-center space-x-2"
             >
               <Calendar className="h-5 w-5 icon-alternance flex-shrink-0" />
-              <span className="text-alternance text-lg">{t("date")}</span>
+              <span className="text-alternance text-lg">{t('date')}</span>
             </motion.div>
 
             {/* Lieux */}
@@ -89,7 +87,7 @@ export default function AlternanceSection() {
               className="flex items-center justify-center space-x-2"
             >
               <MapPin className="h-5 w-5 icon-alternance flex-shrink-0" />
-              <span className="text-alternance text-lg">{t("location")}</span>
+              <span className="text-alternance text-lg">{t('location')}</span>
             </motion.div>
 
             {/* Domaine */}
@@ -101,7 +99,7 @@ export default function AlternanceSection() {
               className="flex items-center justify-center space-x-2"
             >
               <Briefcase className="h-5 w-5 icon-alternance flex-shrink-0" />
-              <span className="text-alternance text-lg">{t("domain")}</span>
+              <span className="text-alternance text-lg">{t('domain')}</span>
             </motion.div>
 
             {/* Bouton contact */}
@@ -116,7 +114,7 @@ export default function AlternanceSection() {
                 className="inline-flex items-center px-6 py-2 bg-primary/20 border border-primary/30 rounded-full hover:bg-primary/30 transition-colors duration-300 backdrop-blur-sm group text-sm button-alternance"
               >
                 <Mail className="h-4 w-4 mr-2 icon-alternance group-hover:rotate-12 transition-transform" />
-                {t("contact")}
+                {t('contact')}
               </Link>
             </motion.div>
           </div>

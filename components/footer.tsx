@@ -13,7 +13,7 @@ export default function Footer() {
   const t = useTranslations('Footer');
   const [isVortexOpen, setIsVortexOpen] = useState(false);
   // Filtrer les liens sociaux pour exclure Exercism du footer
-  const footerSocialLinks = socialLinks.filter(social => social.name !== 'Exercism');
+  const footerSocialLinks = socialLinks.filter((social) => social.name !== 'Exercism');
 
   return (
     <footer className="bg-secondary/50 py-12 relative overflow-hidden">
@@ -53,20 +53,16 @@ export default function Footer() {
 
       {/* DeLorean Animation - isolée */}
       <div
-  className="
+        className="
     md:absolute md:bottom-7 md:right-4
     mt-6 md:mt-0
     flex justify-center md:justify-end
   "
->
-  <div
-    onClick={() => setIsVortexOpen(true)}
-    className="cursor-pointer"
-  >
-    <DeloreanSpinner />
-  </div>
-</div>
-
+      >
+        <div onClick={() => setIsVortexOpen(true)} className="cursor-pointer">
+          <DeloreanSpinner />
+        </div>
+      </div>
 
       {/* Modal */}
       <VortexModal isOpen={isVortexOpen} onClose={() => setIsVortexOpen(false)} />

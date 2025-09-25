@@ -11,8 +11,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -63,8 +62,8 @@ const config: Config = {
         aviation: {
           'blue-night': '#0A192F',
           'metal-gray': '#ABB2BF',
-          'cyan': '#64FFDA',
-          'orange': '#F97316',
+          cyan: '#64FFDA',
+          orange: '#F97316',
         },
       },
       keyframes: {
@@ -84,7 +83,7 @@ const config: Config = {
             height: '0',
           },
         },
-        'flight': {
+        flight: {
           '0%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
           '100%': { transform: 'translateY(0)' },
@@ -97,7 +96,7 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'flight': 'flight 6s ease-in-out infinite',
+        flight: 'flight 6s ease-in-out infinite',
         'radar-scan': 'radar-scan 8s linear infinite',
       },
     },

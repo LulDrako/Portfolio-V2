@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
-import { useTransition } from "react";
+import { usePathname, useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { useTransition } from 'react';
 
 const languages = [
-  { code: "fr", label: "FR" },
-  { code: "en", label: "EN" },
+  { code: 'fr', label: 'FR' },
+  { code: 'en', label: 'EN' },
 ];
 
 export default function LanguageSwitcher() {
@@ -31,9 +31,9 @@ export default function LanguageSwitcher() {
           onClick={() => handleChange(lang.code)}
           className={`text-sm px-3 py-1 rounded-md border ${
             locale === lang.code
-              ? "bg-primary text-background"
-              : "text-foreground hover:bg-primary/10"
-          } ${isPending && "opacity-50"}`}
+              ? 'bg-primary text-background'
+              : 'text-foreground hover:bg-primary/10'
+          } ${isPending && 'opacity-50'}`}
         >
           {lang.label}
         </button>

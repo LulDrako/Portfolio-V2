@@ -8,7 +8,6 @@ const config: NextConfig = {
     serverActions: { allowedOrigins: ['*'] },
   },
 
-
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
@@ -20,7 +19,7 @@ const config: NextConfig = {
         hostname: 'localhost',
         port: '',
         pathname: '**',
-      }
+      },
     ],
     qualities: [50, 75, 85, 90, 95, 100],
     unoptimized: false,

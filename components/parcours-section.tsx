@@ -1,11 +1,11 @@
-"use client";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Calendar, MapPin, ExternalLink } from "lucide-react";
-import { iconMap } from "@/lib/data";
-import { useTranslations } from "next-intl";
-import { parseDate } from "@/lib/utils";
-import { companyLinks } from "@/lib/data";
+'use client';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { iconMap } from '@/lib/data';
+import { useTranslations } from 'next-intl';
+import { parseDate } from '@/lib/utils';
+import { companyLinks } from '@/lib/data';
 
 type CompanyKey = keyof typeof companyLinks;
 
@@ -20,8 +20,8 @@ type Parcours = {
 };
 
 export default function ParcoursSection() {
-  const t = useTranslations("Parcours");
-  let parcours = t.raw("items") as Parcours[];
+  const t = useTranslations('Parcours');
+  let parcours = t.raw('items') as Parcours[];
 
   parcours = parcours.map((exp) => ({
     ...exp,
@@ -31,7 +31,7 @@ export default function ParcoursSection() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["0.2 end", "0.6 start"],
+    offset: ['0.2 end', '0.6 start'],
   });
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
@@ -46,9 +46,9 @@ export default function ParcoursSection() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t("heading")}</h2>
+          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">{t("description")}</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{t('description')}</p>
         </motion.div>
 
         {/* Timeline */}
@@ -67,7 +67,7 @@ export default function ParcoursSection() {
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative flex items-center justify-between w-full mb-16"
                 >
