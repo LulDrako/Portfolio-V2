@@ -8,7 +8,6 @@ const config: NextConfig = {
     serverActions: { allowedOrigins: ['*'] },
   },
 
-  eslint: { ignoreDuringBuilds: true },
 
   images: {
     formats: ['image/avif', 'image/webp'],
