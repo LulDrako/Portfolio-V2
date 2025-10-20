@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 import projectImages from '@/lib/projectImages';
 import { projects as projectsData } from '@/lib/data';
 

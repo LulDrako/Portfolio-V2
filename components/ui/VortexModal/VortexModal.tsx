@@ -4,7 +4,7 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 import './VortexModal.scss';
 
 const Tilt = dynamic(() => import('react-parallax-tilt'), { ssr: false });

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { Menu, X, Plane } from 'lucide-react';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const navKeys = ['Accueil', 'À propos', 'Parcours', 'Projets', 'Contact'];
 

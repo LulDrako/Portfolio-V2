@@ -1,27 +1,30 @@
+<div align="center">
+
 # Portfolio V2
 
-## 🛠️ Technologies utilisées
+[![last commit](https://img.shields.io/badge/last%20commit-today-blue)](https://github.com/LulDrako/Portfolio-V2)
+[![typescript](https://img.shields.io/badge/typescript-45.3%25-blue)](https://github.com/LulDrako/Portfolio-V2)
+[![languages](https://img.shields.io/badge/languages-6-grey)](https://github.com/LulDrako/Portfolio-V2)
 
-- **🖥️ Framework** : [Next.js (App Router)](https://nextjs.org/)
-- **⚛️ Bibliothèque** : [React](https://react.dev/)
-- **📘 Langage** : [TypeScript](https://www.typescriptlang.org/)
-- **🎨 CSS Framework** : [Tailwind CSS](https://tailwindcss.com/)
-- **🌐 Internationalisation (i18n)** : [next-intl](https://next-intl-docs.vercel.app/) avec structure locale/ et JSON de traductions
-- **🌈 Animation Parallax** : [react-parallax-tilt](https://www.npmjs.com/package/react-parallax-tilt)
-- **🌀 Vortex Modal** : Design custom animé avec effet glow + tilt 3D
+Portfolio personnel de développeur réalisé avec Next.js et React.  
+Ce projet présente mes compétences et projets à travers une interface moderne et interactive avec support multilingue.
 
----
+![Next.js](https://img.shields.io/badge/Next.js-15.2.2-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-18.2.0-blue?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![i18next](https://img.shields.io/badge/i18next-25.6.0-green?style=flat-square)
+
+</div>
 
 ## 📂 Structure du projet
 
 ```
 Portfolio-V2/
 │── app/                # Pages (Next.js App Router + Layout)
-│   └── [locale]/       # Gestion des langues (i18n via next-intl)
 │── components/         # Composants réutilisables (Navbar, Hero, VortexModal, etc.)
 │── hooks/              # Hooks personnalisés
 │── lib/                # Données, config i18n et messages de traduction
-│   └── i18n/
 │   └── messages/
 │       ├── fr.json     # Traductions FR
 │       └── en.json     # Traductions EN
@@ -32,8 +35,6 @@ Portfolio-V2/
 │── tailwind.config.ts  # Config Tailwind CSS
 │── tsconfig.json       # Config TypeScript
 ```
-
----
 
 ## 🚀 Installation et démarrage
 
@@ -68,11 +69,9 @@ yarn dev
 npm run build
 ```
 
----
-
 ## ✨ Fonctionnalités
 
-- 🌐 **Internationalisation (fr/en)** via `next-intl`
+- 🌐 **Internationalisation (fr/en)** via `react-i18next`
 - 🌀 **Vortex Modal** animé avec Tilt & effets lumineux
 - 🌗 **Dark / Light mode** supporté
 - 💨 **Performance** optimisée avec Next.js App Router
@@ -93,6 +92,7 @@ Ce projet est sous licence MIT.
 
 ---
 
-📬 **Me contacter :**  
-[LinkedIn](https://www.linkedin.com/in/karim-feki-18ab66249/)  
-[GitHub](https://github.com/LulDrako)
+## 📬 Me contacter
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/karim-feki-18ab66249/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LulDrako)

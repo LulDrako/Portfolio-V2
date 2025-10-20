@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { iconMap } from '@/lib/data';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 import { parseDate } from '@/lib/utils';
 import { companyLinks } from '@/lib/data';
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Plane } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 import VortexModal from '@/components/ui/VortexModal/VortexModal';
 import DeloreanSpinner from '@/components/ui/DeloreanSpinner';
 import { socialLinks, iconMap } from '@/lib/data';

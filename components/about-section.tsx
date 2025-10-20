@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { technologies, iconMap } from '@/lib/data';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 
 export default function AboutSection() {
   const t = useTranslations('About');

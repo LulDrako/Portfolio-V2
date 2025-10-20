@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { SiExercism } from 'react-icons/si';
 import { useRef, useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 import { socialLinks, iconMap } from '@/lib/data';
 
 export default function HeroSection() {
   const t = useTranslations('Hero');
 
-  const formattedSubtitle = t.raw('subtitle');
+  const formattedSubtitle = t('subtitle') as string;
   const containerRef = useRef<HTMLElement>(null);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
   const lastScrollY = useRef(0);

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Briefcase, Mail } from 'lucide-react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/hooks/useTranslations';
 
 export default function AlternanceSection() {
   const t = useTranslations('Alternance');

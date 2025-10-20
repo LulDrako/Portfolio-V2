@@ -1,7 +1,5 @@
-// app/[locale]/page.tsx
 'use client';
 
-export const dynamic = 'force-static'; // SSG pur (ISR possible)
 import Navbar from '@/components/navbar';
 import HeroSection from '@/components/hero-section';
 import AboutSection from '@/components/about-section';
