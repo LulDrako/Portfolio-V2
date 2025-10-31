@@ -28,6 +28,14 @@
     "description": "Mon parcours professionnel et académique.",
     "items": [
       {
+        "title": "Alternance - Développeur FullStack",
+        "company": "Wealthcome",
+        "location": "Bordeaux, France",
+        "date": "Octobre 2025 - En cours",
+        "description": "Conception et développement de fonctionnalités front-end (React, Tailwind CSS, React Native) et back-end (Node.js, TypeScript). Développement d'interfaces modernes et performantes. Maintenance d'APIs robustes. Optimisation des performances. Collaboration au sein d'une équipe agile.",
+        "icon": "briefcase"
+      },
+      {
         "title": "Stage - Développeur Web",
         "company": "OliveSoft",
         "location": "Sfax, Tunisia",
@@ -39,7 +47,7 @@
         "title": "Bachelor - Développeur Web & Application",
         "company": "EFREI",
         "location": "Villejuif, France",
-        "date": "September 2022 - En cours",
+        "date": "Septembre 2022 - En cours",
         "description": "Formation professionnalisante en 3 ans axée sur le développement d'applications web, mobiles et logicielles. Acquisition de compétences en front-end, back-end, bases de données, architecture logicielle, DevOps et gestion de projets. Pédagogie orientée projet avec alternance école/entreprise dès la 3ᵉ année.",
         "icon": "graduation"
       },

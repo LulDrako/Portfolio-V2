@@ -28,6 +28,14 @@
     "description": "My professional and academic journey.",
     "items": [
       {
+        "title": "Apprenticeship - FullStack Developer",
+        "company": "Wealthcome",
+        "location": "Bordeaux, France",
+        "date": "October 2025 - Present",
+        "description": "Design and development of front-end features (React, Tailwind CSS, React Native) and back-end (Node.js, TypeScript). Development of modern and performant interfaces. Maintenance of robust APIs. Performance optimization. Collaboration within an agile team.",
+        "icon": "briefcase"
+      },
+      {
         "title": "Internship - Web Developer",
         "company": "OliveSoft",
         "location": "Sfax, Tunisia",

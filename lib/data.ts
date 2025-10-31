@@ -40,6 +40,7 @@ export const technologies = [
 ];
 
 export const companyLinks = {
+  Wealthcome: 'https://www.wealthcome.fr/equipe/karim',
   OliveSoft: 'https://www.olivesoft.fr/fr',
   EFREI: 'https://www.efrei.fr/programmes-experts/bachelor-concepteur-developpeur/',
   'Heracles Conseil': 'https://www.heracles-conseil.com/main-home/',
