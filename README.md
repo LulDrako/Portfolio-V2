@@ -4,7 +4,7 @@
 
 [![last commit](https://img.shields.io/badge/last%20commit-today-blue)](https://github.com/LulDrako/Portfolio-V2)
 [![typescript](https://img.shields.io/badge/typescript-45.3%25-blue)](https://github.com/LulDrako/Portfolio-V2)
-[![languages](https://img.shields.io/badge/languages-3-grey)](https://github.com/LulDrako/Portfolio-V2)
+[![languages](https://img.shields.io/badge/languages-4-grey)](https://github.com/LulDrako/Portfolio-V2)
 
 Portfolio personnel réalisé avec TypeScript et Next.js.  
 Ce projet présente mes compétences et projets à travers une interface interactive avec support multilingue.
