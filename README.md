@@ -3,7 +3,7 @@
 # Portfolio V2
 
 [![last commit](https://img.shields.io/badge/last%20commit-today-blue)](https://github.com/LulDrako/Portfolio-V2)
-[![typescript](https://img.shields.io/badge/typescript-45.3%25-blue)](https://github.com/LulDrako/Portfolio-V2)
+[![typescript](https://img.shields.io/badge/typescript-91.4%25-blue)](https://github.com/LulDrako/Portfolio-V2)
 [![languages](https://img.shields.io/badge/languages-4-grey)](https://github.com/LulDrako/Portfolio-V2)
 
 Portfolio personnel réalisé avec TypeScript et Next.js.  
