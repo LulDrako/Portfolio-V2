@@ -1,10 +1,8 @@
 'use client';
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { FileText, Github, Linkedin, Mail, Plane } from 'lucide-react';
+import { FileText, Mail, Plane } from 'lucide-react';
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { SiExercism } from 'react-icons/si';
 import { useRef, useEffect, useState } from 'react';
 import { useTranslations } from '@/hooks/useTranslations';
 import { socialLinks, iconMap } from '@/lib/data';
@@ -26,9 +24,9 @@ export default function HeroSection() {
 
   const [scrollHeight, setScrollHeight] = useState(0);
 
-  console.log('🧪 [Hero] intro:', t('intro'));
+  console.log('[Hero] intro:', t('intro'));
   console.log(
-    '🧪 [Hero] LANG PATH:',
+    '[Hero] LANG PATH:',
     typeof window !== 'undefined' ? window.location.pathname : 'server',
   );
 

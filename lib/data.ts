@@ -1,5 +1,5 @@
 import { Briefcase, GraduationCap } from 'lucide-react';
-import { FaReact, FaNodeJs, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaNodeJs, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import {
   SiTailwindcss,
   SiTypescript,

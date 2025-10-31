@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Plane } from 'lucide-react';
 import { useTranslations } from '@/hooks/useTranslations';
@@ -54,7 +53,7 @@ export default function Footer() {
       {/* DeLorean Animation - isolée */}
       <div
         className="
-    md:absolute md:bottom-7 md:right-4
+    md:absolute md:bottom-7 md:right-1
     mt-6 md:mt-0
     flex justify-center md:justify-end
   "
