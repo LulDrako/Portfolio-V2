@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { FileText, Mail, Plane } from 'lucide-react';
+import { /* FileText, */ Mail, Plane } from 'lucide-react';
 import Link from 'next/link';
 import { useRef, useEffect, useState } from 'react';
 import { useTranslations } from '@/hooks/useTranslations';
@@ -154,10 +154,10 @@ export default function HeroSection() {
               {t('contact')}
             </Link>
 
-            <Link href="/cv.pdf" target="_blank" className="button button-secondary">
+            {/* <Link href="/cv.pdf" target="_blank" className="button button-secondary">
               <FileText size={18} />
               {t('cv')}
-            </Link>
+            </Link> */}
           </motion.div>
 
           <motion.div
