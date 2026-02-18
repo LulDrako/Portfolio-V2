@@ -123,26 +123,55 @@
   @apply absolute left-1/2 top-1/2 h-4 w-4 rounded-full bg-primary -translate-x-1/2 -translate-y-1/2;
 }
 
-/* Parcours section — cockpit / logbook feel */
+/* ---------- Parcours (timeline) ---------- */
 .parcours-grid {
   position: relative;
   overflow: hidden;
 }
 
+@keyframes parcours-node-pulse {
+  from { transform: scale(1); opacity: 0.4; }
+  to { transform: scale(1.25); opacity: 0; }
+}
+.parcours-node-pulse {
+  animation: parcours-node-pulse 2s ease-out infinite;
+}
+
+.parcours-timeline-line {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    hsl(var(--primary) / 0.15) 15%,
+    hsl(var(--primary) / 0.25) 50%,
+    hsl(var(--primary) / 0.15) 85%,
+    transparent 100%
+  );
+}
+
+.parcours-scroll-runner {
+  @apply hidden md:block absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none z-10;
+  width: 10px;
+  height: 10px;
+  background: hsl(var(--primary) / 0.9);
+  box-shadow:
+    0 0 0 1px hsl(var(--background)),
+    0 0 8px 2px hsl(var(--primary) / 0.4),
+    0 0 16px 4px hsl(var(--primary) / 0.2);
+  transition: opacity 0.35s ease-out;
+}
+
 .parcours-card {
   @apply transition-shadow duration-300;
 }
-
 .parcours-card:hover {
-  box-shadow:
-    0 12px 40px -12px hsl(var(--primary) / 0.25),
-    0 0 0 1px hsl(var(--primary) / 0.2);
+  box-shadow: 0 12px 40px -12px hsl(var(--primary) / 0.25), 0 0 0 1px hsl(var(--primary) / 0.2);
 }
 
+/* HUD grille (parcours + hero) */
 .hud-line {
   @apply absolute h-px bg-primary/20 w-full left-0;
 }
-
 .hud-line-vertical {
   @apply absolute w-px bg-primary/20 h-full top-0;
 }
