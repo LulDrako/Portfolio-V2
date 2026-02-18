@@ -75,7 +75,7 @@ const ParcoursItem = memo(function ParcoursItem({
   return (
     <motion.article
       ref={ref}
-      className={`relative flex w-full mb-14 md:mb-20 gap-5 md:gap-8 md:items-stretch flex-nowrap ${
+      className={`relative flex flex-col md:flex-row w-full mb-14 md:mb-20 gap-3 md:gap-8 md:items-stretch flex-nowrap ${
         cardRight ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
       variants={cardVariants}
@@ -83,8 +83,9 @@ const ParcoursItem = memo(function ParcoursItem({
       animate={isInView ? 'visible' : 'hidden'}
       custom={index}
     >
+      {/* Date + lieu (desktop uniquement) */}
       <div
-        className={`hidden md:flex shrink-0 items-center gap-3 pt-6 md:pt-8 ${
+        className={`hidden md:flex order-2 md:order-1 shrink-0 items-center gap-3 pt-6 md:pt-8 ${
           cardRight ? 'flex-row' : 'flex-row-reverse'
         }`}
       >
@@ -105,7 +106,8 @@ const ParcoursItem = memo(function ParcoursItem({
         </div>
       </div>
 
-      <div className="flex flex-col shrink-0 md:min-w-0 relative">
+      {/* Timeline + date (mobile: en haut au-dessus de la carte) */}
+      <div className="flex flex-col w-full md:w-auto md:shrink-0 md:min-w-0 order-1 md:order-2 relative">
         <div className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 parcours-timeline-line" aria-hidden>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/50" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/30" />
@@ -115,16 +117,16 @@ const ParcoursItem = memo(function ParcoursItem({
           className="parcours-scroll-runner"
           style={{ top: runnerTop, opacity: runnerOpacity }}
         />
-        <div className="md:hidden flex flex-row items-center gap-2 pt-2">
-          <div className="relative w-11 h-11 shrink-0">
+        <div className="md:hidden flex flex-row items-center gap-2 pb-2">
+          <div className="relative w-10 h-10 shrink-0">
             <div className="absolute inset-0 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center shadow-[0_0_14px_rgba(59,130,246,0.4)]">
               <IconComponent className="w-5 h-5 text-primary" />
             </div>
             <div className="absolute inset-0 rounded-full border border-primary/30 parcours-node-pulse" />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-[11px] uppercase tracking-widest text-muted-foreground/90 font-medium whitespace-nowrap">{exp.date}</span>
-            <span className="text-xs text-muted-foreground/80 flex items-center gap-1.5 mt-1">
+            <span className="text-[11px] uppercase tracking-widest text-muted-foreground/90 font-medium">{exp.date}</span>
+            <span className="text-xs text-muted-foreground/80 flex items-center gap-1.5 mt-0.5">
               <MapPin className="h-3 w-3 shrink-0" aria-hidden />
               {exp.location}
             </span>
@@ -132,8 +134,9 @@ const ParcoursItem = memo(function ParcoursItem({
         </div>
       </div>
 
+      {/* Carte (pleine largeur sur mobile) */}
       <motion.div
-        className="relative flex-1 min-w-0"
+        className="relative w-full md:flex-1 min-w-0 order-3"
         variants={cardVariants}
         custom={index}
       >
@@ -170,7 +173,7 @@ const ParcoursItem = memo(function ParcoursItem({
             <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
           )}
 
-          <p className="text-muted-foreground mt-4 text-sm md:text-base leading-relaxed">
+          <p className="text-muted-foreground mt-4 text-base leading-relaxed">
             {exp.description}
           </p>
         </motion.div>
