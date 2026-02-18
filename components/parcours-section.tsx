@@ -75,7 +75,7 @@ const ParcoursItem = memo(function ParcoursItem({
   return (
     <motion.article
       ref={ref}
-      className={`relative flex w-full mb-14 md:mb-20 gap-5 md:gap-8 md:items-stretch flex-nowrap ${
+      className={`relative flex flex-col md:flex-row w-full mb-8 sm:mb-12 md:mb-20 gap-3 sm:gap-4 md:gap-8 md:items-stretch flex-nowrap ${
         cardRight ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
       variants={cardVariants}
@@ -83,8 +83,9 @@ const ParcoursItem = memo(function ParcoursItem({
       animate={isInView ? 'visible' : 'hidden'}
       custom={index}
     >
+      {/* Colonne date + lieu (desktop uniquement) */}
       <div
-        className={`hidden md:flex shrink-0 items-center gap-3 pt-6 md:pt-8 ${
+        className={`hidden md:flex order-2 md:order-1 shrink-0 items-center gap-3 pt-6 md:pt-8 ${
           cardRight ? 'flex-row' : 'flex-row-reverse'
         }`}
       >
@@ -105,7 +106,8 @@ const ParcoursItem = memo(function ParcoursItem({
         </div>
       </div>
 
-      <div className="flex flex-col shrink-0 md:min-w-0 relative">
+      {/* Ligne timeline + date (mobile: au-dessus de la carte) */}
+      <div className="flex flex-col w-full md:w-auto md:shrink-0 md:min-w-0 order-1 md:order-2 relative">
         <div className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 parcours-timeline-line" aria-hidden>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/50" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/30" />
@@ -115,16 +117,16 @@ const ParcoursItem = memo(function ParcoursItem({
           className="parcours-scroll-runner"
           style={{ top: runnerTop, opacity: runnerOpacity }}
         />
-        <div className="md:hidden flex flex-row items-center gap-2 pt-2">
-          <div className="relative w-11 h-11 shrink-0">
+        <div className="md:hidden flex flex-row items-center gap-2 pb-2">
+          <div className="relative w-10 h-10 shrink-0">
             <div className="absolute inset-0 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center shadow-[0_0_14px_rgba(59,130,246,0.4)]">
               <IconComponent className="w-5 h-5 text-primary" />
             </div>
             <div className="absolute inset-0 rounded-full border border-primary/30 parcours-node-pulse" />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-[11px] uppercase tracking-widest text-muted-foreground/90 font-medium whitespace-nowrap">{exp.date}</span>
-            <span className="text-xs text-muted-foreground/80 flex items-center gap-1.5 mt-1">
+            <span className="text-[11px] uppercase tracking-widest text-muted-foreground/90 font-medium">{exp.date}</span>
+            <span className="text-xs text-muted-foreground/80 flex items-center gap-1.5 mt-0.5">
               <MapPin className="h-3 w-3 shrink-0" aria-hidden />
               {exp.location}
             </span>
@@ -132,13 +134,14 @@ const ParcoursItem = memo(function ParcoursItem({
         </div>
       </div>
 
+      {/* Carte (pleine largeur sur mobile) */}
       <motion.div
-        className="relative flex-1 min-w-0"
+        className="relative w-full md:flex-1 min-w-0 order-3"
         variants={cardVariants}
         custom={index}
       >
         <motion.div
-          className="relative bg-card/90 p-6 md:p-8 rounded-2xl shadow-lg border border-primary/10 backdrop-blur-xl parcours-card overflow-hidden group"
+          className="relative bg-card/90 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-primary/10 backdrop-blur-xl parcours-card overflow-hidden group"
           whileHover={{
             y: -6,
             transition: { type: 'spring', stiffness: 300, damping: 22 },
@@ -146,13 +149,13 @@ const ParcoursItem = memo(function ParcoursItem({
           transition={{ type: 'spring', stiffness: 300, damping: 22 }}
         >
           <div className="pointer-events-none absolute inset-0 opacity-30">
-            <div className="absolute left-4 top-4 w-6 h-5 border-l border-t border-primary/20 rounded-tl" />
-            <div className="absolute right-4 top-4 w-6 h-5 border-r border-t border-primary/20 rounded-tr" />
-            <div className="absolute left-4 bottom-4 w-6 h-5 border-l border-b border-primary/20 rounded-bl" />
-            <div className="absolute right-4 bottom-4 w-6 h-5 border-r border-b border-primary/20 rounded-br" />
+            <div className="absolute left-3 top-3 sm:left-4 sm:top-4 w-4 h-3.5 sm:w-6 sm:h-5 border-l border-t border-primary/20 rounded-tl" />
+            <div className="absolute right-3 top-3 sm:right-4 sm:top-4 w-4 h-3.5 sm:w-6 sm:h-5 border-r border-t border-primary/20 rounded-tr" />
+            <div className="absolute left-3 bottom-3 sm:left-4 sm:bottom-4 w-4 h-3.5 sm:w-6 sm:h-5 border-l border-b border-primary/20 rounded-bl" />
+            <div className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4 w-4 h-3.5 sm:w-6 sm:h-5 border-r border-b border-primary/20 rounded-br" />
           </div>
 
-          <h3 className="text-lg md:text-xl font-semibold text-primary pr-8 mb-2 relative">
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-primary pr-8 mb-1.5 sm:mb-2 relative">
             {exp.title}
           </h3>
 
@@ -161,16 +164,16 @@ const ParcoursItem = memo(function ParcoursItem({
               href={exp.companyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[44px] items-center py-1 -my-1"
             >
               <span className="group-hover:underline">{exp.company}</span>
-              <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="h-3.5 w-3.5 sm:h-3 sm:w-3 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
             </a>
           ) : (
             <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
           )}
 
-          <p className="text-muted-foreground mt-4 text-sm md:text-base leading-relaxed">
+          <p className="text-muted-foreground mt-3 sm:mt-4 text-base leading-relaxed">
             {exp.description}
           </p>
         </motion.div>
@@ -199,21 +202,21 @@ export default function ParcoursSection() {
   );
 
   return (
-    <section id="parcours" className="py-20 relative bg-background text-foreground overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="parcours" className="py-14 sm:py-16 md:py-20 relative bg-background text-foreground overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[100vw]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          className="mb-8 sm:mb-10 md:mb-12 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6 rounded-full" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">{t('description')}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 cockpit-glow">{t('heading')}</h2>
+          <div className="w-16 sm:w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6 rounded-full" />
+          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-1">{t('description')}</p>
         </motion.div>
 
-        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 md:px-10">
+        <div className="relative max-w-5xl mx-auto px-3 sm:px-6 md:px-8 lg:px-10">
           <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40 hidden md:block">
             {[1, 2, 3, 4].map((i) => (
               <div key={`h-${i}`} className="hud-line" style={{ top: `${i * 20}%` }} />

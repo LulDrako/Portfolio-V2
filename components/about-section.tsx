@@ -25,17 +25,17 @@ export default function AboutSection() {
   const descriptionArray = t.raw('description') as string[];
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-14 sm:py-16 md:py-20 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[100vw]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          className="mb-8 sm:mb-12 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
+          <div className="w-16 sm:w-20 h-1 bg-primary mx-auto mb-6 sm:mb-8"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

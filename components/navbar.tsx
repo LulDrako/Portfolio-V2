@@ -36,12 +36,12 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top)] ${
         scrolled ? 'bg-background/80 backdrop-blur-md shadow-md' : 'bg-background'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[100vw]">
+        <div className="flex items-center justify-between h-14 sm:h-16 min-h-[44px]">
           {/* Logo */}
           <Link href="#hero" className="flex items-center space-x-2">
             <Plane className="h-6 w-6 text-primary" />
@@ -97,7 +97,7 @@ export default function Navbar() {
                 key={key}
                 href={navRoutes[key]}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+                className="block px-4 py-3 min-h-[44px] flex items-center rounded-md text-base font-medium text-foreground hover:bg-primary/20 hover:text-primary transition-colors"
               >
                 {t(key)}
               </Link>

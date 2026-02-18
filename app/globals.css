@@ -73,8 +73,13 @@
   }
 
   /* Styles globaux */
+  html {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground transition-colors;
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
   }
 
   * {
@@ -135,6 +140,12 @@
 }
 .parcours-node-pulse {
   animation: parcours-node-pulse 2s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .parcours-node-pulse {
+    animation: none;
+    opacity: 0.3;
+  }
 }
 
 .parcours-timeline-line {
