@@ -57,7 +57,6 @@ export const projects = [
   {
     title: 'MyFigurine - Hackathon EFREI',
     github: 'https://github.com/LulDrako/PHP-Fils-Rouge-Hackton',
-    demo: 'https://karim-feki.infinityfreeapp.com/',
     technologies: ['PHP', 'PostgreSQL', 'JavaScript', 'HTML/CSS'],
   },
   {
