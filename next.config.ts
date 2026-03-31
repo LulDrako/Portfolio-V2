@@ -1,9 +1,16 @@
 import type { NextConfig } from 'next';
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const config: NextConfig = {
   experimental: {
     serverActions: { allowedOrigins: ['*'] },
   },
+
+  
 
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -58,4 +65,4 @@ const config: NextConfig = {
   reactStrictMode: true,
 };
 
-export default config;
+export default withBundleAnalyzer(config);

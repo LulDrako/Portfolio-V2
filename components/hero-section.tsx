@@ -24,12 +24,6 @@ export default function HeroSection() {
 
   const [scrollHeight, setScrollHeight] = useState(0);
 
-  console.log('[Hero] intro:', t('intro'));
-  console.log(
-    '[Hero] LANG PATH:',
-    typeof window !== 'undefined' ? window.location.pathname : 'server',
-  );
-
   useEffect(() => {
     const updateScrollHeight = () => {
       setScrollHeight(document.documentElement.scrollHeight - window.innerHeight);

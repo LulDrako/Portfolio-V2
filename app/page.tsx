@@ -1,13 +1,14 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/navbar';
-import HeroSection from '@/components/hero-section';
-import AboutSection from '@/components/about-section';
-import ParcoursSection from '@/components/parcours-section';
-import ProjectsSection from '@/components/projects-section';
+const HeroSection = dynamic(() => import('@/components/hero-section'));
+const AboutSection = dynamic(() => import('@/components/about-section'));
+const ParcoursSection = dynamic(() => import('@/components/parcours-section'));
+const ProjectsSection = dynamic(() => import('@/components/projects-section'));
 // import AlternanceSection from '@/components/alternance-section'; // Masqué temporairement
-import ContactSection from '@/components/contact-section';
-import Footer from '@/components/footer';
+const ContactSection = dynamic(() => import('@/components/contact-section'));
+const Footer = dynamic(() => import('@/components/footer'));
 
 export default function Home() {
   return (
