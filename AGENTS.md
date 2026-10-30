@@ -15,7 +15,7 @@ There are no automated tests: check changes visually in the browser.
 ## Structure
 
 - `app/page.tsx`: assembles the sections, loaded with `next/dynamic`
-- `components/*-section.tsx`: one page section per file
+- `components/*-section.tsx`: one page section per file (`parcours` = experience and education, `alternance` = work-study search, currently hidden)
 - `components/ui/`: base components (shadcn/Radix style) and custom components
 - `lib/data.ts`: content (projects, experience, technologies) and `iconMap`
 - `lib/messages/fr.json` and `en.json`: all displayed text
@@ -26,11 +26,11 @@ There are no automated tests: check changes visually in the browser.
 
 - No hardcoded text in components: add the key to both `fr.json` **and** `en.json`, with the same structure.
 - New content (project, experience, technology) goes in `lib/data.ts`, not in the component.
-- Follow the existing style: Prettier (single quotes, semicolons, 100 columns), `@/` alias, components as `export default function`.
+- Follow the existing style: Prettier (single quotes, semicolons, 100 columns), `@/` alias, components as `export default function`. Apply this to new code only: don't reformat existing files.
 - Style with Tailwind classes; use `cn()` from `lib/utils.ts` for conditional classes. No new SCSS files.
 - Animations use framer-motion, in the same spirit as the existing sections (`hidden`/`show` variants, short durations).
 - The site must work in light and dark themes, and on mobile (check at ~375px wide).
-- No new dependency without asking first.
+- No new dependency without asking first. If you can't ask (e.g. running in CI), propose it in the PR description instead of installing it.
 - Images live in `public/` and are rendered with `next/image`.
 
 ## Keep it simple
@@ -44,7 +44,7 @@ There are no automated tests: check changes visually in the browser.
 
 1. `npm run lint` and `npm run build` pass.
 2. The change was checked in the browser (FR and EN, light and dark, desktop and mobile if it is visual).
-3. State clearly what was tested and what was not.
+3. State clearly what was tested and what was not. If you can't check in a browser (e.g. running in CI), say so explicitly.
 
 ## Git
 
