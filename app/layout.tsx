@@ -19,11 +19,7 @@ export const metadata = {
   description: 'Portfolio de Karim Feki, développeur web passionné',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning className="hide-scrollbar">
       <head>

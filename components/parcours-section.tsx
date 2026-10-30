@@ -108,7 +108,10 @@ const ParcoursItem = memo(function ParcoursItem({
 
       {/* Timeline + date (mobile: en haut au-dessus de la carte) */}
       <div className="flex flex-col w-full md:w-auto md:shrink-0 md:min-w-0 order-1 md:order-2 relative">
-        <div className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 parcours-timeline-line" aria-hidden>
+        <div
+          className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 parcours-timeline-line"
+          aria-hidden
+        >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/50" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/30" />
         </div>
@@ -125,7 +128,9 @@ const ParcoursItem = memo(function ParcoursItem({
             <div className="absolute inset-0 rounded-full border border-primary/30 parcours-node-pulse" />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-[11px] uppercase tracking-widest text-muted-foreground/90 font-medium">{exp.date}</span>
+            <span className="text-[11px] uppercase tracking-widest text-muted-foreground/90 font-medium">
+              {exp.date}
+            </span>
             <span className="text-xs text-muted-foreground/80 flex items-center gap-1.5 mt-0.5">
               <MapPin className="h-3 w-3 shrink-0" aria-hidden />
               {exp.location}
@@ -173,9 +178,7 @@ const ParcoursItem = memo(function ParcoursItem({
             <h4 className="text-sm text-muted-foreground">{exp.company}</h4>
           )}
 
-          <p className="text-muted-foreground mt-4 text-base leading-relaxed">
-            {exp.description}
-          </p>
+          <p className="text-muted-foreground mt-4 text-base leading-relaxed">{exp.description}</p>
         </motion.div>
       </motion.div>
     </motion.article>
@@ -198,7 +201,7 @@ export default function ParcoursSection() {
   }));
 
   const sortedParcours = [...parcours].sort(
-    (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
+    (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime(),
   );
 
   return (
