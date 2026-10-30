@@ -78,18 +78,13 @@ npm run build
 - 🎨 **Design responsive & animations custom**
 - 🧼 **Code maintenable** en TypeScript
 
-
-
 ## 🔄 Ancienne version
 
 👉 [Portfolio V1](https://luldrako.vercel.app/)
 
-
-
 ## 📜 Licence
 
 Ce projet est sous licence MIT.
-
 
 ## 📬 Me contacter
 

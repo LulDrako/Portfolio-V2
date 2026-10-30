@@ -7,7 +7,7 @@ export function useTranslations(namespace?: string) {
   const { t, i18n, ready } = useTranslation();
   const [, forceUpdate] = useState(0);
   const [isLanguageChanging, setIsLanguageChanging] = useState(false);
-  
+
   // Forcer le re-render quand la langue change
   useEffect(() => {
     const handleLanguageChangeStart = () => {
@@ -15,7 +15,7 @@ export function useTranslations(namespace?: string) {
     };
 
     const handleLanguageChange = () => {
-      forceUpdate(prev => prev + 1);
+      forceUpdate((prev) => prev + 1);
       // Délai pour l'animation
       setTimeout(() => {
         setIsLanguageChanging(false);
@@ -25,7 +25,7 @@ export function useTranslations(namespace?: string) {
     // Écouter les changements de langue
     i18n.on('languageChanged', handleLanguageChangeStart);
     i18n.on('languageChanged', handleLanguageChange);
-    
+
     if (typeof window !== 'undefined') {
       window.addEventListener('languageChanged', handleLanguageChange);
     }
@@ -38,7 +38,7 @@ export function useTranslations(namespace?: string) {
       }
     };
   }, [i18n]);
-  
+
   if (!ready) {
     // Pendant le chargement, utiliser les traductions par défaut pour éviter l'hydratation mismatch
     if (namespace) {
@@ -54,7 +54,7 @@ export function useTranslations(namespace?: string) {
       defaultT.raw = (key: string) => defaultT(key);
       return defaultT;
     }
-    
+
     const defaultT = (key: string) => {
       try {
         const messages = i18n.getResourceBundle(i18n.language || 'fr', 'translation') || {};
@@ -66,13 +66,13 @@ export function useTranslations(namespace?: string) {
     defaultT.raw = (key: string) => defaultT(key);
     return defaultT;
   }
-  
+
   if (namespace) {
     const translateKey = (key: string) => t(`${namespace}.${key}`);
     translateKey.raw = (key: string) => t(`${namespace}.${key}`, { returnObjects: true });
     return translateKey;
   }
-  
+
   const translate = (key: string) => t(key);
   translate.raw = (key: string) => t(key, { returnObjects: true });
   return translate;
