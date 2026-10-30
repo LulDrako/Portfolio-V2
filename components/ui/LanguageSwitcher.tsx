@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
   // Écouter les changements de langue pour mettre à jour l'UI
   useEffect(() => {
     const handleLanguageChange = () => {
-      forceUpdate(prev => prev + 1);
+      forceUpdate((prev) => prev + 1);
     };
 
     if (ready) {
@@ -34,10 +34,10 @@ export default function LanguageSwitcher() {
 
   const handleToggle = async () => {
     if (!ready || isChanging) return;
-    
+
     const newLocale = i18n.language === 'fr' ? 'en' : 'fr';
     setIsChanging(true);
-    
+
     try {
       await i18n.changeLanguage(newLocale);
       window.dispatchEvent(new Event('languageChanged'));
@@ -48,8 +48,8 @@ export default function LanguageSwitcher() {
     }
   };
 
-  const currentLang = languages.find(lang => lang.code === i18n.language) || languages[0];
-  
+  const currentLang = languages.find((lang) => lang.code === i18n.language) || languages[0];
+
   // Tooltip dans la langue actuelle
   const tooltipText = i18n.language === 'fr' ? 'Cliquer pour changer' : 'Click to switch';
 
@@ -67,7 +67,7 @@ export default function LanguageSwitcher() {
         key={i18n.language}
         initial={{ scale: 0.8, rotate: -10 }}
         animate={{ scale: 1, rotate: 0 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
         className="absolute inset-0 flex items-center justify-center rounded-full overflow-hidden"
       >
         <ReactCountryFlag
@@ -76,7 +76,7 @@ export default function LanguageSwitcher() {
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover'
+            objectFit: 'cover',
           }}
           title={currentLang.name}
         />
