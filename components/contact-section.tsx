@@ -6,16 +6,11 @@ import { Send, Mail, MapPin } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { contactSchema } from '@/lib/contactSchema';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslations } from '@/hooks/useTranslations';
 
-const formSchema = z.object({
-  name: z.string().min(2, 'Ton nom doit faire au moins 2 caractères'),
-  email: z.string().email('Adresse email invalide'),
-  message: z.string().min(10, 'Le message doit faire au moins 10 caractères'),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<typeof contactSchema>;
 
 export default function ContactSection() {
   const t = useTranslations('Contact');
@@ -33,7 +28,7 @@ export default function ContactSection() {
     reset,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(contactSchema),
   });
 
   const onSubmit = async (data: FormValues, e?: any) => {
