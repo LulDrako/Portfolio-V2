@@ -20,7 +20,7 @@ There are no automated tests: check changes visually in the browser.
 - `lib/data.ts`: content (projects, experience, technologies) and `iconMap`
 - `lib/messages/fr.json` and `en.json`: all displayed text
 - `hooks/useTranslations.ts`: i18n hook, `t('key')`, and `t.raw('key')` for arrays/objects
-- `app/api/contact/route.ts`: contact form, forwarded to Getform
+- `app/api/contact/route.ts`: contact form, forwarded to Forminit (see `.env.example`)
 
 ## Rules
 

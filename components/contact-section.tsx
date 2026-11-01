@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type BaseSyntheticEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, MapPin } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -31,7 +31,7 @@ export default function ContactSection() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: FormValues, e?: any) => {
+  const onSubmit = async (data: FormValues, e?: BaseSyntheticEvent) => {
     setIsSubmitting(true);
 
     const form = e?.target;

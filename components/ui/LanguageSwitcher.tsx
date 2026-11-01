@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ReactCountryFlag from 'react-country-flag';
 
@@ -12,25 +12,7 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const { i18n, ready } = useTranslation();
-  const [, forceUpdate] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
-
-  // Écouter les changements de langue pour mettre à jour l'UI
-  useEffect(() => {
-    const handleLanguageChange = () => {
-      forceUpdate((prev) => prev + 1);
-    };
-
-    if (ready) {
-      i18n.on('languageChanged', handleLanguageChange);
-    }
-
-    return () => {
-      if (ready) {
-        i18n.off('languageChanged', handleLanguageChange);
-      }
-    };
-  }, [i18n, ready]);
 
   const handleToggle = async () => {
     if (!ready || isChanging) return;
@@ -40,7 +22,6 @@ export default function LanguageSwitcher() {
 
     try {
       await i18n.changeLanguage(newLocale);
-      window.dispatchEvent(new Event('languageChanged'));
       setTimeout(() => setIsChanging(false), 150);
     } catch (error) {
       console.error('Erreur lors du changement de langue:', error);
