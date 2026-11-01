@@ -44,8 +44,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Données invalides' }, { status: 400 });
   }
 
+  const getformUrl = process.env.GETFORM_URL;
+  if (!getformUrl) {
+    console.error('GETFORM_URL is not set');
+    return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });
+  }
+
   try {
-    const response = await fetch('https://getform.io/f/bjjmvvmb', {
+    const response = await fetch(getformUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
