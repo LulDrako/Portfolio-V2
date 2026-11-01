@@ -106,7 +106,17 @@
     "successDesc": "Thank you for your message. I will reply as soon as possible.",
     "infosTitle": "Contact information",
     "phone": "Phone",
-    "location": "Location"
+    "location": "Location",
+    "errorTitle": "Error",
+    "errorSend": "Something went wrong. Please try again later.",
+    "errorNetwork": "Unable to send the message.",
+    "errors": {
+      "nameMin": "Your name must be at least 2 characters",
+      "nameMax": "Your name must be at most 100 characters",
+      "emailInvalid": "Invalid email address",
+      "messageMin": "Your message must be at least 10 characters",
+      "messageMax": "Your message must be at most 5000 characters"
+    }
   },
   "Footer": {
     "job": "Software Developer",
