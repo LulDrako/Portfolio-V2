@@ -16,12 +16,6 @@ const config: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  modularizeImports: {
-    'lucide-react': {
-      transform: 'lucide-react/lib/icons/{{member}}',
-    },
-  },
-
   async headers() {
     const oneWeek = 'public,max-age=604800,stale-while-revalidate=86400';
     const securityHeaders = [

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type BaseSyntheticEvent } from 'react';
+import { useState, type BaseSyntheticEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, MapPin } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -9,6 +9,7 @@ import * as z from 'zod';
 import { contactSchema } from '@/lib/contactSchema';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslations } from '@/hooks/useTranslations';
+import { useMounted } from '@/hooks/useMounted';
 
 type FormValues = z.infer<typeof contactSchema>;
 
@@ -16,11 +17,7 @@ export default function ContactSection() {
   const t = useTranslations('Contact');
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   const {
     register,
