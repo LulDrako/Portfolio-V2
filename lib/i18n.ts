@@ -42,37 +42,19 @@ i18n.use(initReactI18next).init({
 i18n.on('languageChanged', (lng) => {
   if (typeof window !== 'undefined') {
     localStorage.setItem(LOCALE_STORAGE_KEY, lng);
+    document.documentElement.lang = lng;
   }
 });
 
-// Restaurer la langue depuis localStorage après hydratation côté client
+// À appeler après l'hydratation : le serveur rend toujours en français
+export const restoreSavedLanguage = () => {
+  const savedLanguage = localStorage.getItem(LOCALE_STORAGE_KEY);
+  if (savedLanguage && savedLanguage !== i18n.language) {
+    i18n.changeLanguage(savedLanguage);
+  }
+};
+
 if (typeof window !== 'undefined') {
-  // Attendre que React soit hydraté
-  window.addEventListener('DOMContentLoaded', () => {
-    const savedLanguage = localStorage.getItem(LOCALE_STORAGE_KEY) || 'fr';
-    if (savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage);
-    }
-
-    // Vérifier périodiquement les changements dans localStorage (pour l'inspecteur)
-    let lastStoredLanguage = savedLanguage;
-    const checkLocalStorage = () => {
-      const currentStoredLanguage = localStorage.getItem(LOCALE_STORAGE_KEY) || 'fr';
-      if (currentStoredLanguage !== lastStoredLanguage && currentStoredLanguage !== i18n.language) {
-        lastStoredLanguage = currentStoredLanguage;
-        i18n.changeLanguage(currentStoredLanguage);
-      }
-    };
-
-    // Vérifier toutes les 500ms
-    const storageCheckInterval = setInterval(checkLocalStorage, 500);
-
-    // Nettoyer l'interval quand la page se ferme
-    window.addEventListener('beforeunload', () => {
-      clearInterval(storageCheckInterval);
-    });
-  });
-
   // Écouter les changements dans localStorage (pour les autres onglets)
   const handleStorageChange = (e: StorageEvent) => {
     if (e.key === LOCALE_STORAGE_KEY && e.newValue && e.newValue !== i18n.language) {
