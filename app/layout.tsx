@@ -1,11 +1,13 @@
 export const dynamic = 'force-dynamic';
 
 import './globals.css';
+import { cookies } from 'next/headers';
 import { Inter } from 'next/font/google';
 import { Providers } from '@/components/providers';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import projectImages from '@/lib/projectImages';
+import { LOCALE_KEY, parseLocale } from '@/lib/locale';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,9 +21,11 @@ export const metadata = {
   description: 'Portfolio de Karim Feki, développeur web passionné',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = parseLocale((await cookies()).get(LOCALE_KEY)?.value);
+
   return (
-    <html lang="fr" suppressHydrationWarning className="hide-scrollbar">
+    <html lang={locale} suppressHydrationWarning className="hide-scrollbar">
       <head>
         <link rel="icon" href="/plane-icon.svg" />
         {/* 🚗 Preload DeLorean frames to avoid stutter */}
@@ -37,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" as="image" href={projectImages[0]} />
       </head>
       <body className={`${inter.className} hide-scrollbar`}>
-        <Providers>
+        <Providers locale={locale}>
           {children}
           <SpeedInsights />
         </Providers>
