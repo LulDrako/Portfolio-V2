@@ -60,15 +60,15 @@ export default function ContactSection() {
         reset();
       } else {
         toast({
-          title: 'Erreur',
-          description: 'Une erreur est survenue. Réessaie plus tard.',
+          title: t('errorTitle'),
+          description: t('errorSend'),
           variant: 'destructive',
         });
       }
     } catch (error) {
       toast({
-        title: 'Erreur',
-        description: 'Impossible d’envoyer le message.',
+        title: t('errorTitle'),
+        description: t('errorNetwork'),
         variant: 'destructive',
       });
     }
@@ -113,7 +113,9 @@ export default function ContactSection() {
                   placeholder={t('name')}
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
+                  <p className="mt-1 text-sm text-destructive">
+                    {t(`errors.${errors.name.message}`)}
+                  </p>
                 )}
               </div>
 
@@ -129,7 +131,9 @@ export default function ContactSection() {
                   placeholder="you@example.com"
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
+                  <p className="mt-1 text-sm text-destructive">
+                    {t(`errors.${errors.email.message}`)}
+                  </p>
                 )}
               </div>
 
@@ -145,7 +149,9 @@ export default function ContactSection() {
                   placeholder={t('message')}
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
+                  <p className="mt-1 text-sm text-destructive">
+                    {t(`errors.${errors.message.message}`)}
+                  </p>
                 )}
               </div>
 

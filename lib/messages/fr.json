@@ -106,7 +106,17 @@
     "successDesc": "Merci pour votre message. Je vous répondrai dès que possible.",
     "infosTitle": "Informations de contact",
     "phone": "Téléphone",
-    "location": "Localisation"
+    "location": "Localisation",
+    "errorTitle": "Erreur",
+    "errorSend": "Une erreur est survenue. Réessaie plus tard.",
+    "errorNetwork": "Impossible d’envoyer le message.",
+    "errors": {
+      "nameMin": "Ton nom doit faire au moins 2 caractères",
+      "nameMax": "Ton nom doit faire au plus 100 caractères",
+      "emailInvalid": "Adresse email invalide",
+      "messageMin": "Le message doit faire au moins 10 caractères",
+      "messageMax": "Le message doit faire au plus 5000 caractères"
+    }
   },
   "Footer": {
     "job": "Développeur Web",
