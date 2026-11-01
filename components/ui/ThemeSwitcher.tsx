@@ -1,25 +1,20 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useMounted } from '@/hooks/useMounted';
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const mounted = useMounted();
+  const isDarkMode = resolvedTheme === 'dark';
 
-  useEffect(() => {
-    setMounted(true);
-    setIsDarkMode(theme === 'dark');
-  }, [theme]);
   if (!mounted) return null;
 
   return (
     <button
       onClick={() => {
-        setIsDarkMode(!isDarkMode);
         setTheme(isDarkMode ? 'light' : 'dark');
       }}
       className="relative w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all"
