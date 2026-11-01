@@ -6,7 +6,6 @@ import { Inter } from 'next/font/google';
 import { Providers } from '@/components/providers';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import projectImages from '@/lib/projectImages';
 import { LOCALE_KEY, parseLocale } from '@/lib/locale';
 
 const inter = Inter({
@@ -28,17 +27,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={locale} suppressHydrationWarning className="hide-scrollbar">
       <head>
         <link rel="icon" href="/plane-icon.svg" />
-        {/* 🚗 Preload DeLorean frames to avoid stutter */}
-        {Array.from({ length: 16 }, (_, i) => (
-          <link
-            key={i}
-            rel="preload"
-            as="image"
-            href={`/delorean/delorean-${String(i + 1).padStart(2, '0')}.webp`}
-          />
-        ))}
-        {/* 🚀 Preload first project image for faster LCP */}
-        <link rel="preload" as="image" href={projectImages[0]} />
       </head>
       <body className={`${inter.className} hide-scrollbar`}>
         <Providers locale={locale}>
