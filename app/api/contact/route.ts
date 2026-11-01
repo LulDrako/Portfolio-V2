@@ -61,7 +61,9 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         blocks: [
-          { type: 'sender', properties: { fullName: name, email } },
+          // Forminit rejects some sender names, such as those with parentheses
+          { type: 'sender', properties: { email } },
+          { type: 'text', name: 'name', value: name },
           { type: 'text', name: 'message', value: message },
         ],
       }),
