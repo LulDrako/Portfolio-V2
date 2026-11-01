@@ -44,13 +44,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Données invalides' }, { status: 400 });
   }
 
+  const { FORMINIT_URL, FORMINIT_API_KEY } = process.env;
+  if (!FORMINIT_URL || !FORMINIT_API_KEY) {
+    console.error('FORMINIT_URL or FORMINIT_API_KEY is not set');
+    return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });
+  }
+
+  const { name, email, message } = parsed.data;
+
   try {
-    const response = await fetch('https://getform.io/f/bjjmvvmb', {
+    const response = await fetch(FORMINIT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'X-API-KEY': FORMINIT_API_KEY,
       },
-      body: JSON.stringify(parsed.data),
+      body: JSON.stringify({
+        blocks: [
+          { type: 'sender', properties: { fullName: name, email } },
+          { type: 'text', name: 'message', value: message },
+        ],
+      }),
     });
 
     if (response.ok) {
