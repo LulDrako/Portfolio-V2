@@ -3,7 +3,7 @@
 import { useRef, memo } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import type { MotionValue } from 'framer-motion';
-import { MapPin, ExternalLink } from 'lucide-react';
+import { MapPin, ExternalLink, Plane } from 'lucide-react';
 import { iconMap } from '@/lib/data';
 import { useTranslations } from '@/hooks/useTranslations';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -27,12 +27,10 @@ const RUNNER_EASE = 1.55;
 const RUNNER_FADE_EDGE = 0.18;
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 32, scale: 0.96, filter: 'blur(4px)' },
-  visible: (i: number) => ({
+  hidden: { opacity: 0, y: 32 },
+  show: (i: number) => ({
     opacity: 1,
     y: 0,
-    scale: 1,
-    filter: 'blur(0px)',
     transition: { type: 'spring', stiffness: 80, damping: 18, mass: 0.8, delay: i * 0.12 },
   }),
 };
@@ -82,7 +80,7 @@ const ParcoursItem = memo(function ParcoursItem({
       }`}
       variants={cardVariants}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      animate={isInView ? 'show' : 'hidden'}
       custom={index}
     >
       {/* Date + lieu (desktop uniquement) */}
@@ -109,9 +107,9 @@ const ParcoursItem = memo(function ParcoursItem({
       </div>
 
       {/* Timeline + date (mobile: en haut au-dessus de la carte) */}
-      <div className="flex flex-col w-full md:w-auto md:shrink-0 md:min-w-0 order-1 md:order-2 relative">
+      <div className="flex flex-col w-full md:w-auto md:shrink-0 md:min-w-0 order-1 md:order-2 md:relative">
         <div
-          className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 parcours-timeline-line"
+          className="absolute inset-y-0 left-5 md:left-1/2 -translate-x-1/2 parcours-timeline-line"
           aria-hidden
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-primary/50" />
@@ -121,9 +119,11 @@ const ParcoursItem = memo(function ParcoursItem({
           aria-hidden
           className="parcours-scroll-runner"
           style={{ top: runnerTop, opacity: runnerOpacity }}
-        />
+        >
+          <Plane className="h-4 w-4 rotate-[135deg]" />
+        </motion.div>
         <div className="md:hidden flex flex-row items-center gap-2 pb-2">
-          <div className="relative w-10 h-10 shrink-0">
+          <div className="relative w-10 h-10 shrink-0 rounded-full bg-background">
             <div className="absolute inset-0 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center shadow-[0_0_14px_rgba(59,130,246,0.4)]">
               <IconComponent className="w-5 h-5 text-primary" />
             </div>
@@ -142,13 +142,9 @@ const ParcoursItem = memo(function ParcoursItem({
       </div>
 
       {/* Carte (pleine largeur sur mobile) */}
-      <motion.div
-        className="relative w-full md:flex-1 min-w-0 order-3"
-        variants={cardVariants}
-        custom={index}
-      >
+      <div className="relative w-full md:flex-1 min-w-0 order-3 pl-12 md:pl-0">
         <motion.div
-          className="relative bg-card/90 p-6 md:p-8 rounded-2xl shadow-lg border border-primary/10 backdrop-blur-xl parcours-card overflow-hidden group"
+          className="relative bg-card/90 p-6 md:p-8 rounded-2xl shadow-lg border border-primary/10 parcours-card overflow-hidden group"
           whileHover={{
             y: -6,
             transition: { type: 'spring', stiffness: 300, damping: 22 },
@@ -177,7 +173,7 @@ const ParcoursItem = memo(function ParcoursItem({
 
           <p className="text-muted-foreground mt-4 text-base leading-relaxed">{exp.description}</p>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.article>
   );
 });
@@ -206,7 +202,7 @@ export default function ParcoursSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title={t('heading')} description={t('description')} />
 
-        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 md:px-10">
+        <div className="relative max-w-5xl mx-auto sm:px-8 md:px-10">
           <div className="pointer-events-none absolute inset-0 hud-grid opacity-40 hidden md:block" />
           <div ref={listRef} className="relative">
             {sortedParcours.map((exp, index) => (
