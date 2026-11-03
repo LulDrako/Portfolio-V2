@@ -58,9 +58,14 @@ export default function Footer() {
     flex justify-center md:justify-end
   "
       >
-        <div onClick={() => setIsVortexOpen(true)} className="cursor-pointer">
+        <button
+          type="button"
+          onClick={() => setIsVortexOpen(true)}
+          aria-label={t('vortex')}
+          className="cursor-pointer rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
           <DeloreanSpinner />
-        </div>
+        </button>
       </div>
 
       {/* Modal */}

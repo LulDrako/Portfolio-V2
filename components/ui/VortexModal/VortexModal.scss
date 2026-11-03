@@ -7,8 +7,8 @@
 
 .vortex-modal-wrapper {
   position: relative;
-  width: 900px;
-  height: 900px;
+  width: min(900px, 100vw);
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -16,18 +16,6 @@
   overflow: visible;
   isolation: isolate;
   background: transparent;
-}
-
-.vortex-ring {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffffff22 10%, transparent 70%);
-  filter: blur(70px);
-  z-index: 0;
-  pointer-events: none;
-  mix-blend-mode: screen;
 }
 
 .vortex-glow {
@@ -58,30 +46,20 @@
   opacity: 0.7;
 }
 
-.vortex-glow:nth-child(2) {
+.vortex-glow:nth-child(1) {
   --x: -53%;
   --y: -53%;
   --t: 37;
 }
-.vortex-glow:nth-child(3) {
+.vortex-glow:nth-child(2) {
   --x: -47%;
   --y: -52%;
   --t: 58;
 }
-.vortex-glow:nth-child(4) {
+.vortex-glow:nth-child(3) {
   --x: -45%;
   --y: -50%;
   --t: 46;
-}
-.vortex-glow:nth-child(5) {
-  --x: -53%;
-  --y: -45%;
-  --t: 72;
-}
-.vortex-glow:nth-child(6) {
-  --x: -55%;
-  --y: -45%;
-  --t: 62;
 }
 
 @keyframes wobble {
@@ -180,16 +158,17 @@
 }
 
 @media (max-width: 768px) {
-  .vortex-modal-wrapper {
-    max-width: 90vw;
-    aspect-ratio: 1 / 1;
-  }
-
   .vortex-content .vortex-title {
     font-size: 1.25rem;
   }
 
   .vortex-content .vortex-thumb-wrapper {
     max-width: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vortex-glow {
+    animation: none;
   }
 }
