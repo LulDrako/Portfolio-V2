@@ -1,90 +1,54 @@
 'use client';
 
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import { /* FileText, */ Mail, Plane } from 'lucide-react';
 import Link from 'next/link';
-import { useRef, useEffect, useState } from 'react';
 import { useTranslations } from '@/hooks/useTranslations';
 import { socialLinks, iconMap } from '@/lib/data';
+import HudCorners from '@/components/ui/HudCorners';
 
 export default function HeroSection() {
   const t = useTranslations('Hero');
 
   const formattedSubtitle = t('subtitle') as string;
-  const containerRef = useRef<HTMLElement>(null);
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const lastScrollY = useRef(0);
-  const [windowHeight, setWindowHeight] = useState(0);
-  const [goingUp, setGoingUp] = useState(false);
-  const [bottomReached, setBottomReached] = useState(false);
-  const [topReached, setTopReached] = useState(true);
-  const [currentRotation, setCurrentRotation] = useState(135);
+  const reduceMotion = useReducedMotion();
+  const { scrollY, scrollYProgress } = useScroll();
 
-  const { scrollY } = useScroll();
-
-  const [scrollHeight, setScrollHeight] = useState(0);
-
-  useEffect(() => {
-    const updateScrollHeight = () => {
-      setScrollHeight(document.documentElement.scrollHeight - window.innerHeight);
-      setWindowHeight(window.innerHeight);
-    };
-
-    updateScrollHeight();
-    window.addEventListener('resize', updateScrollHeight);
-    return () => window.removeEventListener('resize', updateScrollHeight);
-  }, []);
-
-  const y = useTransform(
-    scrollY,
-    [0, scrollHeight || 1],
-    [70, windowHeight ? windowHeight - 220 : 500],
+  // innerHeight is read on each scroll tick, so a resize needs no React state.
+  const y = useTransform(scrollYProgress, (p) =>
+    typeof window === 'undefined' ? 70 : 70 + p * Math.max(window.innerHeight - 290, 0),
   );
-  const smoothY = useSpring(y, {
-    stiffness: 45,
-    damping: 18,
-    mass: 1.2,
+  const smoothY = useSpring(y, { stiffness: 120, damping: 30 });
+  const rotate = useSpring(135, { stiffness: 120, damping: 20 });
+
+  useMotionValueEvent(scrollY, 'change', (current) => {
+    const previous = scrollY.getPrevious() ?? current;
+    if (current === previous) return;
+    const target = current > previous ? 135 : -45;
+    if (reduceMotion) rotate.jump(target);
+    else rotate.set(target);
   });
-
-  const smoothRotation = useSpring(currentRotation, {
-    stiffness: 35,
-    damping: 25,
-    mass: 1.5,
-    restDelta: 0.01,
-  });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercentage = maxScroll > 0 ? currentScrollY / maxScroll : 0;
-
-      if (scrollPercentage > 0.98) {
-        setBottomReached(true);
-        setTopReached(false);
-        setGoingUp(true);
-        setCurrentRotation(-45);
-      } else if (scrollPercentage < 0.02) {
-        setTopReached(true);
-        setBottomReached(false);
-        setGoingUp(false);
-        setCurrentRotation(135);
-      }
-
-      setIsScrollingUp(currentScrollY < lastScrollY.current);
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <section ref={containerRef} id="hero" className="relative min-h-screen flex items-center">
+    <section id="hero" className="relative min-h-screen flex items-center">
       {/* HUD Lines */}
       <div className="absolute inset-0 pointer-events-none hud-grid" />
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <HudCorners className="top-16 opacity-60" />
+        <div className="absolute left-[80%] top-[20%] w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40">
+          <div className="absolute left-1/2 -top-2 -bottom-2 w-px bg-primary/40" />
+          <div className="absolute top-1/2 -left-2 -right-2 h-px bg-primary/40" />
+        </div>
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto pl-4 pr-12 sm:pl-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -172,41 +136,14 @@ export default function HeroSection() {
       </div>
 
       <motion.div
-        className="fixed right-5 z-50 hidden lg:block"
-        initial={{
-          opacity: 0,
-          x: 100,
-          scale: 0.8,
-          rotate: 135,
-        }}
-        animate={{
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          rotate: goingUp ? -45 : 135,
-        }}
-        transition={{
-          rotate: {
-            type: 'spring',
-            stiffness: 35,
-            damping: 25,
-            mass: 1.5,
-          },
-          default: {
-            duration: 1.5,
-            type: 'spring',
-            stiffness: 40,
-            damping: 15,
-            mass: 1.2,
-            delay: 0.8,
-          },
-        }}
-        style={{
-          top: 0,
-          y: smoothY,
-        }}
+        aria-hidden
+        className="fixed top-0 right-1.5 lg:right-5 z-50"
+        initial={{ opacity: 0, x: 100, scale: 0.8 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        style={{ y: reduceMotion ? y : smoothY, rotate }}
       >
-        <Plane size={38} className="text-primary drop-shadow-lg" />
+        <Plane className="w-7 h-7 lg:w-[38px] lg:h-[38px] text-primary drop-shadow-lg" />
       </motion.div>
     </section>
   );
