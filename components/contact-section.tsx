@@ -2,23 +2,27 @@
 
 import { useState, type BaseSyntheticEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin } from 'lucide-react';
+import { Send, Mail, MapPin, Plane } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { contactSchema } from '@/lib/contactSchema';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslations } from '@/hooks/useTranslations';
-import { useMounted } from '@/hooks/useMounted';
 import SectionHeading from '@/components/ui/SectionHeading';
+import HudCorners from '@/components/ui/HudCorners';
 
 type FormValues = z.infer<typeof contactSchema>;
+
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 export default function ContactSection() {
   const t = useTranslations('Contact');
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const mounted = useMounted();
 
   const {
     register,
@@ -82,10 +86,13 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* 💬 Form */}
           <motion.div
-            initial={false}
-            animate={mounted ? { opacity: 1, x: 0 } : undefined}
-            transition={{ duration: 0.5 }}
+            variants={variants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="relative rounded-lg border radar-border bg-secondary/20 p-6 sm:p-8"
           >
+            <HudCorners />
             <h3 className="text-2xl font-semibold mb-6">{t('formTitle')}</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
@@ -147,7 +154,10 @@ export default function ContactSection() {
 
               <button type="submit" disabled={isSubmitting} className="form-button">
                 {isSubmitting ? (
-                  t('sending')
+                  <>
+                    <Plane aria-hidden className="h-5 w-5 mr-2 inline contact-plane" />
+                    {t('sending')}
+                  </>
                 ) : (
                   <>
                     <Send className="h-5 w-5 mr-2 inline" />
@@ -160,9 +170,10 @@ export default function ContactSection() {
 
           {/* 📞 Contact infos */}
           <motion.div
-            initial={false}
-            animate={mounted ? { opacity: 1, x: 0 } : undefined}
-            transition={{ duration: 0.5 }}
+            variants={variants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
           >
             <h3 className="text-2xl font-semibold mb-6">{t('infosTitle')}</h3>
             <div className="space-y-6">

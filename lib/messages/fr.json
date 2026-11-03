@@ -101,7 +101,7 @@
     "email": "Email",
     "message": "Message",
     "send": "Envoyer",
-    "sending": "Envoi en cours...",
+    "sending": "Transmission…",
     "successTitle": "Message envoyé !",
     "successDesc": "Merci pour votre message. Je vous répondrai dès que possible.",
     "infosTitle": "Informations de contact",
