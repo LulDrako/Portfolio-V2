@@ -1,14 +1,7 @@
 'use client';
 
-import {
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
-import { /* FileText, */ Mail, Plane } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { /* FileText, */ Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from '@/hooks/useTranslations';
 import { socialLinks, iconMap } from '@/lib/data';
@@ -18,23 +11,6 @@ export default function HeroSection() {
   const t = useTranslations('Hero');
 
   const formattedSubtitle = t('subtitle') as string;
-  const reduceMotion = useReducedMotion();
-  const { scrollY, scrollYProgress } = useScroll();
-
-  // innerHeight is read on each scroll tick, so a resize needs no React state.
-  const y = useTransform(scrollYProgress, (p) =>
-    typeof window === 'undefined' ? 70 : 70 + p * Math.max(window.innerHeight - 290, 0),
-  );
-  const smoothY = useSpring(y, { stiffness: 120, damping: 30 });
-  const rotate = useSpring(135, { stiffness: 120, damping: 20 });
-
-  useMotionValueEvent(scrollY, 'change', (current) => {
-    const previous = scrollY.getPrevious() ?? current;
-    if (current === previous) return;
-    const target = current > previous ? 135 : -45;
-    if (reduceMotion) rotate.jump(target);
-    else rotate.set(target);
-  });
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center">
@@ -48,7 +24,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="container mx-auto pl-4 pr-12 sm:pl-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -134,17 +110,6 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        aria-hidden
-        className="fixed top-0 right-1.5 lg:right-5 z-50"
-        initial={{ opacity: 0, x: 100, scale: 0.8 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        style={{ y: reduceMotion ? y : smoothY, rotate }}
-      >
-        <Plane className="w-7 h-7 lg:w-[38px] lg:h-[38px] text-primary drop-shadow-lg" />
-      </motion.div>
     </section>
   );
 }
