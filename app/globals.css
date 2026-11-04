@@ -4,10 +4,10 @@
 
 /* 🌞 Mode clair (Fond blanc, Texte bleu marine) */
 :root {
-  --background: 0 0% 100%;
+  --background: 220 20% 97%;
   --foreground: 224 35% 15%;
   --primary: 217 91% 60%;
-  --secondary: 220 14% 96%;
+  --secondary: 220 16% 93%;
 }
 
 /* 🌙 Mode sombre (Fond bleu foncé, Texte blanc) */
@@ -185,13 +185,13 @@
 }
 
 /* Glow effects */
-.cockpit-glow {
+.dark .cockpit-glow {
   text-shadow:
     0 0 5px hsl(var(--primary) / 0.3),
     0 0 10px hsl(var(--primary) / 0.2);
 }
 
-.accent-glow {
+.dark .accent-glow {
   text-shadow:
     0 0 5px hsl(var(--accent) / 0.3),
     0 0 10px hsl(var(--accent) / 0.2);
@@ -220,7 +220,7 @@
 
 /* Fix des bordures du radar */
 .radar-border {
-  border-color: hsl(220, 14%, 30%) !important;
+  border-color: hsl(220, 13%, 82%) !important;
 }
 
 .dark .radar-border {
