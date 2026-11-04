@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { technologies, iconMap } from '@/lib/data';
 import { useTranslations } from '@/hooks/useTranslations';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 export default function AboutSection() {
   const t = useTranslations('About');
@@ -27,16 +28,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-        </motion.div>
+        <SectionHeading title={t('heading')} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div

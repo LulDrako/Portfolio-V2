@@ -4,6 +4,7 @@ import { Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from '@/hooks/useTranslations';
+import SectionHeading from '@/components/ui/SectionHeading';
 import projectImages from '@/lib/projectImages';
 import { projects as projectsData } from '@/lib/data';
 
@@ -37,17 +38,7 @@ export default function ProjectsSection() {
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">{t('description')}</p>
-        </motion.div>
+        <SectionHeading title={t('heading')} description={t('description')} />
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

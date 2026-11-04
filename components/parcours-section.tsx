@@ -6,6 +6,8 @@ import type { MotionValue } from 'framer-motion';
 import { MapPin, ExternalLink } from 'lucide-react';
 import { iconMap } from '@/lib/data';
 import { useTranslations } from '@/hooks/useTranslations';
+import SectionHeading from '@/components/ui/SectionHeading';
+import HudCorners from '@/components/ui/HudCorners';
 import { parseDate } from '@/lib/utils';
 import { companyLinks } from '@/lib/data';
 
@@ -153,12 +155,7 @@ const ParcoursItem = memo(function ParcoursItem({
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 22 }}
         >
-          <div className="pointer-events-none absolute inset-0 opacity-30">
-            <div className="absolute left-4 top-4 w-6 h-5 border-l border-t border-primary/20 rounded-tl" />
-            <div className="absolute right-4 top-4 w-6 h-5 border-r border-t border-primary/20 rounded-tr" />
-            <div className="absolute left-4 bottom-4 w-6 h-5 border-l border-b border-primary/20 rounded-bl" />
-            <div className="absolute right-4 bottom-4 w-6 h-5 border-r border-b border-primary/20 rounded-br" />
-          </div>
+          <HudCorners />
 
           <h3 className="text-lg md:text-xl font-semibold text-primary pr-8 mb-2 relative">
             {exp.title}
@@ -207,27 +204,10 @@ export default function ParcoursSection() {
   return (
     <section id="parcours" className="py-20 relative bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-3xl font-bold mb-4 cockpit-glow">{t('heading')}</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6 rounded-full" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">{t('description')}</p>
-        </motion.div>
+        <SectionHeading title={t('heading')} description={t('description')} />
 
         <div className="relative max-w-5xl mx-auto px-6 sm:px-8 md:px-10">
-          <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40 hidden md:block">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={`h-${i}`} className="hud-line" style={{ top: `${i * 20}%` }} />
-            ))}
-            {[1, 2, 3, 4].map((i) => (
-              <div key={`v-${i}`} className="hud-line-vertical" style={{ left: `${i * 20}%` }} />
-            ))}
-          </div>
+          <div className="pointer-events-none absolute inset-0 hud-grid opacity-40 hidden md:block" />
           <div ref={listRef} className="relative">
             {sortedParcours.map((exp, index) => (
               <ParcoursItem
