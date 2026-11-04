@@ -120,6 +120,7 @@
   },
   "Footer": {
     "job": "Software Developer",
+    "vortex": "Open the time vortex",
     "rights": "All rights reserved."
   },
   "VortexModal": {
@@ -127,6 +128,7 @@
     "part2": "site",
     "part3": "Go back in",
     "part4": "time…",
-    "v1": "v1"
+    "v1": "v1",
+    "close": "Close"
   }
 }

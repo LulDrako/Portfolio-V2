@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
@@ -12,16 +12,21 @@ const frames = Array.from(
 
 export default function DeloreanSpinner() {
   const [frame, setFrame] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (!inView || reduceMotion) return;
     const interval = setInterval(() => {
       setFrame((prev) => (prev + 1) % frames.length);
     }, 150);
     return () => clearInterval(interval);
-  }, []);
+  }, [inView, reduceMotion]);
 
   return (
     <motion.div
+      ref={ref}
       className="w-20 md:w-24 lg:w-28 pointer-events-auto z-50"
       whileHover={{ y: -10, scale: 1.05 }}
       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
