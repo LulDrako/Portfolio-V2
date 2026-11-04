@@ -82,14 +82,7 @@ export default function HeroSection() {
   return (
     <section ref={containerRef} id="hero" className="relative min-h-screen flex items-center">
       {/* HUD Lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <div key={`h-${i}`} className="hud-line" style={{ top: `${i * 20}%` }}></div>
-        ))}
-        {[1, 2, 3, 4, 5].map((i) => (
-          <div key={`v-${i}`} className="hud-line-vertical" style={{ left: `${i * 20}%` }}></div>
-        ))}
-      </div>
+      <div className="absolute inset-0 pointer-events-none hud-grid" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
