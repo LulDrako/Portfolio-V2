@@ -14,7 +14,9 @@
     "Projets": "Projects",
     "Contact": "Contact",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "heading": "HDG",
+    "altitude": "ALT"
   },
   "About": {
     "heading": "About",

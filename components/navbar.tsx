@@ -31,7 +31,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('#hero');
   const { scrollY, scrollYProgress } = useScroll();
-  const planeX = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const altitude = useTransform(scrollYProgress, (p) =>
+    String(Math.round(p * 100)).padStart(3, '0'),
+  );
+  const activeKey = navKeys.find((key) => navRoutes[key] === active) ?? navKeys[0];
 
   useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 50));
 
@@ -41,19 +44,10 @@ export default function Navbar() {
         entries.forEach((entry) => entry.isIntersecting && setActive(`#${entry.target.id}`)),
       { rootMargin: '-50% 0px -50% 0px' },
     );
-    // Sections are loaded with next/dynamic, so observe them as they mount.
-    const observeSections = () => {
-      const sections = Object.values(navRoutes).map((route) => document.querySelector(route));
-      sections.forEach((section) => section && observer.observe(section));
-      if (sections.every(Boolean)) mutations.disconnect();
-    };
-    const mutations = new MutationObserver(observeSections);
-    mutations.observe(document.body, { childList: true, subtree: true });
-    observeSections();
-    return () => {
-      mutations.disconnect();
-      observer.disconnect();
-    };
+    document
+      .querySelectorAll(Object.values(navRoutes).join(','))
+      .forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -74,7 +68,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 items-center">
+          <nav className="hidden md:flex gap-2 items-center">
             {navKeys.map((key, index) => (
               <motion.li
                 key={key}
@@ -87,20 +81,51 @@ export default function Navbar() {
                   href={navRoutes[key]}
                   aria-current={active === navRoutes[key] ? 'true' : undefined}
                   className={cn(
-                    'text-sm font-medium text-foreground hover:text-primary transition-colors',
-                    active === navRoutes[key] && 'text-primary',
+                    'flex items-center gap-2 px-3 py-1.5 rounded-md border text-xs font-semibold uppercase tracking-wider transition-colors',
+                    active === navRoutes[key]
+                      ? 'border-primary/50 bg-primary/10 text-primary'
+                      : 'border-primary/15 text-foreground hover:border-primary/40 hover:text-primary',
                   )}
                 >
+                  <span
+                    aria-hidden
+                    className={cn(
+                      'h-1.5 w-1.5 rounded-full transition-colors',
+                      active === navRoutes[key]
+                        ? 'bg-primary shadow-[0_0_6px_hsl(var(--primary))]'
+                        : 'bg-foreground/20',
+                    )}
+                  />
                   {t(key)}
                 </Link>
               </motion.li>
             ))}
+            <div
+              aria-hidden
+              className="hidden lg:flex items-center gap-3 ml-2 px-3 py-1.5 rounded-md border border-primary/30 bg-secondary font-mono text-xs uppercase"
+            >
+              <span>
+                <span className="text-muted-foreground">{t('heading')}</span>{' '}
+                <span className="inline-block min-w-[8ch] text-primary">{t(activeKey)}</span>
+              </span>
+              <span>
+                <span className="text-muted-foreground">{t('altitude')}</span>{' '}
+                <motion.span className="tabular-nums text-primary">{altitude}</motion.span>
+              </span>
+            </div>
             <ThemeSwitcher />
             <LanguageSwitcher />
           </nav>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-2">
+            <span
+              aria-hidden
+              className="px-2 py-1 rounded-md border border-primary/30 bg-secondary font-mono text-[11px] uppercase"
+            >
+              <span className="text-muted-foreground">{t('heading')}</span>{' '}
+              <span className="text-primary">{t(activeKey)}</span>
+            </span>
             <ThemeSwitcher />
             <LanguageSwitcher />
             <button
@@ -143,18 +168,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-primary/20"
-      >
-        <motion.div className="h-full origin-left bg-primary" style={{ scaleX: scrollYProgress }} />
-        <div className="absolute inset-y-0 left-0 right-3">
-          <motion.div className="h-full w-full" style={{ x: planeX }}>
-            <Plane className="h-3 w-3 -translate-y-1/2 rotate-45 text-primary" />
-          </motion.div>
-        </div>
-      </div>
     </motion.header>
   );
 }
