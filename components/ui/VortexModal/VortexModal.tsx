@@ -15,12 +15,27 @@ type Props = {
 export default function VortexModal({ isOpen, onClose }: Props) {
   const t = useTranslations('VortexModal');
   const closeRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
     const opener = document.activeElement as HTMLElement | null;
     closeRef.current?.focus();
-    const onKeyDown = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') return onClose();
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+      // Keep keyboard focus inside the dialog: wrap from the last element to the first and back.
+      const items = dialogRef.current.querySelectorAll<HTMLElement>('button, a[href]');
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     window.addEventListener('keydown', onKeyDown);
     return () => {
       window.removeEventListener('keydown', onKeyDown);
@@ -32,6 +47,7 @@ export default function VortexModal({ isOpen, onClose }: Props) {
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="vortex-title"
