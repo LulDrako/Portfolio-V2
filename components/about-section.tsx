@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { technologies, iconMap } from '@/lib/data';
 import { useTranslations } from '@/hooks/useTranslations';
 import SectionHeading from '@/components/ui/SectionHeading';
+import HudCorners from '@/components/ui/HudCorners';
 
 export default function AboutSection() {
   const t = useTranslations('About');
@@ -13,7 +14,7 @@ export default function AboutSection() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
@@ -50,13 +51,18 @@ export default function AboutSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-8"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4"
           >
             {technologies.map((tech) => {
               const IconComponent = iconMap[tech.icon as keyof typeof iconMap];
               return (
-                <motion.div key={tech.name} variants={item} className="flex flex-col items-center">
-                  <div className="mb-2 transform transition-transform hover:scale-110">
+                <motion.div
+                  key={tech.name}
+                  variants={item}
+                  className="group relative flex flex-col items-center p-4 border radar-border rounded-lg bg-secondary/50 transition-shadow hover:shadow-[0_0_16px_hsl(var(--primary)/0.3)]"
+                >
+                  <HudCorners className="-inset-2" />
+                  <div className="mb-2 transition-transform group-hover:scale-110">
                     <IconComponent size={48} style={{ color: tech.color }} />
                   </div>
                   <span className="text-sm text-muted-foreground">{tech.name}</span>
