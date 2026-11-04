@@ -2,7 +2,7 @@
 
 import { useState, type BaseSyntheticEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin, Plane } from 'lucide-react';
+import { Send, Mail, MapPin } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -155,7 +155,7 @@ export default function ContactSection() {
               <button type="submit" disabled={isSubmitting} className="form-button">
                 {isSubmitting ? (
                   <>
-                    <Plane aria-hidden className="h-5 w-5 mr-2 inline contact-plane" />
+                    <Send aria-hidden className="h-5 w-5 mr-2 inline contact-send" />
                     {t('sending')}
                   </>
                 ) : (

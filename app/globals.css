@@ -264,7 +264,7 @@ body::-webkit-scrollbar {
   box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
 }
 
-.contact-plane {
+.contact-send {
   animation: contact-takeoff 1.2s ease-in infinite;
 }
 
@@ -283,7 +283,7 @@ body::-webkit-scrollbar {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contact-plane {
+  .contact-send {
     animation: none;
   }
 }
