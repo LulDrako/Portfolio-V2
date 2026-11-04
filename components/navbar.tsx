@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Menu, X, Plane } from 'lucide-react';
@@ -26,19 +26,17 @@ export default function Navbar() {
   const [active, setActive] = useState('#hero');
   const { scrollY, scrollYProgress } = useScroll();
 
-  useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 50));
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => entry.isIntersecting && setActive(`#${entry.target.id}`)),
-      { rootMargin: '-50% 0px -50% 0px' },
-    );
-    document
-      .querySelectorAll(Object.values(navRoutes).join(','))
-      .forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
+  // Sections are looked up on each scroll so a remounted section is never missed;
+  // React skips the re-render when the values don't change.
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    setScrolled(y > 50);
+    const middle = window.innerHeight / 2;
+    const current = Object.values(navRoutes).find((route) => {
+      const box = document.querySelector(route)?.getBoundingClientRect();
+      return box && box.top <= middle && box.bottom > middle;
+    });
+    if (current) setActive(current);
+  });
 
   return (
     <motion.header
