@@ -43,6 +43,7 @@
 ### Task 0: Foundations — branch `feat/aero-foundations` (orchestrator does this one)
 
 **Files:**
+
 - Modify: `components/providers.tsx` (wrap children in `<MotionConfig reducedMotion="user">`)
 - Modify: `app/globals.css` (append; edit `cockpit-glow`/`accent-glow` in place)
 - Create: `components/ui/SectionHeading.tsx`, `components/ui/HudCorners.tsx`
@@ -50,6 +51,7 @@
 - Commit spec + this plan.
 
 **Interfaces (produced, used by tasks 1-7):**
+
 - `export default function SectionHeading({ title, description }: { title: string; description?: string })` — motion header: `h2.text-3xl.font-bold.mb-4.cockpit-glow`, bar `w-20 h-1 bg-primary mx-auto mb-8 rounded-full`, optional `p.text-muted-foreground.max-w-2xl.mx-auto`; `hidden`/`show` with `whileInView`, `viewport={{ once: true }}`.
 - `export default function HudCorners({ className }: { className?: string })` — the 4 corner brackets currently inline in `parcours-section.tsx`, `pointer-events-none absolute inset-0`.
 - CSS `.hud-grid` — one background of 1px `hsl(var(--primary) / 0.2)` lines every 20% (replaces the `hud-line` / `hud-line-vertical` div loops, which are deleted).
@@ -60,6 +62,7 @@
 - [ ] Verification; open PR; **user merges before tasks 1-7 start**.
 
 ### Task 1: Navbar — `feat/navbar-flight-line` — `components/navbar.tsx`
+
 - [ ] Scroll listener → `useScroll` + `useMotionValueEvent` (state only flips when crossing 50px).
 - [ ] Flight line: 1px `bg-primary/20` under the header, a `bg-primary` fill and a small lucide `Plane` (rotate 45°) positioned by `scaleX` / `x` from `scrollYProgress` (motion values only).
 - [ ] Active section: `IntersectionObserver` on `#hero,#about,#parcours,#projects,#contact`, active link `text-primary`.
@@ -67,6 +70,7 @@
 - [ ] Verification + PR.
 
 ### Task 2: Hero — `feat/hero-plane` — `components/hero-section.tsx`
+
 - [ ] Remove `isScrollingUp`, `topReached`, `bottomReached`, `currentRotation`, `smoothRotation`, the scroll `useEffect` and the resize state; plane `y` from `useScroll().scrollYProgress` → `useTransform` to `[70, 'calc(100vh - 220px)']`-equivalent, `useSpring` stiffer (≈ stiffness 120, damping 30).
 - [ ] Rotation: `useMotionValueEvent(scrollY, 'change')` compares with `scrollY.getPrevious()`, sets a motion value to `135` (down) / `-45` (up), springed. No React state.
 - [ ] Mobile (< lg): smaller plane (size 28) on the right edge, same logic, must not cover text at 375px.
@@ -74,29 +78,34 @@
 - [ ] Verification (also scroll down to bottom then up: plane turns smoothly) + PR.
 
 ### Task 3: About — `feat/about-instrument-panel` — `components/about-section.tsx`, `app/globals.css`
+
 - [ ] Each technology becomes a tile: `radar-border border rounded-lg bg-secondary/50` with `HudCorners`, icon + name, hover: `cockpit` glow via `box-shadow: 0 0 16px hsl(var(--primary) / 0.3)` and icon `scale-110`.
 - [ ] Grid stays `grid-cols-2 sm:grid-cols-4`, stagger ≤ 0.05s.
 - [ ] Verification + PR.
 
 ### Task 4: Parcours — `feat/parcours-flight-path` — `components/parcours-section.tsx`, `app/globals.css`
+
 - [ ] `cardVariants`: drop `filter` and `scale`, rename to `hidden`/`show`; apply only on the `article` (remove variants on the inner card). Remove `backdrop-blur-xl`.
 - [ ] Runner: replace the dot with a lucide `Plane` rotated 135° (pointing down), same `runnerTop`/`runnerOpacity`.
 - [ ] Mobile: timeline line + runner on the left (`left-5`) next to the icons instead of `hidden md:block`; cards keep full width with left padding.
 - [ ] Verification + PR.
 
 ### Task 5: Projects — `feat/projects-takeoff-cards` — `components/projects-section.tsx`
+
 - [ ] Card: `HudCorners`, `radar-border border`, image wrapper `overflow-hidden` with `group-hover:scale-105 transition-transform duration-500`.
 - [ ] Stagger: `delay: (index % 3) * 0.08` so mobile cards never wait > 0.16s; `y: 24`.
 - [ ] Image `quality` back to default (75).
 - [ ] Verification + PR.
 
 ### Task 6: Contact — `feat/contact-flight-plan` — `components/contact-section.tsx`, `app/globals.css`
+
 - [ ] Remove the `mounted` / `initial={false}` animation hack; use `hidden`/`show` `whileInView` like the other sections.
 - [ ] `.form-input` focus: `radar` look (`border-primary`, `box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15)`); form panel with `HudCorners`.
 - [ ] Sending state: button shows a `Plane` taking off (translate + fade loop) and new key `Contact.sending` (FR « Transmission… », EN "Transmitting…"). Same submit handler.
 - [ ] Verification: stub `window.fetch` in the page, submit, confirm stub caught the call; **no real send**. + PR.
 
 ### Task 7: Footer — `feat/footer-vortex-lite` — `components/footer.tsx`, `components/ui/DeloreanSpinner.tsx`, `components/ui/VortexModal/*`, `package.json`
+
 - [ ] DeLorean: run the interval only while in view (`useInView`) and not `useReducedMotion()`.
 - [ ] Clickable wrapper becomes a `<button>` with `aria-label` (new key `Footer.vortex`).
 - [ ] Vortex: wrapper `min(900px, 100vw)` square, 3 glows instead of 5, drop `blur(70px)` ring, `role="dialog" aria-modal`, Escape closes, focus the close button on open.
