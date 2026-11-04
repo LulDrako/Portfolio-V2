@@ -117,7 +117,7 @@ const ParcoursItem = memo(function ParcoursItem({
         </div>
         <motion.div
           aria-hidden
-          className="parcours-scroll-runner"
+          className="parcours-scroll-runner motion-reduce:hidden"
           style={{ top: runnerTop, opacity: runnerOpacity }}
         >
           <Plane className="h-4 w-4 rotate-[135deg]" />
