@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from '@/hooks/useTranslations';
 import SectionHeading from '@/components/ui/SectionHeading';
-import HudCorners from '@/components/ui/HudCorners';
 import projectImages from '@/lib/projectImages';
 import { projects as projectsData } from '@/lib/data';
 
@@ -63,7 +62,6 @@ export default function ProjectsSection() {
               whileHover={{ y: -8 }}
               className="relative group bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 radar-border border h-full flex flex-col"
             >
-              <HudCorners className="z-10 -inset-2 opacity-100" />
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -77,12 +75,12 @@ export default function ProjectsSection() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-1 flex-col">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-muted-foreground mb-4">{project.description}</p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="mt-auto flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span key={tech} className="px-2 py-1 bg-background text-xs rounded-md">
                       {tech}
