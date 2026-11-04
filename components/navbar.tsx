@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Plane } from 'lucide-react';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { useTranslations } from '@/hooks/useTranslations';
@@ -52,12 +52,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            href="#hero"
-            aria-label="Karim Feki"
-            className="text-lg font-semibold tracking-wide text-foreground hover:text-primary transition-colors"
-          >
-            F-KRIM
+          <Link href="#hero" aria-label="Karim Feki" className="flex items-center space-x-2">
+            <Plane className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold tracking-wide text-foreground">F-KRIM</span>
           </Link>
 
           {/* Desktop Navigation */}
