@@ -16,6 +16,15 @@ type Project = {
   demo?: string;
 };
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: (index % 3) * 0.08 },
+  }),
+};
+
 export default function ProjectsSection() {
   const t = useTranslations('Projects');
 
@@ -45,32 +54,33 @@ export default function ProjectsSection() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={cardVariants}
+              custom={index}
+              initial="hidden"
+              whileInView="show"
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-secondary rounded-lg overflow-hidden shadow-lg takeoff-card h-full flex flex-col"
+              whileHover={{ y: -8 }}
+              className="relative group bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 radar-border border h-full flex flex-col"
             >
               {/* Image */}
-              <div className="relative h-48">
+              <div className="relative h-48 overflow-hidden">
                 <Image
                   src={projectImages[index]}
                   alt={project.title}
                   fill
                   priority={index === 0}
-                  quality={95}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-1 flex-col">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-muted-foreground mb-4">{project.description}</p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="mt-auto flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span key={tech} className="px-2 py-1 bg-background text-xs rounded-md">
                       {tech}
