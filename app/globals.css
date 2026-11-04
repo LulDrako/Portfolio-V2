@@ -257,3 +257,33 @@ body::-webkit-scrollbar {
     animation: none;
   }
 }
+
+/* Contact: flight plan */
+.form-input:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+}
+
+.contact-send {
+  animation: contact-takeoff 1.2s ease-in infinite;
+}
+
+@keyframes contact-takeoff {
+  from {
+    transform: translate(-4px, 4px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: translate(6px, -6px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-send {
+    animation: none;
+  }
+}
