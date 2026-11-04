@@ -12,7 +12,9 @@
     "À propos": "About",
     "Parcours": "Journey",
     "Projets": "Projects",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "About": {
     "heading": "About",

@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Menu, X, Plane } from 'lucide-react';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { useTranslations } from '@/hooks/useTranslations';
+import { cn } from '@/lib/utils';
 
 const navKeys = ['Accueil', 'À propos', 'Parcours', 'Projets', 'Contact'];
 
@@ -22,14 +23,20 @@ export default function Navbar() {
   const t = useTranslations('Navbar');
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('#hero');
+  const { scrollY, scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Sections are looked up on each scroll so a remounted section is never missed;
+  // React skips the re-render when the values don't change.
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    setScrolled(y > 50);
+    const middle = window.innerHeight / 2;
+    const current = Object.values(navRoutes).find((route) => {
+      const box = document.querySelector(route)?.getBoundingClientRect();
+      return box && box.top <= middle && box.bottom > middle;
+    });
+    if (current) setActive(current);
+  });
 
   return (
     <motion.header
@@ -43,9 +50,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="#hero" className="flex items-center space-x-2">
+          <Link href="#hero" aria-label="Karim Feki" className="flex items-center space-x-2">
             <Plane className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold text-foreground">KF</span>
+            <span className="text-xl font-bold tracking-wide text-foreground">F-KRIM</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,9 +67,21 @@ export default function Navbar() {
               >
                 <Link
                   href={navRoutes[key]}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  aria-current={active === navRoutes[key] ? 'true' : undefined}
+                  className={cn(
+                    'relative text-sm font-medium text-foreground hover:text-primary transition-colors',
+                    active === navRoutes[key] && 'text-primary',
+                  )}
                 >
                   {t(key)}
+                  {active === navRoutes[key] && (
+                    <motion.span
+                      layoutId="nav-marker"
+                      aria-hidden
+                      className="absolute -bottom-1.5 inset-x-0 h-0.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.8)]"
+                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                    />
+                  )}
                 </Link>
               </motion.li>
             ))}
@@ -76,6 +95,8 @@ export default function Navbar() {
             <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={t(isOpen ? 'closeMenu' : 'openMenu')}
+              aria-expanded={isOpen}
               className="text-foreground hover:text-primary transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -84,27 +105,41 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-secondary/90 backdrop-blur-md"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navKeys.map((key) => (
-              <Link
-                key={key}
-                href={navRoutes[key]}
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-primary/20 hover:text-primary transition-colors"
-              >
-                {t(key)}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden bg-secondary/90 backdrop-blur-md"
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              {navKeys.map((key) => (
+                <Link
+                  key={key}
+                  href={navRoutes[key]}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={active === navRoutes[key] ? 'true' : undefined}
+                  className={cn(
+                    'block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-primary/20 hover:text-primary transition-colors',
+                    active === navRoutes[key] && 'text-primary',
+                  )}
+                >
+                  {t(key)}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-primary/20"
+      >
+        <motion.div className="h-full origin-left bg-primary" style={{ scaleX: scrollYProgress }} />
+      </div>
     </motion.header>
   );
 }
