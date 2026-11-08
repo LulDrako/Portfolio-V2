@@ -100,10 +100,6 @@
   @apply transition-transform duration-300 ease-in-out transform hover:rotate-12;
 }
 
-.takeoff-card {
-  @apply transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl;
-}
-
 /* Animations pour radar */
 .flight-path {
   @apply relative;
