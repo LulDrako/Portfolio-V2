@@ -75,7 +75,7 @@ export const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/karim-feki-alternance-dev-web-fullstack-bordeaux-paris/',
+    url: 'https://www.linkedin.com/in/karim-feki/',
     icon: 'FaLinkedin',
   },
   {
