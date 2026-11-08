@@ -103,7 +103,7 @@
     "email": "Email",
     "message": "Message",
     "send": "Send",
-    "sending": "Sending...",
+    "sending": "Transmitting…",
     "successTitle": "Message sent!",
     "successDesc": "Thank you for your message. I will reply as soon as possible.",
     "infosTitle": "Contact information",
